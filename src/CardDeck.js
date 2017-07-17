@@ -3,8 +3,10 @@ import {render} from 'react-dom';
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 import PlayerCard from './PlayerCard';
 
+import pilotOptions from './pilotOptions';
+
 const SortableItem = SortableElement(({value}) =>
-  <PlayerCard />
+  <PlayerCard whale={value} />
 );
 
 const SortableList = SortableContainer(({items}) => {
@@ -19,7 +21,7 @@ const SortableList = SortableContainer(({items}) => {
 
 class CardDeck extends Component {
   state = {
-    items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6'],
+    items: ['Love', 'Cyber', 'Imperial', 'Savage'],
   };
   onSortEnd = ({oldIndex, newIndex}) => {
     this.setState({
@@ -27,7 +29,7 @@ class CardDeck extends Component {
     });
   };
   render() {
-    return <SortableList items={this.state.items} onSortEnd={this.onSortEnd} />;
+    return <SortableList useDragHandle items={this.state.items} onSortEnd={this.onSortEnd} />;
   }
 }
 
