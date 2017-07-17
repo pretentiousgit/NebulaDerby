@@ -1,0 +1,11 @@
+body{
+  max-width: 790px;
+}
+
+.ui.toggle.fake-heat-toggle input:focus:checked~.box:before, .ui.toggle.fake-heat-toggle input:focus:checked~label:before {
+  background-color: #ff695e!important;
+}
+
+.ui.toggle.fake-heat-toggle input:checked~.box:before, .ui.toggle.fake-heat-toggle input:checked~label:before {
+  background-color: #ff695e!important;
+}
