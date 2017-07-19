@@ -3,14 +3,16 @@ import logo from './logo.svg';
 
 import { Button, Grid, Header, Divider, Segment, Dropdown, Card, Label, Icon, Checkbox, Container } from 'semantic-ui-react';
 import SortableComponent from './CardDeck';
+import Toggle from 'react-toggle';
 
 import './App.css';
+import './reactToggle.css';
 
 class App extends Component {
   render() {
     return (
       <Segment>
-        <Header floated='left'>
+        <Header floated='left' as='h2'>
           Nebula Space Derby
         </Header>
         <Button
@@ -22,40 +24,36 @@ class App extends Component {
         />
         <Divider hidden clearing />
         <Segment>
-          <Header as='h5'>
+          <Header as='h3'>
             Commands
           </Header> 
-          <Grid verticalAlign='middle'>
+          <Grid verticalAlign='middle' columns='equal'>
             <Grid.Column width={4}>
-            <Button className='blue' size='large'>
-              <Icon name='refresh'/>
-              New Heat
-            </Button>
+              <Header as='h5'>
+                New Heat
+              </Header>
+              <Button className='blue' size='medium' icon='refresh' circular/>
             </Grid.Column>
-            <Grid.Column width={3}>
-            <Segment compact basic>
+            <Grid.Column width={4}>
               <Header as='h5'>Fake Heat</Header>
-              <Checkbox toggle className='fake-heat-toggle' floated='right'/>
-            </Segment>
+              <Toggle className='fake-heat-toggle'/>
             </Grid.Column>
             <Grid.Column width={8}>
-            <Segment compact>
-              <Header as='h4' divided>
+              <Header as='h5' divided>
                 Beacon
               </Header>
               <Button toggle circular color='red' inverted />
               <Button toggle circular color='blue' inverted />
               <Button toggle circular color='green' inverted />
-            </Segment>
             </Grid.Column>
           </Grid>
           <Divider clearing />
-          <Header as='h5'>
+          <Header as='h3'>
             Events
           </Header>
           <Button.Group>
             <Button color='pink'>Galactagasm</Button>
-            <Button color='orange'>Tranzonic Interference</Button>
+            <Button color='orange'><Icon name='lightning'/> Tranzonic <Icon name='lightning'/></Button>
             <Button color='yellow'>Fleet Attack</Button>
           </Button.Group>
         </Segment>

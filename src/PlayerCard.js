@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 import { Button, Item, Grid, Header, Divider, Segment, Dropdown, Card, Label, Icon, Checkbox, Container } from 'semantic-ui-react';
 import { SortableHandle } from 'react-sortable-hoc';
+import Toggle from 'react-toggle';
 
+import './reactToggle.css';
 import './App.css';
 
 import pilotOptions from './pilotOptions';
@@ -29,7 +31,14 @@ class PlayerCard extends Component {
 
     const PredatorMode = (this.props.whale.toLowerCase() === 'savage') ?
       (
-        <Checkbox label="Predator Mode"/>
+        <label for='predator'>
+          <span style={{
+            position: 'relative',
+            top: '-7px',
+            paddingRight: '5px'
+          }}>Predator Mode</span>
+          <Toggle id='predator'/>
+        </label>
       ) :
       '';
 

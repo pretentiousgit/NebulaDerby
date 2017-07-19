@@ -2,10 +2,20 @@ body{
   max-width: 790px;
 }
 
-.ui.toggle.fake-heat-toggle input:focus:checked~.box:before, .ui.toggle.fake-heat-toggle input:focus:checked~label:before {
-  background-color: #ff695e!important;
+.fake-heat-toggle.react-toggle--checked .react-toggle-track {
+  background-color: #ff695e;
 }
 
-.ui.toggle.fake-heat-toggle input:checked~.box:before, .ui.toggle.fake-heat-toggle input:checked~label:before {
-  background-color: #ff695e!important;
+.fake-heat-toggle.react-toggle--checked .react-toggle-thumb {
+  border: #ff695e;  
+}
+
+.fake-heat-toggle.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
+  border: #ff695e;  
+  background-color: #ff695e;
+}
+
+.fake-heat-toggle.react-toggle--checked:hover .react-toggle-track {
+  border: #ff695e;  
+  background-color: #ff695e;
 }
