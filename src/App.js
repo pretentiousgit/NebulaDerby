@@ -1,92 +1,72 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { Button, Grid, Header, Divider, Segment, Dropdown, Card, Label, Icon, Checkbox, Container } from 'semantic-ui-react';
-import SortableComponent from './CardDeck';
-import Toggle from 'react-toggle';
+import {
+  Button,
+  Grid,
+  Header,
+  Divider,
+  Segment,
+  Icon
+} from "semantic-ui-react";
 
-import './App.css';
-import './reactToggle.css';
+import SortableComponent from "./CardDeck";
+import Toggle from "react-toggle";
 
-function checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
-  }
-  const error = new Error(`HTTP Error ${response.statusText}`);
-  error.status = response.statusText;
-  error.response = response;
-  console.log(error); // eslint-disable-line no-console
-  throw error;
-}
+import "./App.css";
+import "./reactToggle.css";
 
-function parseJSON(response) {
-  return response.json();
-}
+import { retrievePilots } from "./redux/actions/app";
 
 class App extends Component {
   componentDidMount() {
-    fetch(`/users`, {
-      accept: "application/json"
-    })
-    .then(checkStatus)
-    .then(parseJSON)
-    .then((users) => {
-      console.log(users)
-    });
+    this.props.getPilots();
   }
 
   render() {
     return (
       <Segment>
-        <Header floated='left' as='h2'>
+        <Header floated="left" as="h2">
           Nebula Space Derby
         </Header>
         <Button
-          className='green'
-          size='massive'
+          className="green"
+          size="massive"
           circular
-          icon='flag'
-          floated='right'
+          icon="flag"
+          floated="right"
         />
         <Divider hidden clearing />
-      
+
         <Segment>
-          <Header as='h3'>
-            Commands
-          </Header> 
-          <Grid verticalAlign='middle' columns='equal'>
+          <Header as="h3">Commands</Header>
+          <Grid verticalAlign="middle" columns="equal">
             <Grid.Column width={4}>
-              <Header as='h5'>
-                New Heat
-              </Header>
-              <Button className='blue' size='medium' icon='refresh' circular/>
+              <Header as="h5">New Heat</Header>
+              <Button className="blue" size="medium" icon="refresh" circular />
             </Grid.Column>
             <Grid.Column width={4}>
-              <Header as='h5'>Fake Heat</Header>
-              <Toggle className='fake-heat-toggle'/>
+              <Header as="h5">Fake Heat</Header>
+              <Toggle className="fake-heat-toggle" />
             </Grid.Column>
             <Grid.Column width={8}>
-              <Header as='h5' divided>
-                Beacon
-              </Header>
-              <Button toggle circular color='red' inverted />
-              <Button toggle circular color='blue' inverted />
-              <Button toggle circular color='green' inverted />
+              <Header as="h5">Beacon</Header>
+              <Button toggle circular color="red" inverted />
+              <Button toggle circular color="blue" inverted />
+              <Button toggle circular color="green" inverted />
             </Grid.Column>
           </Grid>
           <Divider clearing />
-          <Header as='h3'>
-            Events
-          </Header>
+          <Header as="h3">Events</Header>
           <Button.Group>
-            <Button color='pink'>Galactagasm</Button>
-            <Button color='orange'><Icon name='lightning'/> Tranzonic <Icon name='lightning'/></Button>
-            <Button color='yellow'>Fleet Attack</Button>
+            <Button color="pink">Galactagasm</Button>
+            <Button color="orange">
+              <Icon name="lightning" /> Tranzonic <Icon name="lightning" />
+            </Button>
+            <Button color="yellow">Fleet Attack</Button>
           </Button.Group>
         </Segment>
-        <Header floated='left'>
-          Whales
-        </Header>
+        <Header floated="left">Whales</Header>
         <Divider clearing />
         <SortableComponent />
       </Segment>
@@ -94,4 +74,16 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    getPilots: () => dispatch(retrievePilots())
+  };
+};
+
+function mapStateToProps(state) {
+  return {
+    pilots: state.pilots
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

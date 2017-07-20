@@ -1,4 +1,4 @@
-const options = [
+module.exports = [
   {
     text: "Apostle of the Undivided Liturgy",
     value: "Apostle of the Undivided Liturgy",
@@ -212,5 +212,3 @@ const options = [
     image: { avatar: true, src: "/assets/VirtuousSphere.jpg" }
   }
 ];
-
-export default options;
