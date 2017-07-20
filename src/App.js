@@ -8,7 +8,33 @@ import Toggle from 'react-toggle';
 import './App.css';
 import './reactToggle.css';
 
+function checkStatus(response) {
+  if (response.status >= 200 && response.status < 300) {
+    return response;
+  }
+  const error = new Error(`HTTP Error ${response.statusText}`);
+  error.status = response.statusText;
+  error.response = response;
+  console.log(error); // eslint-disable-line no-console
+  throw error;
+}
+
+function parseJSON(response) {
+  return response.json();
+}
+
 class App extends Component {
+  componentDidMount() {
+    fetch(`/users`, {
+      accept: "application/json"
+    })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then((users) => {
+      console.log(users)
+    });
+  }
+
   render() {
     return (
       <Segment>
@@ -23,6 +49,7 @@ class App extends Component {
           floated='right'
         />
         <Divider hidden clearing />
+      
         <Segment>
           <Header as='h3'>
             Commands
