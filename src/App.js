@@ -13,10 +13,24 @@ import {
 import SortableComponent from "./CardDeck";
 import Toggle from "react-toggle";
 
+import io from "socket.io-client";
+
 import "./App.css";
 import "./reactToggle.css";
 
+const socket = io();
+
 class App extends Component {
+  componentDidMount() {
+    socket.emit("enterRoom", { user: "adminDevice" });
+  }
+
+  setBeacon() {}
+
+  sendEvent(eventName) {
+    socket.emit("adminEvent", { event: eventName });
+  }
+
   render() {
     return (
       <Segment>
@@ -53,11 +67,21 @@ class App extends Component {
           <Divider clearing />
           <Header as="h3">Events</Header>
           <Button.Group>
-            <Button color="pink">Galactagasm</Button>
-            <Button color="orange">
+            <Button onClick={() => this.sendEvent("Galactagasm")} color="pink">
+              Galactagasm
+            </Button>
+            <Button
+              onClick={() => this.sendEvent("TranzonicInterference")}
+              color="orange"
+            >
               <Icon name="lightning" /> Tranzonic <Icon name="lightning" />
             </Button>
-            <Button color="yellow">Fleet Attack</Button>
+            <Button
+              onClick={() => this.sendEvent("FleetAttack")}
+              color="yellow"
+            >
+              Fleet Attack
+            </Button>
           </Button.Group>
         </Segment>
         <Header floated="left">Whales</Header>
