@@ -2,11 +2,19 @@ import {
   GET_PILOTS,
   GET_PILOTS_SUCCESS,
   GET_PILOTS_FAILURE,
-  UPDATE_PILOTS
+  UPDATE_WHALES,
+  UPDATE_PILOTS,
+  TOGGLE_PREDATOR
 } from "../actions/app";
 
+import pilots from "../../pilotOptions";
+
 const initialState = {
-  pilots: []
+  pilots: pilots,
+  beacon: "red",
+  fakeHeat: false,
+  predatorMode: false,
+  whaleOrder: ["Savage", "Love", "Cyber", "Imperial"]
 };
 
 export default (state = initialState, action = {}) => {
@@ -29,6 +37,17 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         pilots: action.pilots
+      };
+    case UPDATE_WHALES:
+      return {
+        ...state,
+        whaleOrder: action.whaleOrder
+      };
+    case TOGGLE_PREDATOR:
+      return {
+        ...state,
+        whaleOrder: action.whaleOrder,
+        predatorMode: action.predatorMode
       };
     default:
       return {

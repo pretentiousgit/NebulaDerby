@@ -16,13 +16,7 @@ import Toggle from "react-toggle";
 import "./App.css";
 import "./reactToggle.css";
 
-import { retrievePilots } from "./redux/actions/app";
-
 class App extends Component {
-  componentDidMount() {
-    this.props.getPilots();
-  }
-
   render() {
     return (
       <Segment>
@@ -74,16 +68,10 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getPilots: () => dispatch(retrievePilots())
-  };
-};
-
 function mapStateToProps(state) {
   return {
     pilots: state.pilots
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

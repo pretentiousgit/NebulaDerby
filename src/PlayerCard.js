@@ -8,7 +8,7 @@ import Toggle from "react-toggle";
 import "./reactToggle.css";
 import "./App.css";
 
-import { updatePilots } from "./redux/actions/app";
+import { updatePilots, togglePredatorMode } from "./redux/actions/app";
 
 const DragHandle = SortableHandle(() =>
   <Icon name="content" size="large" color="grey" />
@@ -26,6 +26,11 @@ const LoveWhaleState = whaleState => {
 };
 
 class PlayerCard extends Component {
+  handleChange(e, data) {
+    const { value, options } = data;
+    this.props.updatePilots(value, options);
+  }
+
   render() {
     const LoveHandle =
       this.props.whale.toLowerCase() === "love"
@@ -44,7 +49,14 @@ class PlayerCard extends Component {
             >
               Predator Mode
             </span>
-            <Toggle id="predator" />
+            <Toggle
+              id="predator"
+              onChange={e =>
+                this.props.sendPredatorMode(
+                  this.props.whaleOrder,
+                  e.target.checked
+                )}
+            />
           </label>
         : "";
 
@@ -66,8 +78,11 @@ class PlayerCard extends Component {
                     placeholder="Select Pilot"
                     fluid
                     search
-                    selection
                     options={this.props.pilots}
+                    selection
+                    onChange={(e, data) => {
+                      this.handleChange(e, data);
+                    }}
                   />
                 </Item.Content>
               </Item>
@@ -105,13 +120,16 @@ PlayerCard.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    pilots: state.app.pilots
+    pilots: state.app.pilots,
+    whaleOrder: state.app.whaleOrder
   };
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    updatePilots: (pilot, pilots) => dispatch(updatePilots(pilot, pilots))
+    updatePilots: (pilot, pilots) => dispatch(updatePilots(pilot, pilots)),
+    sendPredatorMode: (whaleOrder, bool) =>
+      dispatch(togglePredatorMode(whaleOrder, bool))
   };
 };
 

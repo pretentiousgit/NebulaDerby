@@ -30,9 +30,6 @@ const options = [
     image: { avatar: true, src: "/assets/Cult-of-The-Sacred-Pulsing-Root.jpg" }
   },
   {
-    divider: true
-  },
-  {
     text: "Captain Sola",
     value: "Captain Sola",
     image: { avatar: true, src: "/assets/Dragonfly.png" }
@@ -63,9 +60,6 @@ const options = [
     image: { avatar: true, src: "/assets/Dragonfly.png" }
   },
 
-  {
-    divider: true
-  },
   {
     text: "Her Regalness Gallia Vin Potentia",
     value: "Her Regalness Gallia Vin Potentia",
@@ -98,9 +92,6 @@ const options = [
   },
 
   {
-    divider: true
-  },
-  {
     text: "Roller",
     value: "Roller",
     image: { avatar: true, src: "/assets/Merchant-League-of-Rikkenor.png" }
@@ -131,9 +122,6 @@ const options = [
     image: { avatar: true, src: "/assets/Merchant-League-of-Rikkenor.png" }
   },
   {
-    divider: true
-  },
-  {
     text: "Victor Stern",
     value: "Victor Stern",
     image: { avatar: true, src: "/assets/VirtuousSphere.jpg" }
@@ -162,9 +150,6 @@ const options = [
     text: "Evelyn Honeychurch",
     value: "Evelyn Honeychurch",
     image: { avatar: true, src: "/assets/VirtuousSphere.jpg" }
-  },
-  {
-    divider: true
   },
   {
     text: "Praxis",
