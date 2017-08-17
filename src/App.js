@@ -18,11 +18,17 @@ import io from "socket.io-client";
 import "./App.css";
 import "./reactToggle.css";
 
+import { newHeat } from "./redux/actions/app";
+
 const socket = io();
 
 class App extends Component {
   componentDidMount() {
     socket.emit("enterRoom", { user: "adminDevice" });
+    socket.on("currentUserList", users => {
+      // this.props.setConnectedUsers(users);
+      console.log("setConnectedUsers", users);
+    });
   }
 
   setBeacon() {}
@@ -43,6 +49,7 @@ class App extends Component {
           circular
           icon="flag"
           floated="right"
+          onClick={() => this.sendEvent("startRace")}
         />
         <Divider hidden clearing />
 
@@ -51,7 +58,13 @@ class App extends Component {
           <Grid verticalAlign="middle" columns="equal">
             <Grid.Column width={4}>
               <Header as="h5">New Heat</Header>
-              <Button className="blue" size="medium" icon="refresh" circular />
+              <Button
+                className="blue"
+                size="medium"
+                icon="refresh"
+                circular
+                onClick={this.props.newHeat}
+              />
             </Grid.Column>
             <Grid.Column width={4}>
               <Header as="h5">Fake Heat</Header>
@@ -98,4 +111,10 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+  return {
+    newHeat: () => dispatch(newHeat())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

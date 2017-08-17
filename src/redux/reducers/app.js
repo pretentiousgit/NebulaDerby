@@ -4,6 +4,7 @@ import {
   GET_PILOTS_FAILURE,
   UPDATE_WHALES,
   UPDATE_PILOTS,
+  NEW_HEAT,
   TOGGLE_PREDATOR
 } from "../actions/app";
 
@@ -36,7 +37,7 @@ export default (state = initialState, action = {}) => {
     case UPDATE_PILOTS:
       return {
         ...state,
-        pilots: action.pilots
+        selectedPilots: state.pilots.push(action.pilot)
       };
     case UPDATE_WHALES:
       return {
@@ -48,6 +49,11 @@ export default (state = initialState, action = {}) => {
         ...state,
         whaleOrder: action.whaleOrder,
         predatorMode: action.predatorMode
+      };
+    case NEW_HEAT:
+      return {
+        ...state,
+        ...initialState
       };
     default:
       return {

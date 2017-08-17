@@ -25,6 +25,10 @@ const LoveWhaleState = whaleState => {
   }
 };
 
+// this has to receive the list of connected users from the room
+// and then let us know which of the whale users is connected on load
+// we should receive that information on connection
+
 class PlayerCard extends Component {
   handleChange(e, data) {
     const { value, options } = data;

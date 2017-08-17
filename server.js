@@ -1,11 +1,6 @@
 const express = require("express");
 const app = express();
-const OSC = require("osc-js");
-
-const config = { udpClient: { port: 9129 } };
-const osc = new OSC({ plugin: new OSC.BridgePlugin(config) });
-
-osc.open(); // start a WebSocket server listening on port 8080
+const osc = require("osc-js");
 
 app.use(require("body-parser")());
 
@@ -24,6 +19,8 @@ const server = app.listen(3001, function() {
 // Turn on socket.io rooms for message transport
 const io = require("socket.io")(server);
 
+const clientList = [];
+
 io.on("connection", function(socket) {
   console.log("a user connected");
   socket.on("disconnect", function() {
@@ -31,12 +28,36 @@ io.on("connection", function(socket) {
   });
 
   socket.on("enterRoom", function(data) {
+    // This is where we hook the Muse headset into the server
     console.log("A user joined", data.user);
+    clientList.concat({ name: data.user, id: socket.id });
     socket.join("whaleSpace");
+    io.emit("currentUserList", clientList);
   });
 
   socket.on("adminEvent", function(data) {
     console.log("An Event!", data.event);
     socket.broadcast.emit(data.event);
+
+    /* Possible Events List
+     * Galactagasm
+     * TranzonicInterference
+     * FleetAttack
+     * startRace
+    */
   });
+
+  socket.on("startRace", function(data) {
+    console.log("Start the race!", data.event);
+    socket.broadcast.emit(data.event);
+  });
+
+  // var oscSocketPort = new osc.WebSocketPort({
+  //   socket: socket,
+  //   metadata: true
+  // });
+
+  // oscSocketPort.on("message", function(oscMsg) {
+  //   console.log("An OSC Message was received!", oscMsg);
+  // });
 });

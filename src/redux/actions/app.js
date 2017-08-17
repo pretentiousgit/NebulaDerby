@@ -11,11 +11,13 @@ export const UPDATE_WHALES = "UPDATE_WHALES";
 
 export const TOGGLE_PREDATOR = "TOGGLE_PREDATOR";
 
-export function updatePilots(pilot, list) {
+export const NEW_HEAT = "NEW_HEAT";
+
+export function updatePilots(pilot) {
   return dispatch => {
     dispatch({
       type: UPDATE_PILOTS,
-      pilots: reject(list, o => o.text === pilot)
+      pilot: pilot
     });
   };
 }
@@ -39,6 +41,14 @@ export function togglePredatorMode(whaleOrder, predatorMode) {
       type: TOGGLE_PREDATOR,
       predatorMode: predatorMode,
       whaleOrder: newOrder
+    });
+  };
+}
+
+export function newHeat() {
+  return dispatch => {
+    dispatch({
+      type: NEW_HEAT
     });
   };
 }

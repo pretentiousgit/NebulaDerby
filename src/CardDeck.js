@@ -24,11 +24,15 @@ const SortableList = SortableContainer(({ items }) => {
 });
 
 class CardDeck extends Component {
-  onSortEnd = ({ oldIndex, newIndex }) => {
-    this.props.setWhaleOrder(
-      arrayMove(this.props.whaleOrder, oldIndex, newIndex)
-    );
-  };
+  constructor(props) {
+    super(props);
+    this.onSortEnd = this.onSortEnd.bind(this);
+  }
+
+  onSortEnd({ oldIndex, newIndex }, e) {
+    const { whaleOrder, setWhaleOrder } = this.props;
+    setWhaleOrder(arrayMove(whaleOrder, oldIndex, newIndex));
+  }
 
   render() {
     return (
@@ -43,7 +47,8 @@ class CardDeck extends Component {
 
 function mapStateToProps(state) {
   return {
-    whaleOrder: state.app.whaleOrder
+    whaleOrder: state.app.whaleOrder,
+    predatorMode: state.app.predatorMode
   };
 }
 
