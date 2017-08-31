@@ -1,0 +1,16 @@
+﻿{  
+	"is-c3-addon":true,
+	"type":"plugin",
+	"name":"SocketIoC3",
+	"id": "SocketIoC3-artifact-digital",
+	"version":"1.0.0.0",
+	"author":"Original work: Zack0Wack0 - modifications by juantar & bhavanvaishnav - additional modifications by JohnnySheffield, port by Alex Leitch",
+	"website":"https://www.alexleitch.com",
+	"documentation":"https://www.construct.net",
+	"description":"A plugin to use socket.io with construct 3 projects",
+	"editor-scripts":[  
+		 "plugin.js",
+		 "type.js",
+		 "instance.js"
+	]
+}

@@ -1,0 +1,149 @@
+﻿{
+	"languageTag": "en-US",
+	"fileDescription": "Strings for SocketIOC3.",
+	"text": {
+		"plugins": {
+			"SocketIoC3": {
+				"name": "SocketIoC3",
+				"description": "A third-party plugin to supply socket.io to Construct 3",
+				"help-url": "https://www.alexleitch.com",
+				"properties": {}
+				},
+				"aceCategories": {
+					"socket": "Socket"
+				},
+				"conditions": {
+					"on-data-received": {
+						"list-name": "On data received",
+						"display-text": "What to do on data received",
+						"description": "Triggered when the socket receives a chunk of data."
+					},
+					"on-connect": {
+						"list-name": "On connect",
+						"display-text": "On connect",
+						"description": "Triggered when the socket successfully connects to an address."
+					},
+					"on-error": {
+						"list-name": "On error",
+						"display-text": "On error",
+						"description": "Triggered when there is an error connecting to an address."
+					},
+					"on-disconnect": {
+						"list-name": "On disconnect",
+						"display-text": "On disconnect",
+						"description": "Triggered when the socket disconnects from an address."
+					},
+					"is-data-available": {
+						"list-name": "Is data available?",
+						"display-text": "Is data available?",
+						"description": "Check if there is still data left in the data stack."
+					},
+					"on-event-received": {
+						"list-name": "On Event",
+						"display-text": "On Event",
+						"description": "Triggered when Construct receives a socket event."
+					},
+					"on-any-event": {
+						"list-name": "On any event",
+						"display-text": "On any socket event",
+						"description": "Triggered when the socket receives any event."
+					}
+				},
+				"actions": {
+					"connect": {
+						"list-name": "Connect",
+						"display-text": "Connect to <b>{0}</b>",
+						"description": "Connect to an address (eg. URL or IP).",	
+						"params": {
+							"address": {
+								"name": "Address",
+								"desc": "The address (eg. URL or IP) to connect to. Supports cross-domain requests."
+							},
+							"port": {
+								"name": "Port",
+								"desc": "The port to try and connect to the address through. This should be specific to your server."
+							}
+						}
+					},
+					"disconnect": {
+						"list-name": "Disconnect",
+						"display-text": "Disconnect",
+						"description": "Disconnect from the current connection."
+					},
+					"send": {
+						"list-name": "Send",
+						"display-text": "Send <b>{0}</b>",
+						"description": "Send message event through the connection.",
+						"params": {
+							"send-data": {
+								"name": "Data",
+								"desc": "The data to send through the socket."
+							}
+					},
+					"split-data-received": {
+						"list-name": "Split Data Received",
+						"display-text": "Split Data Received",
+						"description": "Splits the oldest Data Received by comma."
+					},
+					"emit": {
+						"list-name": "Emit",
+						"display-text": "Emit <i>{0}</i>, <b>{1}</b>",
+						"description": "Emit Socket event through the socket.",
+						"params": {
+							"emit-event": {
+								"name": "Event",
+								"desc": "The event to emit through the socket."
+							},
+							"emit-data": {
+								"name": "Data",
+								"desc": "The data to emit through the socket."
+							}
+						}
+					}
+				},
+				"expressions": {
+					"get-last-address": {
+						"description": "Get the last address that the socket connected to.",
+						"translated-name": "GetLastAddress"
+					},
+					"get-last-port": {
+						"description": "Get the last port that the socket connected through.",
+						"translated-name": "GetLastPort"
+					},
+					"get-last-data": {
+						"description": "Get the last chunk of data that was received via the socket. (Warning: this expression actually manipulates the data stack, be careful when evaluating it in Construct)",
+						"translated-name": "GetLastData"
+					},
+					"get-recieved-data-element": {
+						"description": "The element at Index if the received data is splited by a comma.",
+						"translated-name": "RecievedDataElement"
+					},
+					"get-last-socket-event": {
+						"description": "The last received Socket Event",
+						"translated-name": "LastReceivedSocketEvent"
+					},
+					"get-last-emitted-socket-event": {
+						"description": "The last emitted Socket Event",
+						"translated-name": "LastEmittedSocketEvent",
+						"params": {
+							"last-emitted-event-index": {
+								"name": "Index",
+								"desc": "Array Index of the element to get"
+							}
+						}
+					},
+					"double": {
+						"description": "Double a number.",
+						"translated-name": "Double",
+						"params": {
+							"number": {
+								"name": "Number",
+								"desc": "The number to double."
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
