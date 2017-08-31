@@ -31,7 +31,7 @@ class App extends Component {
     });
   }
 
-  setBeacon() {}
+  setBeacon() { }
 
   sendEvent(eventName) {
     socket.emit("adminEvent", { event: eventName });
@@ -102,11 +102,6 @@ class App extends Component {
         <SortableComponent />
       </Segment>
     );
-  }
-
-  render() {
-
-    return this.form();
   }
 }
 
