@@ -103,6 +103,11 @@ class App extends Component {
       </Segment>
     );
   }
+
+  render() {
+
+    return this.form();
+  }
 }
 
 function mapStateToProps(state) {
