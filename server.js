@@ -1,18 +1,17 @@
 const express = require("express");
 const app = express();
 const osc = require("osc-js");
+const path = require('path');
 
 app.use(require("body-parser")());
 
 // CONFIGURATION ====================================================
 global.rootRequire = name => require(`${__dirname}/${name}`);
 
-app.get("/pilots", function(req, res) {
-  res.json(require("./server/pilots"));
-});
+app.use('/game', express.static(path.join(__dirname, '/hypeAnimation')))
 
 // Turn on server
-const server = app.listen(3001, function() {
+const server = app.listen(3001, function () {
   console.log("Server listening on port 3001");
 });
 
@@ -21,13 +20,18 @@ const io = require("socket.io")(server);
 
 const clientList = [];
 
-io.on("connection", function(socket) {
+io.on("connection", function (socket) {
   console.log("a user connected");
-  socket.on("disconnect", function() {
+
+  socket.on("disconnect", () => {
     console.log("user disconnected");
   });
 
-  socket.on("enterRoom", function(data) {
+  socket.on("message", (msg) => {
+    console.log("message!", msg);
+  });
+
+  socket.on("enterRoom", (data) => {
     // This is where we hook the Muse headset into the server
     console.log("A user joined", data.user);
     clientList.concat({ name: data.user, id: socket.id });
@@ -35,7 +39,7 @@ io.on("connection", function(socket) {
     io.emit("currentUserList", clientList);
   });
 
-  socket.on("adminEvent", function(data) {
+  socket.on("adminEvent", function (data) {
     console.log("An Event!", data.event);
     socket.broadcast.emit(data.event);
 
@@ -47,7 +51,7 @@ io.on("connection", function(socket) {
     */
   });
 
-  socket.on("startRace", function(data) {
+  socket.on("startRace", function (data) {
     console.log("Start the race!", data.event);
     socket.broadcast.emit(data.event);
   });
