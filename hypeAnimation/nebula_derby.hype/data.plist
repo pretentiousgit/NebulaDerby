@@ -74,7 +74,7 @@
 	<key>hasManuallyChangedCSSPositioning</key>
 	<false/>
 	<key>lastCheckDate</key>
-	<date>2017-09-01T15:29:05Z</date>
+	<date>2017-09-01T15:42:23Z</date>
 	<key>layout</key>
 	<dict>
 		<key>currentInspectorPane</key>
@@ -275,7 +275,7 @@
 			</dict>
 		</array>
 		<key>selectedTabIndex</key>
-		<integer>2</integer>
+		<integer>1</integer>
 		<key>showInspectorView</key>
 		<true/>
 		<key>showResourcesView</key>
@@ -557,7 +557,8 @@
 			<string>// element - DOMHTMLElement that triggered this function being called
 // event - event that triggered this function being called
 function initSocket(hypeDocument, element, event) {
-
+	console.log('do we have io?', window.socket, socket);
+	socket.emit('message', 'window loaded');
 }
 </string>
 		</dict>

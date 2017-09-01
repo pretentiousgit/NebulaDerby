@@ -8,7 +8,7 @@ app.use(require("body-parser")());
 // CONFIGURATION ====================================================
 global.rootRequire = name => require(`${__dirname}/${name}`);
 
-app.use('/game', express.static(path.join(__dirname, '/hypeAnimation')))
+app.use('/game', express.static(__dirname + '/hypeAnimation'))
 
 // Turn on server
 const server = app.listen(3001, function () {
