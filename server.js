@@ -29,6 +29,7 @@ io.on("connection", function (socket) {
 
   socket.on("message", (msg) => {
     console.log("message!", msg);
+    io.emit('messageToClient', 'hello world!');
   });
 
   socket.on("enterRoom", (data) => {
