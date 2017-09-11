@@ -11,9 +11,7 @@ import store from './redux/store';
 
 render(
   <Provider store={store}>
-    <Router history={browserHistory}>
-      <Route path='/admin' component={App} />
-    </Router>
+    <App />
   </Provider>,
   document.getElementById('root')
 );
