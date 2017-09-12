@@ -105,7 +105,7 @@
 	<key>hasManuallyChangedCSSPositioning</key>
 	<false/>
 	<key>lastCheckDate</key>
-	<date>2017-09-12T11:25:54Z</date>
+	<date>2017-09-12T11:31:35Z</date>
 	<key>layout</key>
 	<dict>
 		<key>currentInspectorPane</key>
@@ -1137,10 +1137,15 @@ function initSocket(hypeDocument, element, event) {
 
   var timerValue = msg;
 
-  setInterval(() =&gt; {
+  const intervalId = setInterval(() =&gt; {
     timer.innerHTML = millisToMinutesAndSeconds(timerValue);
     timerValue -= 20;
   }, 20);
+  
+  	setTimeout(() =&gt; {
+  		clearInterval(intervalId);
+  	}, msg)
+  
 })
 	
 	socket.on('whaleState', function(msg){
