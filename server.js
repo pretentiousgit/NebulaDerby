@@ -73,7 +73,6 @@ function moveForward(position) {
 }
 
 function runRace() {
-  // 90000
   console.log('startRace');
   if (state.running) {
     console.log('Race in progress!');
@@ -86,13 +85,13 @@ function runRace() {
     let count = 0;
 
     const race = setInterval(() => {
-      state.raceTimer += interval;
+      state.raceTimer -= interval;
       count += 1;
       state.whales.map((whale) => {
         const mix = Math.floor((Math.random() * 75) + 1);
         whale.position += mix;
       })
-      io.emit('messageToClient', state);
+      io.emit('whaleState', state);
       console.log('count', count, state.whales[0].position);
     }, interval);
 
@@ -133,7 +132,7 @@ function runRace() {
           }
         ]
       };
-      io.emit('messageToClient', state);
+      io.emit('whaleState', state);
       console.log('race complete!', state);
     }
   }
@@ -144,11 +143,6 @@ io.on("connection", function (socket) {
 
   socket.on("disconnect", () => {
     console.log("user disconnected");
-  });
-
-  socket.on("message", (msg) => {
-    console.log("message!", msg);
-    io.emit('messageToClient', 'hello world!');
   });
 
   socket.on("clientBoot", (msg) => {
@@ -166,6 +160,7 @@ io.on("connection", function (socket) {
 
   socket.on("adminEvent", function (data) {
     if (data.event === 'startRace') {
+      io.emit('startRace', state.raceTimer);
       runRace();
     } else {
       console.log("An Event!", data.event);

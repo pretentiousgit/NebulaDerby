@@ -48,8 +48,8 @@
 	<key>displayedAttributes</key>
 	<array>
 		<string>kPropertiesMenuItemIdentifierOpacity</string>
-		<string>kPropertiesMenuItemIdentifierPosition</string>
 		<string>kPropertiesMenuItemIdentifierAnimated</string>
+		<string>kPropertiesMenuItemIdentifierPosition</string>
 	</array>
 	<key>documentVersion</key>
 	<string>574</string>
@@ -105,17 +105,17 @@
 	<key>hasManuallyChangedCSSPositioning</key>
 	<false/>
 	<key>lastCheckDate</key>
-	<date>2017-09-11T19:35:30Z</date>
+	<date>2017-09-12T11:25:54Z</date>
 	<key>layout</key>
 	<dict>
 		<key>currentInspectorPane</key>
-		<integer>7</integer>
+		<integer>6</integer>
 		<key>customizableLayout</key>
 		<dict>
 			<key>frame</key>
-			<string>{{0, 0}, {1353, 674}}</string>
+			<string>{{0, 0}, {1280, 703}}</string>
 			<key>identifier</key>
-			<string>container 5</string>
+			<string>container 31</string>
 			<key>isCustomizableViewContainer</key>
 			<true/>
 			<key>isCustomizableViewWrapper</key>
@@ -126,9 +126,9 @@
 			<array>
 				<dict>
 					<key>frame</key>
-					<string>{{0, 0}, {811, 674}}</string>
+					<string>{{0, 0}, {1082, 703}}</string>
 					<key>identifier</key>
-					<string>container 40</string>
+					<string>container 117</string>
 					<key>isCustomizableViewContainer</key>
 					<true/>
 					<key>isCustomizableViewWrapper</key>
@@ -139,108 +139,108 @@
 					<array>
 						<dict>
 							<key>frame</key>
-							<string>{{0, 0}, {270, 674}}</string>
+							<string>{{0, 0}, {811, 703}}</string>
 							<key>identifier</key>
-							<string>container 30</string>
+							<string>container 106</string>
 							<key>isCustomizableViewContainer</key>
 							<true/>
 							<key>isCustomizableViewWrapper</key>
-							<true/>
+							<false/>
 							<key>isVertical</key>
 							<true/>
 							<key>subviews</key>
 							<array>
 								<dict>
 									<key>frame</key>
-									<string>{{0, 0}, {270, 674}}</string>
+									<string>{{0, 0}, {270, 703}}</string>
 									<key>identifier</key>
-									<string>sceneSelectorCustomizableContainer</string>
+									<string>container 96</string>
 									<key>isCustomizableViewContainer</key>
+									<true/>
+									<key>isCustomizableViewWrapper</key>
+									<true/>
+									<key>isVertical</key>
+									<true/>
+									<key>subviews</key>
+									<array>
+										<dict>
+											<key>frame</key>
+											<string>{{0, 0}, {270, 703}}</string>
+											<key>identifier</key>
+											<string>sceneSelectorCustomizableContainer</string>
+											<key>isCustomizableViewContainer</key>
+											<false/>
+										</dict>
+									</array>
+								</dict>
+								<dict>
+									<key>frame</key>
+									<string>{{271, 0}, {540, 703}}</string>
+									<key>identifier</key>
+									<string>container 97</string>
+									<key>isCustomizableViewContainer</key>
+									<true/>
+									<key>isCustomizableViewWrapper</key>
 									<false/>
-								</dict>
-							</array>
-						</dict>
-						<dict>
-							<key>frame</key>
-							<string>{{271, 0}, {540, 674}}</string>
-							<key>identifier</key>
-							<string>container 31</string>
-							<key>isCustomizableViewContainer</key>
-							<true/>
-							<key>isCustomizableViewWrapper</key>
-							<false/>
-							<key>isVertical</key>
-							<false/>
-							<key>subviews</key>
-							<array>
-								<dict>
-									<key>frame</key>
-									<string>{{271, 0}, {540, 211}}</string>
-									<key>identifier</key>
-									<string>container 4</string>
-									<key>isCustomizableViewContainer</key>
-									<true/>
-									<key>isCustomizableViewWrapper</key>
-									<true/>
 									<key>isVertical</key>
-									<true/>
+									<false/>
 									<key>subviews</key>
 									<array>
 										<dict>
 											<key>frame</key>
-											<string>{{271, 0}, {540, 211}}</string>
+											<string>{{271, 0}, {540, 240}}</string>
 											<key>identifier</key>
-											<string>timelineCustomizableContainer</string>
+											<string>container 4</string>
 											<key>isCustomizableViewContainer</key>
-											<false/>
+											<true/>
+											<key>isCustomizableViewWrapper</key>
+											<true/>
+											<key>isVertical</key>
+											<true/>
+											<key>subviews</key>
+											<array>
+												<dict>
+													<key>frame</key>
+													<string>{{271, 0}, {540, 240}}</string>
+													<key>identifier</key>
+													<string>timelineCustomizableContainer</string>
+													<key>isCustomizableViewContainer</key>
+													<false/>
+												</dict>
+											</array>
 										</dict>
-									</array>
-								</dict>
-								<dict>
-									<key>frame</key>
-									<string>{{271, 212}, {540, 462}}</string>
-									<key>identifier</key>
-									<string>container 3</string>
-									<key>isCustomizableViewContainer</key>
-									<true/>
-									<key>isCustomizableViewWrapper</key>
-									<true/>
-									<key>isVertical</key>
-									<true/>
-									<key>subviews</key>
-									<array>
 										<dict>
 											<key>frame</key>
-											<string>{{271, 212}, {540, 462}}</string>
+											<string>{{271, 241}, {540, 462}}</string>
 											<key>identifier</key>
-											<string>sceneEditorCustomizableContainer</string>
+											<string>container 3</string>
 											<key>isCustomizableViewContainer</key>
-											<false/>
+											<true/>
+											<key>isCustomizableViewWrapper</key>
+											<true/>
+											<key>isVertical</key>
+											<true/>
+											<key>subviews</key>
+											<array>
+												<dict>
+													<key>frame</key>
+													<string>{{271, 241}, {540, 462}}</string>
+													<key>identifier</key>
+													<string>sceneEditorCustomizableContainer</string>
+													<key>isCustomizableViewContainer</key>
+													<false/>
+												</dict>
+											</array>
 										</dict>
 									</array>
 								</dict>
 							</array>
 						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>frame</key>
-					<string>{{812, 0}, {541, 674}}</string>
-					<key>identifier</key>
-					<string>container 64</string>
-					<key>isCustomizableViewContainer</key>
-					<true/>
-					<key>isCustomizableViewWrapper</key>
-					<false/>
-					<key>isVertical</key>
-					<true/>
-					<key>subviews</key>
-					<array>
 						<dict>
 							<key>frame</key>
-							<string>{{812, 0}, {270, 674}}</string>
+							<string>{{812, 0}, {270, 703}}</string>
 							<key>identifier</key>
-							<string>container 63</string>
+							<string>container 105</string>
 							<key>isCustomizableViewContainer</key>
 							<true/>
 							<key>isCustomizableViewWrapper</key>
@@ -251,7 +251,7 @@
 							<array>
 								<dict>
 									<key>frame</key>
-									<string>{{812, 0}, {270, 674}}</string>
+									<string>{{812, 0}, {270, 703}}</string>
 									<key>identifier</key>
 									<string>inspectorCustomizableContainer</string>
 									<key>isCustomizableViewContainer</key>
@@ -259,28 +259,28 @@
 								</dict>
 							</array>
 						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>frame</key>
+					<string>{{1083, 0}, {270, 703}}</string>
+					<key>identifier</key>
+					<string>container 116</string>
+					<key>isCustomizableViewContainer</key>
+					<true/>
+					<key>isCustomizableViewWrapper</key>
+					<true/>
+					<key>isVertical</key>
+					<true/>
+					<key>subviews</key>
+					<array>
 						<dict>
 							<key>frame</key>
-							<string>{{1083, 0}, {270, 674}}</string>
+							<string>{{1083, 0}, {270, 703}}</string>
 							<key>identifier</key>
-							<string>container 50</string>
+							<string>resourcesCustomizableContainer</string>
 							<key>isCustomizableViewContainer</key>
-							<true/>
-							<key>isCustomizableViewWrapper</key>
-							<true/>
-							<key>isVertical</key>
-							<true/>
-							<key>subviews</key>
-							<array>
-								<dict>
-									<key>frame</key>
-									<string>{{1083, 0}, {270, 674}}</string>
-									<key>identifier</key>
-									<string>resourcesCustomizableContainer</string>
-									<key>isCustomizableViewContainer</key>
-									<false/>
-								</dict>
-							</array>
+							<false/>
 						</dict>
 					</array>
 				</dict>
@@ -289,7 +289,7 @@
 		<key>keyframeTimelineHeight</key>
 		<real>117.5</real>
 		<key>mainWindowFrame</key>
-		<string>6 53 1353 718 0 0 1280 777 </string>
+		<string>0 59 1353 718 0 0 1280 777 </string>
 		<key>openTabs</key>
 		<array>
 			<dict>
@@ -297,12 +297,6 @@
 				<string>HypeJavascript</string>
 				<key>oid</key>
 				<string>10</string>
-			</dict>
-			<dict>
-				<key>className</key>
-				<string>HypeJavascript</string>
-				<key>oid</key>
-				<string>8</string>
 			</dict>
 		</array>
 		<key>selectedTabIndex</key>
@@ -346,7 +340,7 @@
 	<key>monotypeProjectID</key>
 	<string>899EB620-156D-40DA-93A8-51659FFD4B5A-37120-000305F6DA974245</string>
 	<key>oidCounter</key>
-	<integer>28</integer>
+	<integer>29</integer>
 	<key>resourcesInfo</key>
 	<dict>
 		<key>groups</key>
@@ -1131,16 +1125,26 @@ function initSocket(hypeDocument, element, event) {
 	}
 	]
 
-	socket.emit('clientMessage', whales);
+	socket.on('startRace', function (msg) {
+  function millisToMinutesAndSeconds(millis) {
+    var minutes = Math.floor(millis / 60000);
+    var seconds = ((millis % 60000) / 1000).toFixed(0);
+    return (minutes + ":" + (seconds &lt; 10 ? '0' : '') + seconds);
+  }
+
+  const timer = hypeDocument.getElementById('gameTimer');
+  console.log('timer', timer, msg);
+
+  var timerValue = msg;
+
+  setInterval(() =&gt; {
+    timer.innerHTML = millisToMinutesAndSeconds(timerValue);
+    timerValue -= 20;
+  }, 20);
+})
 	
-
-	socket.on('messageToClient', function(msg){
+	socket.on('whaleState', function(msg){
 		console.log('server message!', msg);
-		
-		const timer = hypeDocument.getElementById('gameTimer');
-
-		timer.innerHTML = msg.raceTimer;
-		console.log('timer', timer, msg.raceTimer);		
 		msg.whales.map((whale) =&gt; {	
 			const w = whales.find((obj) =&gt; obj.name === whale.name);
 			hypeDocument.setElementProperty(w.element, 'left', whale.position, 0.24, 'easeout');
@@ -1161,6 +1165,18 @@ function sendSocketMessage(hypeDocument, element, event) {
 }
 </string>
 		</dict>
+		<dict>
+			<key>oid</key>
+			<string>29</string>
+			<key>source</key>
+			<string>// element - DOMHTMLElement that triggered this function being called
+// event - event that triggered this function being called
+function untitledFunction(hypeDocument, element, event) {
+	
+	
+}
+</string>
+		</dict>
 	</array>
 	<key>shouldApplySizeChangesToAllScenes</key>
 	<true/>
@@ -1178,7 +1194,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 	<array>
 		<dict>
 			<key>documentIdentifier</key>
-			<string>99F8F6D4-0C9A-45BA-AAA9-FF7CFA967398-21542-0003AD805A99E66F</string>
+			<string>4E5DF506-4B1A-46EC-A29B-8B16091FAD34-21542-0003FA837CD2E2D7</string>
 			<key>selectedObjects</key>
 			<array>
 				<string>28</string>
@@ -1197,9 +1213,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>7144px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1245,15 +1261,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Height</string>
+							<string>PointerEvents</string>
 							<key>objectValue</key>
-							<string>1095px</string>
+							<string>none</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BackgroundImageResourceGroupOid</string>
+							<string>Height</string>
 							<key>objectValue</key>
-							<string>14</string>
+							<string>1095px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1269,15 +1285,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>AccessibilityRole</string>
+							<string>BackgroundImageResourceGroupOid</string>
 							<key>objectValue</key>
-							<string>img</string>
+							<string>14</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>PointerEvents</string>
+							<string>AccessibilityRole</string>
 							<key>objectValue</key>
-							<string>none</string>
+							<string>img</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1299,9 +1315,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BackgroundSize</string>
+							<string>Locked</string>
 							<key>objectValue</key>
-							<string>100% 100%</string>
+							<string>1</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1311,9 +1327,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Locked</string>
+							<string>BackgroundSize</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>100% 100%</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1329,18 +1345,18 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>7144px</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>17</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>2134px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1470,18 +1486,18 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>2134px</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>23</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>2134px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1623,18 +1639,18 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>2134px</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>24</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>2134px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1752,18 +1768,18 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>2134px</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>26</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>2134px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1881,9 +1897,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>2134px</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>28</key>
@@ -1896,9 +1912,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FFD479</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1970,37 +1986,37 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Height</string>
 							<key>objectValue</key>
-							<string>195px</string>
+							<string>55px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>Left</string>
 							<key>objectValue</key>
-							<string>1510px</string>
+							<string>1666px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>InnerHTML</string>
 							<key>objectValue</key>
-							<string>&lt;div style="text-align: right;"&gt;&lt;span style="color: rgb(255, 212, 121); font-family: AZSailorTattoo; font-size: 48px;"&gt;10000&lt;/span&gt;&lt;/div&gt;</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>ZIndex</string>
-							<key>objectValue</key>
-							<string>8</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>Width</string>
-							<key>objectValue</key>
-							<string>352px</string>
+							<string>&lt;div style="text-align: right;"&gt;&lt;br&gt;&lt;/div&gt;</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>PaddingLeft</string>
 							<key>objectValue</key>
 							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>196px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ZIndex</string>
+							<key>objectValue</key>
+							<string>8</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2022,9 +2038,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FFD479</string>
+							<string>div</string>
 						</dict>
 					</array>
 				</dict>
