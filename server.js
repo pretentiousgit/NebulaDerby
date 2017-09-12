@@ -25,7 +25,7 @@ const clientList = [];
 
 const initialState = {
   raceTimer: 10000,
-  interval: 240,
+  interval: 120,
   running: false
 }
 
@@ -72,6 +72,51 @@ function moveForward(position) {
   return position += mix;
 }
 
+function stopRace(race) {
+  clearInterval(race);
+  const victory = state.whales.reduce((prev, current) => (prev.position > current.position) ? prev : current);
+  console.log('race complete!', victory);
+  io.emit('winner', victory);
+}
+
+function newHeat() {
+  console.log('new heat', initialState, initialWhales);
+  state = {
+    ...initialState,
+    whales: [
+      {
+        name: "imperial",
+        position: 60
+      },
+      {
+        name: "cyber",
+        position: 60
+      },
+      {
+        name: "love",
+        position: 60
+      },
+      {
+        name: "predator",
+        position: 60
+      }
+    ]
+  };
+  io.emit('whaleState', state);
+}
+
+function handleAdminEvent(event) {
+  console.log(event, state);
+  if (!state[event]) {
+    io.emit('adminEvent', event);
+    state = {
+      ...state, [event]: true
+    }
+  } else {
+    console.log('event', event, ' already fired');
+  }
+}
+
 function runRace() {
   console.log('startRace');
   if (state.running) {
@@ -81,60 +126,45 @@ function runRace() {
   else {
     state.running = true;
 
-    const interval = state.interval;
+    const numberOfIntervals = initialState.raceTimer / state.interval;
+    const whaleDistanceMax = (1490 * 2) / numberOfIntervals;
+
     let count = 0;
 
     const race = setInterval(() => {
-      state.raceTimer -= interval;
+      state.raceTimer -= state.interval;
       count += 1;
       state.whales.map((whale) => {
-        const mix = Math.floor((Math.random() * 75) + 1);
+        const mix = Math.floor((Math.random() * whaleDistanceMax) + 1);
         whale.position += mix;
       })
       io.emit('whaleState', state);
       console.log('count', count, state.whales[0].position);
-    }, interval);
+    }, state.interval);
 
-    setTimeout(stopRace, state.raceTimer);
+    setTimeout(() => {
+      stopRace(race)
+    }, state.raceTimer);
+
 
     /* TODO:
-      -- Add font with race timer to front
-      --  race should count down
-      -- whales should race across big screen in about 2 minutes but 2 minutes is A LONG TIME
+      
+    max distance a whale can go: 1490
+    to find possible interval distances, divide 1490 by race time
+    ex: 10000 / 100 = 100 intervals
+    ex: 10000 / 120 = ~81 intervals?
+    ex: 10000 / 240 = ~41 intervals
+    divide 1490 by number of intervals:
+    1490/81 = 18.39 
+    1490/41 = 36.34
+
+      
       -- add a state for WHALE WINS
       -- Add a TRANZONIC INTERFERENCE
       -- Add a GALACTAGASM
       -- Add an IMPERIAL FLEET
       -- Add a PREDATOR WHALE EVENT
      */
-
-    function stopRace() {
-      clearInterval(race);
-      console.log('initial states', initialState, initialWhales);
-      state = {
-        ...initialState,
-        whales: [
-          {
-            name: "imperial",
-            position: 60
-          },
-          {
-            name: "cyber",
-            position: 60
-          },
-          {
-            name: "love",
-            position: 60
-          },
-          {
-            name: "predator",
-            position: 60
-          }
-        ]
-      };
-      io.emit('whaleState', state);
-      console.log('race complete!', state);
-    }
   }
 }
 
@@ -158,19 +188,18 @@ io.on("connection", function (socket) {
     io.emit("currentUserList", clientList);
   });
 
-  socket.on("adminEvent", function (data) {
-    if (data.event === 'startRace') {
-      io.emit('startRace', state.raceTimer);
-      runRace();
-    } else {
-      console.log("An Event!", data.event);
-      io.emit(data.event);
+  socket.on("adminEvent", (data) => {
+    switch (data.event) {
+      case 'newHeat':
+        newHeat();
+        break;
+      case 'startRace':
+        io.emit('startRace', state.raceTimer);
+        runRace();
+        break;
+      default:
+        handleAdminEvent(data.event);
+        break;
     }
-    /* Possible Events List
-     * Galactagasm
-     * TranzonicInterference
-     * FleetAttack
-     * startRace
-    */
   });
 });
