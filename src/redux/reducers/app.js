@@ -5,7 +5,8 @@ import {
   UPDATE_WHALES,
   UPDATE_PILOTS,
   NEW_HEAT,
-  TOGGLE_PREDATOR
+  TOGGLE_PREDATOR,
+  TOGGLE_FAKE_HEAT
 } from "../actions/app";
 
 import pilots from "../../pilotOptions";
@@ -49,6 +50,11 @@ export default (state = initialState, action = {}) => {
         ...state,
         whaleOrder: action.whaleOrder,
         predatorMode: action.predatorMode
+      };
+    case TOGGLE_FAKE_HEAT:
+      return {
+        ...state,
+        fakeHeat: action.fakeHeat
       };
     case NEW_HEAT:
       return {

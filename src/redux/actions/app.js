@@ -10,6 +10,7 @@ export const UPDATE_PILOTS = "UPDATE_PILOTS";
 export const UPDATE_WHALES = "UPDATE_WHALES";
 
 export const TOGGLE_PREDATOR = "TOGGLE_PREDATOR";
+export const TOGGLE_FAKE_HEAT = "TOGGLE_FAKE_HEAT";
 
 export const NEW_HEAT = "NEW_HEAT";
 
@@ -49,6 +50,15 @@ export function newHeat() {
   return dispatch => {
     dispatch({
       type: NEW_HEAT
+    });
+  };
+}
+
+export function toggleFakeHeat(toggleValue) {
+  return dispatch => {
+    dispatch({
+      type: TOGGLE_FAKE_HEAT,
+      fakeHeat: toggleValue
     });
   };
 }

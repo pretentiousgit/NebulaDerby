@@ -74,13 +74,13 @@ function moveForward(position) {
 
 function stopRace(race) {
   clearInterval(race);
+  state.running = false;
   const victory = state.whales.reduce((prev, current) => (prev.position > current.position) ? prev : current);
   console.log('race complete!', victory);
   io.emit('winner', victory);
 }
 
 function newHeat() {
-  console.log('new heat', initialState, initialWhales);
   state = {
     ...initialState,
     whales: [
@@ -102,6 +102,7 @@ function newHeat() {
       }
     ]
   };
+  console.log('new heat', state);
   io.emit('whaleState', state);
 }
 
@@ -117,55 +118,69 @@ function handleAdminEvent(event) {
   }
 }
 
+
+/* TODO:
+Whale Race Math Notes
+max distance a whale can go: 1490
+to find possible interval distances, divide 1490 by race time
+ex: 10000 / 100 = 100 intervals
+ex: 10000 / 120 = ~81 intervals?
+ex: 10000 / 240 = ~41 intervals
+divide 1490 by number of intervals:
+1490/81 = 18.39 
+1490/41 = 36.34
+*/
+
+function calculateMix(whale) {
+  /* 
+    todo: on client boot, pass through the amount of space for a whale to race
+    Use that here
+  */
+  const screenWidth = ((state.fieldSize || 1490) * 2);
+
+  const numberOfIntervals = initialState.raceTimer / state.interval;
+  const whaleDistanceMax = screenWidth / numberOfIntervals;
+
+  return Math.floor((Math.random() * whaleDistanceMax) + 1);
+};
+
+function checkIfRunning(f) {
+  if (state.running === true) {
+    console.log('Heat already running');
+  } else {
+    f();
+  }
+}
+
 function runRace() {
-  console.log('startRace');
-  if (state.running) {
-    console.log('Race in progress!');
-    return;
-  }
-  else {
-    state.running = true;
+  console.log('startRace event');
+  io.emit('startRace', state.raceTimer);
+  state = { ...state, running: true };
 
-    const numberOfIntervals = initialState.raceTimer / state.interval;
-    const whaleDistanceMax = (1490 * 2) / numberOfIntervals;
+  const race = setInterval(() => {
+    state = { ...state, raceTimer: state.raceTimer -= state.interval };
 
-    let count = 0;
+    state.whales.map((whale) => {
+      const mix = calculateMix(whale.name)
+      whale.position += mix;
+    })
 
-    const race = setInterval(() => {
-      state.raceTimer -= state.interval;
-      count += 1;
-      state.whales.map((whale) => {
-        const mix = Math.floor((Math.random() * whaleDistanceMax) + 1);
-        whale.position += mix;
-      })
-      io.emit('whaleState', state);
-      console.log('count', count, state.whales[0].position);
-    }, state.interval);
+    io.emit('whaleState', state);
+  }, state.interval);
 
-    setTimeout(() => {
-      stopRace(race)
-    }, state.raceTimer);
+  setTimeout(() => {
+    stopRace(race)
+  }, state.raceTimer);
 
-
-    /* TODO:
-      
-    max distance a whale can go: 1490
-    to find possible interval distances, divide 1490 by race time
-    ex: 10000 / 100 = 100 intervals
-    ex: 10000 / 120 = ~81 intervals?
-    ex: 10000 / 240 = ~41 intervals
-    divide 1490 by number of intervals:
-    1490/81 = 18.39 
-    1490/41 = 36.34
-
-      
-      -- add a state for WHALE WINS
-      -- Add a TRANZONIC INTERFERENCE
-      -- Add a GALACTAGASM
-      -- Add an IMPERIAL FLEET
-      -- Add a PREDATOR WHALE EVENT
-     */
-  }
+  /*
+  -- if it is a fake heat, the whale order should be taken into account
+  --otherwise, just run the numbers
+  --add a state for WHALE WINS -- ANIMATE
+  -- Add a TRANZONIC INTERFERENCE -- ANIMATE
+  --Add a GALACTAGASM -- ANIMATE
+  --Add an IMPERIAL FLEET -- ANIMATE
+  --Add a PREDATOR WHALE EVENT
+  */
 }
 
 io.on("connection", function (socket) {
@@ -175,8 +190,9 @@ io.on("connection", function (socket) {
     console.log("user disconnected");
   });
 
-  socket.on("clientBoot", (msg) => {
-    console.log("clientMessage!", msg);
+  socket.on("fieldSize", (data) => {
+    console.log("fieldSize", data);
+    state.fieldSize = data.message;
     // map whales against starting position in game, add those to global state
   });
 
@@ -191,11 +207,10 @@ io.on("connection", function (socket) {
   socket.on("adminEvent", (data) => {
     switch (data.event) {
       case 'newHeat':
-        newHeat();
+        checkIfRunning(newHeat);
         break;
       case 'startRace':
-        io.emit('startRace', state.raceTimer);
-        runRace();
+        checkIfRunning(runRace);
         break;
       default:
         handleAdminEvent(data.event);

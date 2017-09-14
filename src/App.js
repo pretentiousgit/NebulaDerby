@@ -18,7 +18,7 @@ import io from "socket.io-client";
 import "./App.css";
 import "./reactToggle.css";
 
-import { newHeat } from "./redux/actions/app";
+import { newHeat, toggleFakeHeat } from "./redux/actions/app";
 
 const socket = io();
 
@@ -33,8 +33,8 @@ class App extends Component {
 
   setBeacon() { }
 
-  sendEvent(eventName) {
-    socket.emit("adminEvent", { event: eventName });
+  sendEvent(eventName, message) {
+    socket.emit("adminEvent", { event: eventName, message: message });
   }
 
   render() {
@@ -49,53 +49,55 @@ class App extends Component {
           circular
           icon="flag"
           floated="right"
-          onClick={() => this.sendEvent("startRace")}
+          onClick={() => this.sendEvent("startRace", { fakeHeat: this.props.fakeHeat, whaleOrder: this.props.whaleOrder })}
         />
         <Divider hidden clearing />
 
         <Segment>
-          <Header as="h3">Commands</Header>
           <Grid verticalAlign="middle" columns="equal">
-            <Grid.Column width={4}>
+            <Grid.Column width={3}>
               <Header as="h5">New Heat</Header>
               <Button
                 className="blue"
                 size="medium"
                 icon="refresh"
                 circular
-                onClick={this.props.newHeat}
+                onClick={() => {
+                  this.sendEvent("newHeat", this.props)
+                }}
               />
             </Grid.Column>
-            <Grid.Column width={4}>
+            <Grid.Column width={3}>
               <Header as="h5">Fake Heat</Header>
-              <Toggle className="fake-heat-toggle" />
+              <Toggle
+                className="fake-heat-toggle"
+                checked={this.props.fakeHeat}
+                onChange={e => {
+                  this.props.toggleFakeHeat(!this.props.fakeHeat)
+                }}
+              />
             </Grid.Column>
-            <Grid.Column width={8}>
-              <Header as="h5">Beacon</Header>
-              <Button toggle circular color="red" inverted />
-              <Button toggle circular color="blue" inverted />
-              <Button toggle circular color="green" inverted />
+            <Grid.Column>
+              <Header as="h5">Events</Header>
+              <Button.Group>
+                <Button onClick={() => this.sendEvent("Galactagasm")} color="pink">
+                  Galactagasm
+                </Button>
+                <Button
+                  onClick={() => this.sendEvent("TranzonicInterference")}
+                  color="orange"
+                >
+                  <Icon name="lightning" /> Tranzonic <Icon name="lightning" />
+                </Button>
+                <Button
+                  onClick={() => this.sendEvent("FleetAttack")}
+                  color="yellow"
+                >
+                  Fleet Attack
+                </Button>
+              </Button.Group>
             </Grid.Column>
           </Grid>
-          <Divider clearing />
-          <Header as="h3">Events</Header>
-          <Button.Group>
-            <Button onClick={() => this.sendEvent("Galactagasm")} color="pink">
-              Galactagasm
-            </Button>
-            <Button
-              onClick={() => this.sendEvent("TranzonicInterference")}
-              color="orange"
-            >
-              <Icon name="lightning" /> Tranzonic <Icon name="lightning" />
-            </Button>
-            <Button
-              onClick={() => this.sendEvent("FleetAttack")}
-              color="yellow"
-            >
-              Fleet Attack
-            </Button>
-          </Button.Group>
         </Segment>
         <Header floated="left">Whales</Header>
         <Divider clearing />
@@ -107,13 +109,16 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    pilots: state.pilots
+    pilots: state.app.pilots,
+    whaleOrder: state.app.whaleOrder,
+    fakeHeat: state.app.fakeHeat
   };
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    newHeat: () => dispatch(newHeat())
+    newHeat: () => dispatch(newHeat()),
+    toggleFakeHeat: (val) => dispatch(toggleFakeHeat(val))
   };
 };
 
