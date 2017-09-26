@@ -33,7 +33,7 @@ const initialState = {
   running: false,
   race: '',
   fakeHeat: false
-}
+};
 
 const initialWhales = [
   {
@@ -56,7 +56,7 @@ const initialWhales = [
     position: 60,
     final: 4
   }
-]
+];
 
 let state = {
   ...initialState,
@@ -80,7 +80,7 @@ function stopRace(race) {
   // if it is not, 
 
   const standings = reverse(sortBy(state.whales, 'position')).map((whale) => {
-    return whale.name
+    return whale.name;
   });
   console.log('race complete!', victory, standings);
   io.emit('winner', victory);
@@ -124,7 +124,7 @@ function handleAdminEvent(event) {
     io.emit('adminEvent', event);
     state = {
       ...state, [event]: true
-    }
+    };
   } else {
     console.log('event', event, ' already fired');
   }
@@ -168,15 +168,15 @@ function calculateMix(final) {
   const minMovement = () => {
     switch (final) {
       case 1:
-        return quarter * 3
+        return quarter * 3;
       case 2:
-        return quarter * 2
+        return quarter * 2;
       case 3:
-        return quarter
+        return quarter;
       default:
-        return 1
+        return 1;
     }
-  }
+  };
 
   function randomizer(min, max) {
     return Math.floor((Math.random() * max) + min);
@@ -199,11 +199,11 @@ function checkWinner(whale, i) {
   const update = {
     ...whale,
     position: whale.position += calculateMix(whale.final)
-  }
+  };
 
   if (update.position >= state.fieldSize) {
-    console.log('A whale has won!')
-    clearInterval(i)
+    console.log('A whale has won!');
+    clearInterval(i);
   }
 
   return update;
@@ -245,18 +245,16 @@ function runRace(info) {
     state.whales = state.whales.map((whale) => {
       switch (info.whaleOrder.indexOf(whale.name)) {
         case 0:
-          return { ...whale, final: 1 }
+          return { ...whale, final: 1 };
         case 1:
-          return { ...whale, final: 2 }
+          return { ...whale, final: 2 };
         case 2:
-          return { ...whale, final: 3 }
+          return { ...whale, final: 3 };
         default:
-          return { ...whale }
+          return { ...whale };
       }
-    })
+    });
   }
-
-  console.log("fieldSize in heat", state.fieldSize);
 
   const race = setInterval(() => {
     // check if there's a winner yet
@@ -301,7 +299,8 @@ io.on("connection", function (socket) {
   });
 
   socket.on("fieldSize", (data) => {
-    state.fieldSize = data.bolt.left + data.bolt.width / 2;
+    console.log('Fieldsize data', data);
+    state.fieldSize = (data.bolt.left + (data.bolt.width / 2)) - data.whales[0].right;
     console.log("fieldSize", state.fieldSize);
     // map whales against starting position in game, add those to global state
   });
@@ -323,7 +322,7 @@ io.on("connection", function (socket) {
         checkIfRunning(() => runRace(data.message));
         break;
       case 'stopRace':
-        stopRace(state.race)
+        stopRace(state.race);
       default:
         handleAdminEvent(data.event);
         break;
