@@ -1,0 +1,1 @@
+./node_modules/.bin/sequelize db:migrate --config ./src/app/config/config.json  --migrations-path ./src/app/migrations/ --url 'mysql://dothealth:DotHealth2017@db/dothealth_development'

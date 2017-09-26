@@ -16,7 +16,7 @@ const initialState = {
   beacon: "red",
   fakeHeat: false,
   predatorMode: false,
-  whaleOrder: ["Savage", "Love", "Cyber", "Imperial"]
+  whaleOrder: ["predator", "love", "cyber", "imperial"]
 };
 
 export default (state = initialState, action = {}) => {

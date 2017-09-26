@@ -42,26 +42,26 @@ class PlayerCard extends Component {
         : "";
 
     const PredatorMode =
-      this.props.whale.toLowerCase() === "savage"
+      this.props.whale.toLowerCase() === "predator"
         ? <label htmlFor="predator">
-            <span
-              style={{
-                position: "relative",
-                top: "-7px",
-                paddingRight: "5px"
-              }}
-            >
-              Predator Mode
+          <span
+            style={{
+              position: "relative",
+              top: "-7px",
+              paddingRight: "5px"
+            }}
+          >
+            Predator Mode
             </span>
-            <Toggle
-              id="predator"
-              onChange={e =>
-                this.props.sendPredatorMode(
-                  this.props.whaleOrder,
-                  e.target.checked
-                )}
-            />
-          </label>
+          <Toggle
+            id="predator"
+            onChange={e =>
+              this.props.sendPredatorMode(
+                this.props.whaleOrder,
+                e.target.checked
+              )}
+          />
+        </label>
         : "";
 
     return (
@@ -96,19 +96,19 @@ class PlayerCard extends Component {
               <Grid.Row>
                 {this.props.connected
                   ? <Button
-                      circular
-                      icon="signal"
-                      color="green"
-                      size="medium"
-                      floated="right"
-                    />
+                    circular
+                    icon="signal"
+                    color="green"
+                    size="medium"
+                    floated="right"
+                  />
                   : <Button
-                      circular
-                      icon="signal"
-                      color="red"
-                      size="medium"
-                      floated="right"
-                    />}
+                    circular
+                    icon="signal"
+                    color="red"
+                    size="medium"
+                    floated="right"
+                  />}
               </Grid.Row>
             </Grid.Column>
           </Grid.Row>

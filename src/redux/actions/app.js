@@ -34,7 +34,7 @@ export function updateWhaleOrder(whaleOrder) {
 
 export function togglePredatorMode(whaleOrder, predatorMode) {
   const newOrder = predatorMode
-    ? move(whaleOrder, whaleOrder.indexOf("Savage"), 2)
+    ? move(whaleOrder, whaleOrder.indexOf("predator"), 2)
     : whaleOrder;
 
   return dispatch => {
