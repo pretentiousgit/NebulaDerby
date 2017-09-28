@@ -38,21 +38,25 @@ const initialState = {
 const initialWhales = [
   {
     name: "imperial",
+    faction: "Gravisburg Imperium",
     position: 60,
     final: 4
   },
   {
     name: "cyber",
+    faction: "Virtuous Sphere",
     position: 60,
     final: 4
   },
   {
     name: "love",
+    faction: "Cult of the Pulsing Root",
     position: 60,
     final: 4
   },
   {
     name: "predator",
+    faction: "Rikkenor",
     position: 60,
     final: 4
   }
@@ -89,25 +93,33 @@ function stopRace(race) {
 
 function newHeat() {
   state = {
-    ...initialState,
+    ...state,
+    raceTimer: 10000,
+    interval: 120,
+    running: false,
+    race: '',
     whales: [
       {
         name: "imperial",
+        faction: "Gravisburg Imperium",
         position: 60,
         final: 4
       },
       {
         name: "cyber",
+        faction: "Virtuous Sphere",
         position: 60,
         final: 4
       },
       {
         name: "love",
+        faction: "Cult of the Pulsing Root",
         position: 60,
         final: 4
       },
       {
         name: "predator",
+        faction: "Rikkenor",
         position: 60,
         final: 4
       }
@@ -139,7 +151,6 @@ function checkIfRunning(f) {
 }
 
 function calculateMix(final) {
-
   /* 
     todo: on client boot, pass through the amount of space for a whale to race
     Use that here
@@ -174,7 +185,7 @@ function calculateMix(final) {
       case 3:
         return quarter;
       default:
-        return 1;
+        return whaleDistanceMax;
     }
   };
 
@@ -190,9 +201,9 @@ function calculateMix(final) {
   }
 
   const rando = randomizer(minMovement(), whaleDistanceMax);
-  const rando2 = randn_bm();
+  const rando2 = Math.abs(randn_bm() * minMovement());
 
-  return rando;
+  return rando2;
 };
 
 function checkWinner(whale, i) {
@@ -210,8 +221,7 @@ function checkWinner(whale, i) {
 }
 
 function runRace(info) {
-  console.log('startRace event', info);
-  io.emit('startRace', state.raceTimer);
+  console.log('startRace event', info, state.fieldSize);
 
   state = {
     ...state,
@@ -220,21 +230,25 @@ function runRace(info) {
     whales: [
       {
         name: "imperial",
+        faction: "Gravisburg Imperium",
         position: 60,
         final: 4
       },
       {
         name: "cyber",
+        faction: "Virtuous Sphere",
         position: 60,
         final: 4
       },
       {
         name: "love",
+        faction: "Cult of the Pulsing Root",
         position: 60,
         final: 4
       },
       {
         name: "predator",
+        faction: "Rikkenor",
         position: 60,
         final: 4
       }
@@ -298,11 +312,12 @@ io.on("connection", function (socket) {
     console.log("user disconnected");
   });
 
-  socket.on("fieldSize", (data) => {
-    console.log('Fieldsize data', data);
-    state.fieldSize = (data.bolt.left + (data.bolt.width / 2)) - data.whales[0].right;
-    console.log("fieldSize", state.fieldSize);
-    // map whales against starting position in game, add those to global state
+  socket.on("finalLoadSize", (data) => {
+    state = {
+      ...state,
+      fieldSize: data.finishLine - data.whales[0].scaleSize
+    };
+    console.log('finalLoadSize', state);
   });
 
   socket.on("enterRoom", (data) => {
@@ -323,6 +338,7 @@ io.on("connection", function (socket) {
         break;
       case 'stopRace':
         stopRace(state.race);
+        break;
       default:
         handleAdminEvent(data.event);
         break;
