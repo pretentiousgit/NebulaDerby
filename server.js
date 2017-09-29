@@ -132,8 +132,8 @@ function newHeat() {
 
 function handleAdminEvent(event) {
   console.log(event, state);
+  io.emit('adminEvent', event);
   if (!state[event]) {
-    io.emit('adminEvent', event);
     state = {
       ...state, [event]: true
     };
