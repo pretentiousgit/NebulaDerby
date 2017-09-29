@@ -144,34 +144,14 @@ function handleAdminEvent(event) {
 
 function checkIfRunning(f) {
   if (state.running === true) {
-    console.log('Heat already running');
+    console.log('Heat already running', state);
   } else {
     f();
   }
 }
 
 function calculateMix(final) {
-  /* 
-    todo: on client boot, pass through the amount of space for a whale to race
-    Use that here
-  */
-
-  /* TODO:
-  Whale Race Math Notes
-  max distance a whale can go: 1490
-  to find possible interval distances, divide 1490 by race time
-  ex: 10000 / 100 = 100 intervals
-  ex: 10000 / 120 = ~81 intervals?
-  ex: 10000 / 240 = ~41 intervals
-  divide 1490 by number of intervals:
-  1490/81 = 18.39 
-  1490/41 = 36.34
-
-  TODO: MAKE GAPS BIGGER BETWEEN WHAAAALES
-
-  */
-
-  const fieldWidth = ((state.fieldSize || 1490) * 2);
+  const fieldWidth = ((state.fieldSize) * 2);
   const numberOfIntervals = initialState.raceTimer / state.interval;
   const whaleDistanceMax = (fieldWidth / numberOfIntervals);
   const quarter = whaleDistanceMax / 4;
@@ -179,19 +159,15 @@ function calculateMix(final) {
   const minMovement = () => {
     switch (final) {
       case 1:
-        return quarter * 3;
-      case 2:
-        return quarter * 2;
-      case 3:
-        return quarter;
-      default:
         return whaleDistanceMax;
+      case 2:
+        return (whaleDistanceMax / 3) * 2;
+      case 3:
+        return whaleDistanceMax / 3;
+      default:
+        return quarter;
     }
   };
-
-  function randomizer(min, max) {
-    return Math.floor((Math.random() * max) + min);
-  }
 
   function randn_bm() {
     var u = 0, v = 0;
@@ -200,7 +176,6 @@ function calculateMix(final) {
     return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
   }
 
-  const rando = randomizer(minMovement(), whaleDistanceMax);
   const rando2 = Math.abs(randn_bm() * minMovement());
 
   return rando2;
@@ -213,19 +188,21 @@ function checkWinner(whale, i) {
   };
 
   if (update.position >= state.fieldSize) {
-    console.log('A whale has won!');
-    clearInterval(i);
+    console.log('A whale has won!', update.position, state.fieldSize);
+    stopRace(i);
+    console.log('after StopRace', );
   }
 
   return update;
 }
 
 function runRace(info) {
-  console.log('startRace event', info, state.fieldSize);
+  console.log('startRaceEvent', info, state.fieldSize);
+  io.emit('startRace');
 
   state = {
     ...state,
-    running: true,
+    raceTimer: initialState.raceTimer,
     fakeHeat: info.fakeHeat,
     whales: [
       {
@@ -274,6 +251,8 @@ function runRace(info) {
     // check if there's a winner yet
     // if not, continue
     // if so, set the winner and let the timer run down
+
+    // this state is overwriting the state written by checkWinner - checkWinner needs to be prioritized
     state = {
       ...state,
       raceTimer: state.raceTimer -= state.interval,
@@ -284,19 +263,14 @@ function runRace(info) {
   }, state.interval);
 
   setTimeout(() => {
-    stopRace();
-    clearInterval(race);
+    console.log('state in timeout', );
+    stopRace(race);
   }, state.raceTimer);
 
   io.emit('whaleState', state);
 }
 
 /*
--- if it is a fake heat, the whale order should be taken into account
---otherwise, just run the numbers
--- add a STOP RACE
--- Make sure whales stop when they hit the "finish line"
--- Add a "finish line"
 --add a state for WHALE WINS -- ANIMATE
 -- Add a TRANZONIC INTERFERENCE -- ANIMATE
 --Add a GALACTAGASM -- ANIMATE
