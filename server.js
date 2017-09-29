@@ -40,25 +40,25 @@ const initialWhales = [
     name: "imperial",
     faction: "Gravisburg Imperium",
     position: 60,
-    final: 4
+    final: 1
   },
   {
     name: "cyber",
     faction: "Virtuous Sphere",
     position: 60,
-    final: 4
+    final: 1
   },
   {
     name: "love",
     faction: "Cult of the Pulsing Root",
     position: 60,
-    final: 4
+    final: 1
   },
   {
     name: "predator",
     faction: "Rikkenor",
     position: 60,
-    final: 4
+    final: 1
   }
 ];
 
@@ -78,7 +78,7 @@ function moveForward(position) {
 function stopRace(race) {
   state.running = false;
   const victory = state.whales.reduce((prev, current) => (prev.position > current.position) ? prev : current);
-
+  clearInterval(race);
   // for each object in the collection
   // if it is larger than the existing last object, push it into queue
   // if it is not, 
@@ -103,25 +103,25 @@ function newHeat() {
         name: "imperial",
         faction: "Gravisburg Imperium",
         position: 60,
-        final: 4
+        final: 1
       },
       {
         name: "cyber",
         faction: "Virtuous Sphere",
         position: 60,
-        final: 4
+        final: 1
       },
       {
         name: "love",
         faction: "Cult of the Pulsing Root",
         position: 60,
-        final: 4
+        final: 1
       },
       {
         name: "predator",
         faction: "Rikkenor",
         position: 60,
-        final: 4
+        final: 1
       }
     ]
   };
@@ -164,8 +164,10 @@ function calculateMix(final) {
         return (whaleDistanceMax / 3) * 2;
       case 3:
         return whaleDistanceMax / 3;
-      default:
+      case 4:
         return quarter;
+      default:
+        return whaleDistanceMax;
     }
   };
 
@@ -204,30 +206,31 @@ function runRace(info) {
     ...state,
     raceTimer: initialState.raceTimer,
     fakeHeat: info.fakeHeat,
+    running: true,
     whales: [
       {
         name: "imperial",
         faction: "Gravisburg Imperium",
         position: 60,
-        final: 4
+        final: 1
       },
       {
         name: "cyber",
         faction: "Virtuous Sphere",
         position: 60,
-        final: 4
+        final: 1
       },
       {
         name: "love",
         faction: "Cult of the Pulsing Root",
         position: 60,
-        final: 4
+        final: 1
       },
       {
         name: "predator",
         faction: "Rikkenor",
         position: 60,
-        final: 4
+        final: 1
       }
     ]
   };
@@ -241,6 +244,8 @@ function runRace(info) {
           return { ...whale, final: 2 };
         case 2:
           return { ...whale, final: 3 };
+        case 3:
+          return { ...whale, final: 4 };
         default:
           return { ...whale };
       }
@@ -253,18 +258,24 @@ function runRace(info) {
     // if so, set the winner and let the timer run down
 
     // this state is overwriting the state written by checkWinner - checkWinner needs to be prioritized
-    state = {
-      ...state,
-      raceTimer: state.raceTimer -= state.interval,
-      whales: state.whales.map(whale => (checkWinner(whale, race)))
-    };
+    if(state.running === true){
+      state = {
+        ...state,
+        raceTimer: state.raceTimer -= state.interval,
+        whales: state.whales.map(whale => (checkWinner(whale, race)))
+      };
 
-    io.emit('whaleState', state);
+      io.emit('whaleState', state);
+    } else {
+      stopRace(race);
+    }
   }, state.interval);
 
   setTimeout(() => {
-    console.log('state in timeout', );
-    stopRace(race);
+    if(state.running === true){
+      console.log('state in timeout', );
+      stopRace(race);
+    }
   }, state.raceTimer);
 
   io.emit('whaleState', state);
