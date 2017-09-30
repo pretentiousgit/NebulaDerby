@@ -76,7 +76,10 @@ function stopRace(race) {
     running: false,
     race: null
   };
+}
 
+function getWinner(race) {
+  stopRace(race);
   const victory = state.whales.reduce((prev, current) => (prev.position > current.position) ? prev : current);
   // for each object in the collection
   // if it is larger than the existing last object, push it into queue
@@ -131,19 +134,17 @@ function newHeat() {
 
 function handleAdminEvent(event) {
   console.log(event, state);
-  io.emit('adminEvent', event);
-  if (!state[event]) {
-    state = {
-      ...state, [event]: true
-    };
+  if(event === 'FleetAttack'){
+    io.emit('adminEvent', event);
+    stopRace();
   } else {
-    console.log('event', event, ' already fired');
+    io.emit('adminEvent', event);
   }
 }
 
 function checkIfRunning(f) {
   if (state.running === true) {
-    console.log('Heat already running', state);
+    console.log('Heat already running');
   } else {
     f();
   }
@@ -190,7 +191,7 @@ function checkWinner(whale, i) {
 
   if (update.position >= state.fieldSize) {
     console.log('A whale has won!', update.position, state.fieldSize);
-    stopRace(i);
+    getWinner(i);
     console.log('after StopRace', );
   }
 
@@ -267,14 +268,14 @@ function runRace(info) {
 
       io.emit('whaleState', state);
     } else {
-      stopRace(race);
+      getWinner(race);
     }
   }, state.interval);
 
   setTimeout(() => {
     if(state.running === true){
       console.log('state in timeout', );
-      stopRace(race);
+      getWinner(race);
     }
   }, state.raceTimer);
 

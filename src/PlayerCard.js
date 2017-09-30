@@ -77,7 +77,6 @@ class PlayerCard extends Component {
                   {this.props.whale} {LoveHandle}
                 </Item.Header>
                 <Item.Content>
-                  {PredatorMode}
                   <Dropdown
                     placeholder="Select Pilot"
                     fluid
