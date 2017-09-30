@@ -345,7 +345,7 @@
 	<key>monotypeProjectID</key>
 	<string>899EB620-156D-40DA-93A8-51659FFD4B5A-37120-000305F6DA974245</string>
 	<key>oidCounter</key>
-	<integer>132</integer>
+	<integer>134</integer>
 	<key>resourcesInfo</key>
 	<dict>
 		<key>groups</key>
@@ -1182,13 +1182,15 @@
 						<key>timeCursors</key>
 						<dict>
 							<key>103</key>
-							<real>0.0</real>
+							<real>0.066666670143604279</real>
 							<key>105</key>
-							<real>0.80000001192092896</real>
+							<real>0.0</real>
 							<key>109</key>
 							<real>0.0</real>
+							<key>134</key>
+							<real>0.0</real>
 							<key>91</key>
-							<real>1</real>
+							<real>1.0666667222976685</real>
 							<key>92</key>
 							<real>1</real>
 							<key>kTimelineDefaultIdentifier</key>
@@ -1198,7 +1200,7 @@
 						<integer>270</integer>
 					</dict>
 					<key>canvasSize</key>
-					<string>{2705, 1220}</string>
+					<string>{2941, 1135}</string>
 					<key>hypeScene</key>
 					<dict>
 						<key>backgroundColor</key>
@@ -1223,7 +1225,7 @@
 					<key>rootSymbolControllerOid</key>
 					<string>2</string>
 					<key>scrollViewOffset</key>
-					<string>{10, 0}</string>
+					<string>{0, 0}</string>
 					<key>zoomFactor</key>
 					<real>0.5</real>
 				</dict>
@@ -1257,7 +1259,6 @@ function initSocket(hypeDocument, element, event) {
 	}
 	
 	function clearVictoryMessage() {
-		console.log('clear message');
 		hypeDocument.setElementProperty(hypeDocument.getElementById('victory'), 'opacity', 0);
 		hypeDocument.setElementProperty(hypeDocument.getElementById('victoryWhale'), 'opacity', 0);
 		hypeDocument.getElementById('victoryWhale').innerHTML = '';
@@ -1305,7 +1306,6 @@ function initSocket(hypeDocument, element, event) {
 	})
 	
 	socket.on('whaleState', (msg) =&gt; {
-		console.log('whaleState!', msg);
 		setWhalePositions(msg);
 	})
 	
@@ -1315,40 +1315,31 @@ function initSocket(hypeDocument, element, event) {
 	});
 	
 	socket.on('winner', (msg) =&gt; {
-		console.log(msg);		
 		hypeDocument.getElementById('victoryWhale').innerHTML = msg.faction;
 		hypeDocument.startTimelineNamed('victory', hypeDocument.kDirectionForward);
 	})
 	
 	socket.on('adminEvent', (event) =&gt; {
 		console.log('Event', event);
+		if(event === 'FleetAttack' ) {
+			hypeDocument.startTimelineNamed('fleetAttack', hypeDocument.kDirectionForward)
+			hypeDocument.startTimelineNamed('fleetLoop', hypeDocument.kDirectionForward)
+		}
 		if(event === 'Galactagasm' ) {
 			hypeDocument.startTimelineNamed('galactagasm', hypeDocument.kDirectionForward)
 			setTimeout(() =&gt; {
+				console.log('galact timeout');
 				hypeDocument.pauseTimelineNamed('galactagasm')
-				hypeDocument.setElementProperty(hypeDocument.getElementById('rectangle'), 'opacity', 0);
-				hypeDocument.setElementProperty(hypeDocument.getElementById('gasm'), 'opacity', 0);
-			}, 10000)
-		}
-		if(event === 'FleetAttack' ) {
-			hypeDocument.startTimelineNamed('fleetAttack', hypeDocument.kDirectionForward)
-			setTimeout(() =&gt; {
-				hypeDocument.pauseTimelineNamed('fleetAttack')
-				hypeDocument.setElementProperty(hypeDocument.getElementById('rectangle'), 'opacity', 0);
-				hypeDocument.setElementProperty(hypeDocument.getElementById('fleetAttackText'), 'opacity', 0);
-				hypeDocument.setElementProperty(hypeDocument.getElementById('fleetAttackBG'), 'opacity', 0);
-			}, 10000)
+//				hypeDocument.startTimelineNamed('Main Timeline');
+			}, 15000)
 		}
 		if(event === 'TranzonicInterference' ) {
 			hypeDocument.startTimelineNamed('tranzonic', hypeDocument.kDirectionForward)
 			setTimeout(() =&gt; {
-				hypeDocument.pauseTimelineNamed('tranzonic')
-				hypeDocument.setElementProperty(hypeDocument.getElementById('rectangle'), 'opacity', 0);
-				hypeDocument.setElementProperty(hypeDocument.getElementById('tranz1'), 'opacity', 0);
-				hypeDocument.setElementProperty(hypeDocument.getElementById('tranz2'), 'opacity', 0);
-				hypeDocument.setElementProperty(hypeDocument.getElementById('tranzBG'), 'opacity', 0);
-				hypeDocument.setElementProperty(hypeDocument.getElementById('tranzText'), 'opacity', 0);
-			}, 10000)
+				console.log('tranzonic timeout');
+				hypeDocument.pauseTimelineNamed('tranzonic');
+//				hypeDocument.startTimelineNamed('Main Timeline');
+			}, 15000)
 		}
 	})
 }
@@ -1383,17 +1374,17 @@ function sendSocketMessage(hypeDocument, element, event) {
 	<array>
 		<dict>
 			<key>documentIdentifier</key>
-			<string>4F293123-9B6C-48F3-98BE-EE41D2A374F8-2639-0000FD3B0455FAB8</string>
+			<string>56A8C2B7-C276-4D09-B048-C28A46231E25-44017-00012C5DB3D06E1F</string>
 			<key>selectedObjects</key>
 			<array>
-				<string>104</string>
+				<string>126</string>
 			</array>
 			<key>symbol</key>
 			<dict>
 				<key>addToNewSceneControllers</key>
 				<false/>
 				<key>currentTimelineIdentifier</key>
-				<string>kTimelineDefaultIdentifier</string>
+				<string>105</string>
 				<key>customBehaviors</key>
 				<array>
 					<dict>
@@ -1459,6 +1450,12 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
+							<string>Locked</string>
+							<key>objectValue</key>
+							<string>0</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
 							<string>BorderWidthTop</string>
 							<key>objectValue</key>
 							<string>0px</string>
@@ -1495,9 +1492,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>InnerHTML</string>
+							<string>BackdropFilterEffectBlur</string>
 							<key>objectValue</key>
-							<string></string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1531,9 +1528,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ZIndex</string>
+							<string>InnerHTML</string>
 							<key>objectValue</key>
-							<string>17</string>
+							<string></string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1543,9 +1540,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BackdropFilterEffectBlur</string>
+							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>14</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1672,9 +1669,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ClassType</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>Text</string>
+							<string>fleetAttackText</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1690,9 +1687,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>ClassType</string>
 							<key>objectValue</key>
-							<string>fleetAttackText</string>
+							<string>Text</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1726,6 +1723,12 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
+							<string>PaddingLeft</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
 							<string>19</string>
@@ -1735,12 +1738,6 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<string>Width</string>
 							<key>objectValue</key>
 							<string>1496px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>PaddingLeft</string>
-							<key>objectValue</key>
-							<string>8px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1777,15 +1774,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
-							<key>objectValue</key>
-							<string>div</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>BorderWidthBottom</string>
 							<key>objectValue</key>
 							<string>0px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TagName</string>
+							<key>objectValue</key>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1801,9 +1798,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Opacity</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>fleetAttackBG</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1813,9 +1810,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>Opacity</string>
 							<key>objectValue</key>
-							<string>fleetAttackBG</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1849,13 +1846,13 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BorderColorLeft</string>
+							<string>BorderColorTop</string>
 							<key>objectValue</key>
 							<string>#D8DDE4</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BorderColorTop</string>
+							<string>BorderColorLeft</string>
 							<key>objectValue</key>
 							<string>#D8DDE4</string>
 						</dict>
@@ -1972,9 +1969,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Opacity</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>tranz1</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1984,15 +1981,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>WordWrap</string>
+							<string>Opacity</string>
 							<key>objectValue</key>
-							<string>break-word</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ClassType</string>
+							<string>WordWrap</string>
 							<key>objectValue</key>
-							<string>Text</string>
+							<string>break-word</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2008,9 +2005,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>ClassType</string>
 							<key>objectValue</key>
-							<string>tranz1</string>
+							<string>Text</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2044,21 +2041,21 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
+							<string>PaddingLeft</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>21</string>
+							<string>22</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>Width</string>
 							<key>objectValue</key>
 							<string>849px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>PaddingLeft</string>
-							<key>objectValue</key>
-							<string>8px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2076,7 +2073,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2161,15 +2158,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>PaddingBottom</string>
-							<key>objectValue</key>
-							<string>8px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>BackdropFilterEffectBrightness</string>
 							<key>objectValue</key>
 							<string>0.9541139240506329</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingBottom</string>
+							<key>objectValue</key>
+							<string>8px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2247,7 +2244,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2272,15 +2269,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
-							<key>objectValue</key>
-							<string>div</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>BorderWidthBottom</string>
 							<key>objectValue</key>
 							<string>0px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TagName</string>
+							<key>objectValue</key>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2296,9 +2293,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Opacity</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>tranzBG</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2308,9 +2305,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>Opacity</string>
 							<key>objectValue</key>
-							<string>tranzBG</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2344,13 +2341,13 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BorderColorLeft</string>
+							<string>BorderColorTop</string>
 							<key>objectValue</key>
 							<string>#D8DDE4</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BorderColorTop</string>
+							<string>BorderColorLeft</string>
 							<key>objectValue</key>
 							<string>#D8DDE4</string>
 						</dict>
@@ -2394,7 +2391,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>22</string>
+							<string>23</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2406,7 +2403,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2479,9 +2476,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ClassType</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>Text</string>
+							<string>tranzText</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2497,9 +2494,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>ClassType</string>
 							<key>objectValue</key>
-							<string>tranzText</string>
+							<string>Text</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2533,21 +2530,21 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
+							<string>PaddingLeft</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>23</string>
+							<string>24</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>Width</string>
 							<key>objectValue</key>
 							<string>1704px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>PaddingLeft</string>
-							<key>objectValue</key>
-							<string>8px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2559,7 +2556,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2680,9 +2677,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextAlign</string>
+							<string>InnerHTML</string>
 							<key>objectValue</key>
-							<string>center</string>
+							<string>💞💖&lt;font face="AZSailorTattoo" style="font-size: 96px;"&gt;GALACTAGASM&lt;/font&gt;💖💞</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2692,9 +2689,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>InnerHTML</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>💞💖&lt;font face="AZSailorTattoo" style="font-size: 96px;"&gt;GALACTAGASM&lt;/font&gt;💖💞</string>
+							<string>gasm</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2704,9 +2701,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ZIndex</string>
+							<string>TextAlign</string>
 							<key>objectValue</key>
-							<string>24</string>
+							<string>center</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2722,15 +2719,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>PaddingLeft</string>
+							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>8px</string>
+							<string>25</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>PaddingLeft</string>
 							<key>objectValue</key>
-							<string>gasm</string>
+							<string>8px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2803,6 +2800,171 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<string>BackdropFilterEffectBrightness</string>
 							<key>objectValue</key>
 							<string>1</string>
+						</dict>
+					</array>
+					<key>133</key>
+					<array>
+						<dict>
+							<key>identifier</key>
+							<string>FontFamily</string>
+							<key>objectValue</key>
+							<string>Chalkduster,Papyrus,fantasy</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TextColor</string>
+							<key>objectValue</key>
+							<string>#FFFB00</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingRight</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>FontSize</string>
+							<key>objectValue</key>
+							<string>288px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ExplicitDimensions</string>
+							<key>objectValue</key>
+							<string>YES</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Opacity</string>
+							<key>objectValue</key>
+							<string>0</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Display</string>
+							<key>objectValue</key>
+							<string>inline</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>WordWrap</string>
+							<key>objectValue</key>
+							<string>break-word</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ClassType</string>
+							<key>objectValue</key>
+							<string>Text</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Top</string>
+							<key>objectValue</key>
+							<string>353px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BackdropFilterEffectBrightness</string>
+							<key>objectValue</key>
+							<string>0.9541139240506329</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingBottom</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>WhiteSpaceCollapsing</string>
+							<key>objectValue</key>
+							<string>preserve</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Position</string>
+							<key>objectValue</key>
+							<string>absolute</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Height</string>
+							<key>objectValue</key>
+							<string>341px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Left</string>
+							<key>objectValue</key>
+							<string>601px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>FilterEffectBrightness</string>
+							<key>objectValue</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>InnerHTML</string>
+							<key>objectValue</key>
+							<string>BZZT!</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingLeft</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>973px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ZIndex</string>
+							<key>objectValue</key>
+							<string>21</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>RotationAngleZ</string>
+							<key>objectValue</key>
+							<string>323deg</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingTop</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Locked</string>
+							<key>objectValue</key>
+							<string>0</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Overflow</string>
+							<key>objectValue</key>
+							<string>visible</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>DisplayName</string>
+							<key>objectValue</key>
+							<string>tranz2</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TagName</string>
+							<key>objectValue</key>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>15</key>
@@ -2962,9 +3124,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>AltText</string>
+							<string>BackdropFilterEffectBlur</string>
 							<key>objectValue</key>
-							<string>A cartoonish blue sperm whale</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2974,15 +3136,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BackdropFilterEffectBlur</string>
+							<string>AltText</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>A cartoonish blue sperm whale</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>ConstrainProportions</string>
 							<key>objectValue</key>
-							<string>imperialWhale</string>
+							<string>YES</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2992,9 +3154,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ConstrainProportions</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>YES</string>
+							<string>imperialWhale</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3151,15 +3313,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>FontSize</string>
+							<string>BackdropFilterEffectBlur</string>
 							<key>objectValue</key>
-							<string>48px</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ExplicitDimensions</string>
+							<string>FontSize</string>
 							<key>objectValue</key>
-							<string>YES</string>
+							<string>48px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3193,21 +3355,21 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
+							<string>BackdropFilterEffectBrightness</string>
+							<key>objectValue</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
 							<string>PaddingBottom</string>
 							<key>objectValue</key>
 							<string>8px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BackdropFilterEffectBlur</string>
+							<string>ExplicitDimensions</string>
 							<key>objectValue</key>
-							<string>0</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>BackdropFilterEffectBrightness</string>
-							<key>objectValue</key>
-							<string>1</string>
+							<string>YES</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3310,9 +3472,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>ConstrainProportions</string>
 							<key>objectValue</key>
-							<string>cyberWhale</string>
+							<string>YES</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3322,9 +3484,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ConstrainProportions</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>YES</string>
+							<string>cyberWhale</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3463,9 +3625,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>ConstrainProportions</string>
 							<key>objectValue</key>
-							<string>loveWhale</string>
+							<string>YES</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3475,9 +3637,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ConstrainProportions</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>YES</string>
+							<string>loveWhale</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3640,9 +3802,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>BackdropFilterEffectBrightness</string>
 							<key>objectValue</key>
-							<string>bolt</string>
+							<string>1</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3652,9 +3814,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BackdropFilterEffectBrightness</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>bolt</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3787,9 +3949,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>ConstrainProportions</string>
 							<key>objectValue</key>
-							<string>predatorWhale</string>
+							<string>YES</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3799,9 +3961,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ConstrainProportions</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>YES</string>
+							<string>predatorWhale</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3934,15 +4096,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>FontSize</string>
-							<key>objectValue</key>
-							<string>96px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>BackdropFilterEffectBlur</string>
 							<key>objectValue</key>
 							<string>0</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>FontSize</string>
+							<key>objectValue</key>
+							<string>96px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3976,6 +4138,12 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
+							<string>BackdropFilterEffectBrightness</string>
+							<key>objectValue</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
 							<string>PaddingBottom</string>
 							<key>objectValue</key>
 							<string>8px</string>
@@ -3985,12 +4153,6 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<string>ClassType</string>
 							<key>objectValue</key>
 							<string>Text</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>BackdropFilterEffectBrightness</string>
-							<key>objectValue</key>
-							<string>1</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4032,7 +4194,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>15</string>
+							<string>16</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4105,27 +4267,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
+							<string>BackdropFilterEffectBlur</string>
+							<key>objectValue</key>
+							<string>0</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
 							<string>FontSize</string>
 							<key>objectValue</key>
 							<string>96px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>ExplicitDimensions</string>
-							<key>objectValue</key>
-							<string>YES</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>DomID</string>
-							<key>objectValue</key>
-							<string>victoryWhale</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>Display</string>
-							<key>objectValue</key>
-							<string>inline</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4135,21 +4285,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
+							<string>Display</string>
+							<key>objectValue</key>
+							<string>inline</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
 							<string>WordWrap</string>
 							<key>objectValue</key>
 							<string>break-word</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>Top</string>
-							<key>objectValue</key>
-							<string>463px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>PaddingBottom</string>
-							<key>objectValue</key>
-							<string>8px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4159,15 +4303,33 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BackdropFilterEffectBlur</string>
+							<string>Top</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>463px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>BackdropFilterEffectBrightness</string>
 							<key>objectValue</key>
 							<string>1</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingBottom</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>DomID</string>
+							<key>objectValue</key>
+							<string>victoryWhale</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ExplicitDimensions</string>
+							<key>objectValue</key>
+							<string>YES</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4227,7 +4389,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>16</string>
+							<string>17</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4389,6 +4551,325 @@ function sendSocketMessage(hypeDocument, element, event) {
 							</dict>
 							<dict>
 								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>131</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>8904ADA5-C977-4134-B8FF-F5472D80DB32-44017-00012EF45CCEA371</string>
+								<key>zIndex</key>
+								<integer>1</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>130</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>1788029D-FE17-49A5-B924-F644EF40716B-44017-00012EF714728428</string>
+								<key>zIndex</key>
+								<integer>1</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>129</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>E7062C0A-1FE4-4A83-BE4C-8B5ACF240E7F-44017-00012EFB8F35275E</string>
+								<key>zIndex</key>
+								<integer>1</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>127</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>E8F79C5F-6058-4462-966F-8122A0F08281-44017-00012EFBE4C2656D</string>
+								<key>zIndex</key>
+								<integer>1</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>133</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>FB033B7C-DD19-42CA-99C1-A9071B2A596D-44017-00012EFC1D5CFEFB</string>
+								<key>zIndex</key>
+								<integer>1</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>128</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>C808FBB8-573D-454A-AFAF-0853AC3948F1-44017-00012EFC4DA8ECEC</string>
+								<key>zIndex</key>
+								<integer>1</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>110</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>C9E8F899-A7EA-47C4-A337-A1187C278F7A-44017-00012EFC816E1E3B</string>
+								<key>zIndex</key>
+								<integer>1</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>126</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>542C48AC-B99B-46B6-B9F0-D1627E834801-44017-00012EFCB39E0D1E</string>
+								<key>zIndex</key>
+								<integer>1</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>97</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>CEF18353-6486-415E-A43D-F0A73CE6593A-44017-00012EFCFC17947D</string>
+								<key>zIndex</key>
+								<integer>1</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>95</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>54490B5A-AACF-40DB-B7A7-94D3C390EAA2-44017-00012EFD893E019C</string>
+								<key>zIndex</key>
+								<integer>1</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>104</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>ECA7D53B-17D1-4673-8E1E-7FCC5C5A6852-44017-00012EFDCF0BFB97</string>
+								<key>zIndex</key>
+								<integer>1</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
 								<real>0.5</real>
 								<key>endValue</key>
 								<dict>
@@ -4443,16 +4924,14 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<key>actions</key>
 										<array>
 											<dict>
-												<key>canRestartTimeline</key>
-												<false/>
 												<key>playInReverse</key>
-												<true/>
+												<false/>
 												<key>symbolOid</key>
 												<string>2</string>
 												<key>timelineIdentifier</key>
 												<string>kTimelineDefaultIdentifier</string>
 												<key>type</key>
-												<integer>8</integer>
+												<integer>3</integer>
 											</dict>
 										</array>
 									</dict>
@@ -4464,7 +4943,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>type</key>
 								<integer>2</integer>
 								<key>uuid</key>
-								<string>9E4244D0-247A-48DA-962F-18D7B2872392-96390-00047691867F0D28</string>
+								<string>5F9AB78D-BD2D-46C8-94C8-1D40EE862F69-44017-00013140B97C4A28</string>
 								<key>zIndex</key>
 								<integer>1</integer>
 							</dict>
@@ -4791,7 +5270,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 									<key>identifier</key>
 									<string>Opacity</string>
 									<key>objectValue</key>
-									<string>0.3999999999999997</string>
+									<string>0.7</string>
 								</dict>
 								<key>identifier</key>
 								<string>Opacity</string>
@@ -4806,7 +5285,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 									<key>identifier</key>
 									<string>Opacity</string>
 									<key>objectValue</key>
-									<string>0.1499999999999998</string>
+									<string>0.35</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -4816,42 +5295,6 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<integer>0</integer>
 								<key>uuid</key>
 								<string>C05E8C3D-A6AD-41C5-A6A6-CBCC488D1637-2639-000107613D3400DD</string>
-								<key>zIndex</key>
-								<integer>1</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.76666665077209473</real>
-								<key>endValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0</string>
-								</dict>
-								<key>identifier</key>
-								<string>Opacity</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>131</string>
-								<key>startTime</key>
-								<real>0.0</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>1</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>8C7DB7DA-3F2F-4743-8735-690A30FE65B5-2639-00010C9AC896B224</string>
 								<key>zIndex</key>
 								<integer>1</integer>
 							</dict>
@@ -4952,13 +5395,49 @@ function sendSocketMessage(hypeDocument, element, event) {
 							</dict>
 							<dict>
 								<key>duration</key>
-								<real>0.53333333134651184</real>
+								<real>0.76666665077209473</real>
 								<key>endValue</key>
 								<dict>
 									<key>identifier</key>
 									<string>Opacity</string>
 									<key>objectValue</key>
-									<string>0.1499999999999998</string>
+									<string>0</string>
+								</dict>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>131</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>1</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>8C7DB7DA-3F2F-4743-8735-690A30FE65B5-2639-00010C9AC896B224</string>
+								<key>zIndex</key>
+								<integer>2</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.53333330154418945</real>
+								<key>endValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0.35</string>
 								</dict>
 								<key>identifier</key>
 								<string>Opacity</string>
@@ -4973,7 +5452,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 									<key>identifier</key>
 									<string>Opacity</string>
 									<key>objectValue</key>
-									<string>0.3999999999999997</string>
+									<string>0.7</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -4984,7 +5463,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>31FAE17C-9B32-4B3A-9E9C-188B82517C69-2639-00010764AF2CFBEA</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>3</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -5020,7 +5499,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>BD1F7099-74DD-44CB-95B9-7997E30DCAAE-2639-00010CA2B8F52E18</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>4</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -5081,7 +5560,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 									<key>identifier</key>
 									<string>Opacity</string>
 									<key>objectValue</key>
-									<string>0.1499999999999998</string>
+									<string>0.35</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -5092,7 +5571,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>13891925-A621-4381-872A-9DB12B635E39-2639-00010771F9A8C338</string>
 								<key>zIndex</key>
-								<integer>3</integer>
+								<integer>5</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -5121,7 +5600,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>C621DBC4-890F-4AC9-82A3-F435E686EDA4-2639-00010CA59A634521</string>
 								<key>zIndex</key>
-								<integer>3</integer>
+								<integer>6</integer>
 							</dict>
 						</array>
 						<key>firstKeyframeIsRelative</key>
@@ -5173,6 +5652,71 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<integer>0</integer>
 								<key>uuid</key>
 								<string>BD120B04-D915-4EA1-99B5-EA236E8AD87A-2639-00010A67861EAF4B</string>
+								<key>zIndex</key>
+								<integer>1</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>BackgroundColor</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>104</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>BackgroundColor</string>
+									<key>objectValue</key>
+									<string>#00F900</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>7E513EFD-94F6-428E-8867-985C87472194-2639-000108D022586073</string>
+								<key>zIndex</key>
+								<integer>1</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.1666666716337204</real>
+								<key>endValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>1</string>
+								</dict>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>133</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>F7FE2EDA-C2E0-457E-93D5-EC67B67B17CD-44017-00012EA68A6011D1</string>
 								<key>zIndex</key>
 								<integer>1</integer>
 							</dict>
@@ -5243,64 +5787,6 @@ function sendSocketMessage(hypeDocument, element, event) {
 							</dict>
 							<dict>
 								<key>duration</key>
-								<real>0.0</real>
-								<key>identifier</key>
-								<string>Opacity</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>129</string>
-								<key>startTime</key>
-								<real>0.0</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0.5</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>612B4ABC-EAB5-41DF-8313-1E6AAFA71AEC-2639-00010B1C7CB2F82D</string>
-								<key>zIndex</key>
-								<integer>1</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.0</real>
-								<key>identifier</key>
-								<string>BackgroundColor</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>104</string>
-								<key>startTime</key>
-								<real>0.0</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>BackgroundColor</string>
-									<key>objectValue</key>
-									<string>#00F900</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>7E513EFD-94F6-428E-8867-985C87472194-2639-000108D022586073</string>
-								<key>zIndex</key>
-								<integer>1</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
 								<real>0.46666666865348816</real>
 								<key>endValue</key>
 								<dict>
@@ -5337,67 +5823,30 @@ function sendSocketMessage(hypeDocument, element, event) {
 							</dict>
 							<dict>
 								<key>duration</key>
-								<real>2</real>
-								<key>endValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>ActionHandler</string>
-									<key>objectValue</key>
-									<dict>
-										<key>actions</key>
-										<array>
-											<dict>
-												<key>playInReverse</key>
-												<false/>
-												<key>symbolOid</key>
-												<string>2</string>
-												<key>timelineIdentifier</key>
-												<string>105</string>
-												<key>type</key>
-												<integer>3</integer>
-											</dict>
-										</array>
-									</dict>
-								</dict>
+								<real>0.0</real>
 								<key>identifier</key>
-								<string>ActionHandler</string>
+								<string>Opacity</string>
 								<key>isRelative</key>
 								<false/>
 								<key>referenceOid</key>
-								<string>105</string>
+								<string>129</string>
 								<key>startTime</key>
 								<real>0.0</real>
 								<key>startValue</key>
 								<dict>
 									<key>identifier</key>
-									<string>ActionHandler</string>
+									<string>Opacity</string>
 									<key>objectValue</key>
-									<dict>
-										<key>actions</key>
-										<array>
-											<dict>
-												<key>canRestartTimeline</key>
-												<true/>
-												<key>playInReverse</key>
-												<false/>
-												<key>symbolOid</key>
-												<string>2</string>
-												<key>timelineIdentifier</key>
-												<string>105</string>
-												<key>type</key>
-												<integer>8</integer>
-											</dict>
-										</array>
-									</dict>
+									<string>0.5</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
 								<key>timingFunctionOid</key>
 								<string>c</string>
 								<key>type</key>
-								<integer>2</integer>
+								<integer>0</integer>
 								<key>uuid</key>
-								<string>FB6F6C38-6E98-4600-971B-C01330EA41C2-2639-00010C02903FC119</string>
+								<string>612B4ABC-EAB5-41DF-8313-1E6AAFA71AEC-2639-00010B1C7CB2F82D</string>
 								<key>zIndex</key>
 								<integer>1</integer>
 							</dict>
@@ -5434,6 +5883,42 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<integer>0</integer>
 								<key>uuid</key>
 								<string>3CC8011D-8DEF-445B-9AA5-C2CC94679792-2639-00010A84DEF7161E</string>
+								<key>zIndex</key>
+								<integer>2</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.1666666716337204</real>
+								<key>endValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>133</string>
+								<key>startTime</key>
+								<real>0.1666666716337204</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>1</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>360B74FB-C20E-4480-B9C3-7FAA546CC317-44017-00012EA68A653B4E</string>
 								<key>zIndex</key>
 								<integer>2</integer>
 							</dict>
@@ -5506,6 +5991,42 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<integer>0</integer>
 								<key>uuid</key>
 								<string>C839AE2E-E60D-4F13-A9F8-6E8260407BE7-2639-00010A8562E19894</string>
+								<key>zIndex</key>
+								<integer>3</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.3333333432674408</real>
+								<key>endValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>1</string>
+								</dict>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>133</string>
+								<key>startTime</key>
+								<real>0.3333333432674408</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>F3E6B806-CCF3-4C7C-8BB9-E93EF5E048DD-44017-00012EA68A694D60</string>
 								<key>zIndex</key>
 								<integer>3</integer>
 							</dict>
@@ -5697,6 +6218,42 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>isRelative</key>
 								<false/>
 								<key>referenceOid</key>
+								<string>133</string>
+								<key>startTime</key>
+								<real>0.66666668653488159</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>1</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>54F4206E-38A2-4D30-978D-8C2BE961560B-44017-00012EA68A6D4CDA</string>
+								<key>zIndex</key>
+								<integer>4</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.33333331346511841</real>
+								<key>endValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
 								<string>128</string>
 								<key>startTime</key>
 								<real>0.66666668653488159</real>
@@ -5753,6 +6310,42 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<string>9B9ED089-88F9-4CFB-AFA8-23F06E883687-2639-000108C32668D30D</string>
 								<key>zIndex</key>
 								<integer>3</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.86666667461395264</real>
+								<key>endValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>1</string>
+								</dict>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>133</string>
+								<key>startTime</key>
+								<real>1</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>5DAE437F-9BE4-495A-A36D-E385DDFB4D07-44017-00012EA68A7146FB</string>
+								<key>zIndex</key>
+								<integer>5</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -5949,6 +6542,42 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>isRelative</key>
 								<false/>
 								<key>referenceOid</key>
+								<string>133</string>
+								<key>startTime</key>
+								<real>1.8666666746139526</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>1</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>4781E70E-6E62-4118-B97F-B8382D51B8C8-44017-00012EA68A754E3C</string>
+								<key>zIndex</key>
+								<integer>6</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.13333332538604736</real>
+								<key>endValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
 								<string>128</string>
 								<key>startTime</key>
 								<real>1.8666666746139526</real>
@@ -5980,7 +6609,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>referenceOid</key>
 								<string>105</string>
 								<key>startTime</key>
-								<real>2</real>
+								<real>1.9666666984558105</real>
 								<key>startValue</key>
 								<dict>
 									<key>identifier</key>
@@ -5991,7 +6620,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<array>
 											<dict>
 												<key>playInReverse</key>
-												<false/>
+												<true/>
 												<key>symbolOid</key>
 												<string>2</string>
 												<key>timelineIdentifier</key>
@@ -6011,7 +6640,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>C03C7AFF-C775-42DD-B2B3-2259B86A496B-2639-000109C88B7A44AD</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>1</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -6041,6 +6670,35 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<string>E00E49CF-17FC-43E4-9F31-62C800AD8E95-2639-00010BD11CA42AE4</string>
 								<key>zIndex</key>
 								<integer>6</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>133</string>
+								<key>startTime</key>
+								<real>2</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>8F563E08-922A-465C-936E-F553B01AC703-44017-00012EA68A7945F3</string>
+								<key>zIndex</key>
+								<integer>7</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -6157,6 +6815,35 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>duration</key>
 								<real>0.0</real>
 								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>104</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>C6E44A84-34C7-4157-8205-42C4C9B039D9-2639-00010952AE0E2868</string>
+								<key>zIndex</key>
+								<integer>1</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
 								<string>BackgroundColor</string>
 								<key>isRelative</key>
 								<false/>
@@ -6182,6 +6869,110 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>zIndex</key>
 								<integer>1</integer>
 							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>110</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>1</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>BE7B48D6-8E72-40DF-BD31-2234F19755EE-2639-00010B3928125474</string>
+								<key>zIndex</key>
+								<integer>2</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>126</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0.6</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>9869E5F5-56F1-4576-8C8E-918E82818F27-2639-00010B3B963F16A7</string>
+								<key>zIndex</key>
+								<integer>3</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Left</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>110</string>
+								<key>startTime</key>
+								<real>3</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Left</string>
+									<key>objectValue</key>
+									<string>218px</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>D97493F2-D273-4D46-AD1C-C27A7F5E95AD-2639-0001091683D551CE</string>
+								<key>zIndex</key>
+								<integer>2</integer>
+							</dict>
+						</array>
+						<key>firstKeyframeIsRelative</key>
+						<false/>
+						<key>framesPerSecond</key>
+						<integer>30</integer>
+						<key>hidden</key>
+						<false/>
+						<key>identifier</key>
+						<string>109</string>
+						<key>name</key>
+						<string>fleetAttack</string>
+						<key>userDefinedDuration</key>
+						<real>0.0</real>
+					</dict>
+					<dict>
+						<key>animations</key>
+						<array>
 							<dict>
 								<key>duration</key>
 								<real>0.53333336114883423</real>
@@ -6214,7 +7005,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>type</key>
 								<integer>0</integer>
 								<key>uuid</key>
-								<string>C6E44A84-34C7-4157-8205-42C4C9B039D9-2639-00010952AE0E2868</string>
+								<string>9AC5091F-C600-4B1B-A60D-C3E18AF942CC-44017-00012F661A765940</string>
 								<key>zIndex</key>
 								<integer>1</integer>
 							</dict>
@@ -6222,19 +7013,19 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>duration</key>
 								<real>0.0</real>
 								<key>identifier</key>
-								<string>Opacity</string>
+								<string>BackgroundColor</string>
 								<key>isRelative</key>
 								<false/>
 								<key>referenceOid</key>
-								<string>110</string>
+								<string>104</string>
 								<key>startTime</key>
 								<real>0.0</real>
 								<key>startValue</key>
 								<dict>
 									<key>identifier</key>
-									<string>Opacity</string>
+									<string>BackgroundColor</string>
 									<key>objectValue</key>
-									<string>1</string>
+									<string>#FF2600</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -6243,36 +7034,64 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>type</key>
 								<integer>0</integer>
 								<key>uuid</key>
-								<string>BE7B48D6-8E72-40DF-BD31-2234F19755EE-2639-00010B3928125474</string>
+								<string>BFE6B2C9-57EF-4B8E-A13E-660F2320392A-44017-00012F68E30E2EFD</string>
 								<key>zIndex</key>
 								<integer>1</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
-								<real>0.0</real>
+								<real>0.83333331346511841</real>
+								<key>endValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>ActionHandler</string>
+									<key>objectValue</key>
+									<dict>
+										<key>actions</key>
+										<array>
+											<dict/>
+										</array>
+									</dict>
+								</dict>
 								<key>identifier</key>
-								<string>Opacity</string>
+								<string>ActionHandler</string>
 								<key>isRelative</key>
 								<false/>
 								<key>referenceOid</key>
-								<string>126</string>
+								<string>134</string>
 								<key>startTime</key>
 								<real>0.0</real>
 								<key>startValue</key>
 								<dict>
 									<key>identifier</key>
-									<string>Opacity</string>
+									<string>ActionHandler</string>
 									<key>objectValue</key>
-									<string>0.6</string>
+									<dict>
+										<key>actions</key>
+										<array>
+											<dict>
+												<key>canRestartTimeline</key>
+												<true/>
+												<key>playInReverse</key>
+												<false/>
+												<key>symbolOid</key>
+												<string>2</string>
+												<key>timelineIdentifier</key>
+												<string>134</string>
+												<key>type</key>
+												<integer>8</integer>
+											</dict>
+										</array>
+									</dict>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
 								<key>timingFunctionOid</key>
 								<string>c</string>
 								<key>type</key>
-								<integer>0</integer>
+								<integer>2</integer>
 								<key>uuid</key>
-								<string>9869E5F5-56F1-4576-8C8E-918E82818F27-2639-00010B3B963F16A7</string>
+								<string>669B33DE-0F3F-47A9-8DB2-5D612A02AD74-44017-00012F6B695087E5</string>
 								<key>zIndex</key>
 								<integer>1</integer>
 							</dict>
@@ -6308,20 +7127,56 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>type</key>
 								<integer>0</integer>
 								<key>uuid</key>
-								<string>18CD2FD8-7844-405F-9F0D-7B3988231965-2639-0001095886852F82</string>
+								<string>124D1D9B-CF91-4B51-9443-65AB076A4C67-44017-00012F661A779372</string>
 								<key>zIndex</key>
 								<integer>2</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
-								<real>0.33333331346511841</real>
-								<key>endValue</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>ActionHandler</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>134</string>
+								<key>startTime</key>
+								<real>0.83333331346511841</real>
+								<key>startValue</key>
 								<dict>
 									<key>identifier</key>
-									<string>Opacity</string>
+									<string>ActionHandler</string>
 									<key>objectValue</key>
-									<string>0</string>
+									<dict>
+										<key>actions</key>
+										<array>
+											<dict>
+												<key>playInReverse</key>
+												<false/>
+												<key>symbolOid</key>
+												<string>2</string>
+												<key>timelineIdentifier</key>
+												<string>134</string>
+												<key>type</key>
+												<integer>3</integer>
+											</dict>
+										</array>
+									</dict>
 								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>2</integer>
+								<key>uuid</key>
+								<string>0C8639C6-0F35-4DC4-AF18-69DEA2A18807-44017-00012F6F7AAB0146</string>
+								<key>zIndex</key>
+								<integer>2</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
 								<key>identifier</key>
 								<string>Opacity</string>
 								<key>isRelative</key>
@@ -6344,353 +7199,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>type</key>
 								<integer>0</integer>
 								<key>uuid</key>
-								<string>39E3D0A8-F2DA-4CAF-B967-7150D5BE53FA-2639-000109597702C586</string>
+								<string>E3900FAC-1780-47AB-AB94-E446FC84DE22-44017-00012F661A7876C7</string>
 								<key>zIndex</key>
 								<integer>3</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.33333337306976318</real>
-								<key>endValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0.4</string>
-								</dict>
-								<key>identifier</key>
-								<string>Opacity</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>104</string>
-								<key>startTime</key>
-								<real>1.1666666269302368</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>CB28B72E-3471-4A1F-A83D-43F7FCF9F86F-2639-000109603ABC2E1F</string>
-								<key>zIndex</key>
-								<integer>4</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.33333325386047363</real>
-								<key>endValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0</string>
-								</dict>
-								<key>identifier</key>
-								<string>Opacity</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>104</string>
-								<key>startTime</key>
-								<real>1.5</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0.4</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>B4161AB5-2025-4828-ADFA-D92E57BEF7DE-2639-00010962EEDF63CC</string>
-								<key>zIndex</key>
-								<integer>5</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.30000019073486328</real>
-								<key>endValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0.4</string>
-								</dict>
-								<key>identifier</key>
-								<string>Opacity</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>104</string>
-								<key>startTime</key>
-								<real>1.8333332538604736</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>B4CCE268-CFD4-4F91-BC99-8D20CE967D50-2639-00010962EEE081B5</string>
-								<key>zIndex</key>
-								<integer>6</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.33333325386047363</real>
-								<key>endValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0</string>
-								</dict>
-								<key>identifier</key>
-								<string>Opacity</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>104</string>
-								<key>startTime</key>
-								<real>2.1333334445953369</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0.4</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>733B1A36-377E-4A0F-A8D2-210BA7046008-2639-00010963E7E0FF1E</string>
-								<key>zIndex</key>
-								<integer>7</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.33333325386047363</real>
-								<key>endValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0.4</string>
-								</dict>
-								<key>identifier</key>
-								<string>Opacity</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>104</string>
-								<key>startTime</key>
-								<real>2.4666666984558105</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>6EC4F664-EDB3-4AF2-8301-3990CE505174-2639-00010963E7E20D8F</string>
-								<key>zIndex</key>
-								<integer>8</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.0</real>
-								<key>identifier</key>
-								<string>ActionHandler</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>109</string>
-								<key>startTime</key>
-								<real>2.7666666507720947</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>ActionHandler</string>
-									<key>objectValue</key>
-									<dict>
-										<key>actions</key>
-										<array>
-											<dict/>
-										</array>
-									</dict>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>2</integer>
-								<key>uuid</key>
-								<string>E25B0924-0CE2-4263-B704-3E2FE715284E-2639-00010B3483CFAB2A</string>
-								<key>zIndex</key>
-								<integer>1</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.33333349227905273</real>
-								<key>endValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0</string>
-								</dict>
-								<key>identifier</key>
-								<string>Opacity</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>104</string>
-								<key>startTime</key>
-								<real>2.7999999523162842</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0.4</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>F2A41D16-D180-4F1A-B398-683CC6F6A3FD-2639-0001096F1724E3E8</string>
-								<key>zIndex</key>
-								<integer>9</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.0</real>
-								<key>identifier</key>
-								<string>Left</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>110</string>
-								<key>startTime</key>
-								<real>3</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Left</string>
-									<key>objectValue</key>
-									<string>218px</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>D97493F2-D273-4D46-AD1C-C27A7F5E95AD-2639-0001091683D551CE</string>
-								<key>zIndex</key>
-								<integer>2</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.23333334922790527</real>
-								<key>endValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0.4</string>
-								</dict>
-								<key>identifier</key>
-								<string>Opacity</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>104</string>
-								<key>startTime</key>
-								<real>3.1333334445953369</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>4C03F299-C3D1-41B4-9977-5A3D55AF1202-2639-0001096F1725ECC5</string>
-								<key>zIndex</key>
-								<integer>10</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.0</real>
-								<key>identifier</key>
-								<string>Opacity</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>104</string>
-								<key>startTime</key>
-								<real>3.3666667938232422</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0.4</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>7DD493D6-7B72-4B0E-963E-920CDE66BE0D-2639-00010971699C40AF</string>
-								<key>zIndex</key>
-								<integer>11</integer>
 							</dict>
 						</array>
 						<key>firstKeyframeIsRelative</key>
@@ -6700,9 +7211,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						<key>hidden</key>
 						<false/>
 						<key>identifier</key>
-						<string>109</string>
+						<string>134</string>
 						<key>name</key>
-						<string>fleetAttack</string>
+						<string>fleetLoop</string>
 						<key>userDefinedDuration</key>
 						<real>0.0</real>
 					</dict>

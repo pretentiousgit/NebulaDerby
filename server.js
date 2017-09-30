@@ -67,18 +67,17 @@ let state = {
   whales: [...initialWhales]
 };
 
-function moveForward(position) {
-  const mix = Math.floor((Math.random() * 6) + 1);
-  // 1490px total screen space
-  // start and end 5% from edge of screen
-  // 6 px per second
-  return position += mix;
-}
-
 function stopRace(race) {
-  state.running = false;
+  const r = race || state.race;
+  clearInterval(r);
+
+  state = {
+    ...state,
+    running: false,
+    race: null
+  };
+
   const victory = state.whales.reduce((prev, current) => (prev.position > current.position) ? prev : current);
-  clearInterval(race);
   // for each object in the collection
   // if it is larger than the existing last object, push it into queue
   // if it is not, 
@@ -97,7 +96,7 @@ function newHeat() {
     raceTimer: 10000,
     interval: 120,
     running: false,
-    race: '',
+    race: null,
     whales: [
       {
         name: "imperial",
@@ -261,6 +260,7 @@ function runRace(info) {
     if(state.running === true){
       state = {
         ...state,
+        race: race,
         raceTimer: state.raceTimer -= state.interval,
         whales: state.whales.map(whale => (checkWinner(whale, race)))
       };
