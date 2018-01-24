@@ -5,7 +5,6 @@ import { Router, Route, browserHistory, IndexRoute } from "react-router";
 import 'semantic-ui-css/semantic.min.css';
 
 import App from './App';
-import Game from './game/game';
 
 import store from './redux/store';
 
