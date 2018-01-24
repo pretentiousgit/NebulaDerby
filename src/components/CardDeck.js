@@ -7,7 +7,7 @@ import {
 import PlayerCard from "./PlayerCard";
 
 import { connect } from "react-redux";
-import { updateWhaleOrder } from "./redux/actions/app";
+import { updateWhaleOrder } from "../redux/actions/app";
 
 const SortableItem = SortableElement(({ value }) =>
   <PlayerCard whale={value} />

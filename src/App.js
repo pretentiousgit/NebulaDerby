@@ -10,31 +10,45 @@ import {
   Icon
 } from "semantic-ui-react";
 
-import SortableComponent from "./CardDeck";
+import Primus from './static/primus';
+import SortableComponent from "./components/CardDeck";
 import Toggle from "react-toggle";
 
-import io from "socket.io-client";
-
 import "./App.css";
-import "./reactToggle.css";
+import "./static/reactToggle.css";
 
 import { newHeat, toggleFakeHeat } from "./redux/actions/app";
 
-const socket = io();
+// Primus connection options
+const options = {
+  pingTimeout: 10000,
+  timeout: 10000,
+  reconnect: {
+    max: Infinity, // Number: The max delay before we try to reconnect.
+    min: 500, // Number: The minimum delay before we try reconnect.
+    retries: 10 // Number: How many times we should try to reconnect.
+  },
+  strategy: 'online, timeout, disconnect'
+};
 
+const primus = Primus.connect('http://localhost:3001', { options });
+
+// Game admin application starts
 class App extends Component {
   componentDidMount() {
-    socket.emit("enterRoom", { user: "adminDevice" });
-    socket.on("currentUserList", users => {
-      // this.props.setConnectedUsers(users);
-      console.log("setConnectedUsers", users);
+    primus.on('open', () => {
+      console.log('Connection is alive and kicking');
+      primus.id((id) => {
+        console.log(id);
+        primus.write({ browserId: id });
+      });
     });
   }
 
   setBeacon() { }
 
   sendEvent(eventName, message) {
-    socket.emit("adminEvent", { event: eventName, message: message });
+    primus.write({ adminEvent: { event: eventName, message: message }});
   }
 
   render() {
@@ -63,7 +77,7 @@ class App extends Component {
                 icon="refresh"
                 circular
                 onClick={() => {
-                  this.sendEvent("newHeat", this.props)
+                  this.sendEvent("newHeat", this.props);
                 }}
               />
             </Grid.Column>
@@ -73,7 +87,7 @@ class App extends Component {
                 className="fake-heat-toggle"
                 checked={this.props.fakeHeat}
                 onChange={e => {
-                  this.props.toggleFakeHeat(!this.props.fakeHeat)
+                  this.props.toggleFakeHeat(!this.props.fakeHeat);
                 }}
               />
             </Grid.Column>

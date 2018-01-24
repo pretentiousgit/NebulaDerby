@@ -5,10 +5,10 @@ import { Button, Item, Grid, Segment, Dropdown, Icon } from "semantic-ui-react";
 import { SortableHandle } from "react-sortable-hoc";
 import Toggle from "react-toggle";
 
-import "./reactToggle.css";
-import "./App.css";
+import "../static/reactToggle.css";
+import "../App.css";
 
-import { updatePilots, togglePredatorMode } from "./redux/actions/app";
+import { updatePilots, togglePredatorMode } from "../redux/actions/app";
 
 const DragHandle = SortableHandle(() =>
   <Icon name="content" size="large" color="grey" />

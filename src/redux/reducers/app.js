@@ -9,7 +9,7 @@ import {
   TOGGLE_FAKE_HEAT
 } from "../actions/app";
 
-import pilots from "../../pilotOptions";
+import pilots from "../../static/pilotOptions";
 
 const initialState = {
   pilots: pilots,
