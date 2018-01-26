@@ -1,6 +1,7 @@
 
 const initialState = {
-  raceTimer: 10000,
+  raceTimeTotal: 10000,
+  raceTimeRemaining: 10000,
   interval: 120,
   running: false,
   race: '',

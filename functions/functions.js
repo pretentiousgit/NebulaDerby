@@ -9,7 +9,7 @@ export function checkIfRunning(f, state) {
 export function calculateMix(bias, state) {
   const screenWidth = ((state.fieldSize || 1490) * 2);
 
-  const numberOfIntervals = initialState.raceTimer / state.interval;
+  const numberOfIntervals = initialState.raceTimeRemaining / state.interval;
   const whaleDistanceMax = (screenWidth / numberOfIntervals) * bias;
 
   return Math.floor((Math.random() * whaleDistanceMax) + 1);

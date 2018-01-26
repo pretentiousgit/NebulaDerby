@@ -1,25 +1,13 @@
 const { reverse, sortBy } = require('lodash');
-const { initialState, initialWhales } = require('./config.originalGameState');
-const store = require('../server/redux/store');
-const actions = require('../server/redux/actions');
+
+const store = require('../redux/store');
+const actions = require('../redux/actions');
 
 function clientScreenSize(data, state) {
   console.log('clientScreenSize', state);
   return {
     ...state,
     fieldSize: data.finishLine - data.whales[0].scaleSize
-  };
-}
-
-// TODO: wrap Boot and install Electron to serve the whales screen
-function stopRace(race, state) {
-  const r = race || state.race;
-  clearInterval(r);
-
-  return {
-    ...state,
-    running: false,
-    race: null
   };
 }
 
@@ -31,26 +19,26 @@ function getWinner(race, whaleList) {
   return {standings, victory};
 }
 
-function handleAdminEvent(event) {
-  if(event === 'FleetAttack'){
-    io.emit('adminEvent', event);
-    stopRace();
-  } else {
-    io.emit('adminEvent', event);
-  }
-}
+// function handleAdminEvent(event) {
+//   if(event === 'FleetAttack'){
+//     io.emit('adminEvent', event);
+//     stopRace();
+//   } else {
+//     io.emit('adminEvent', event);
+//   }
+// }
 
-function checkIfRunning(f) {
-  if (state.running === true) {
-    console.log('Heat already running');
-  } else {
-    f();
-  }
-}
+// function checkIfRunning(f) {
+//   if (state.running === true) {
+//     console.log('Heat already running');
+//   } else {
+//     f();
+//   }
+// }
 
 function calculateMix(final) {
   const fieldWidth = ((state.fieldSize) * 2);
-  const numberOfIntervals = initialState.raceTimer / state.interval;
+  const numberOfIntervals = initialState.raceTimeRemaining / state.interval;
   const whaleDistanceMax = (fieldWidth / numberOfIntervals);
   const quarter = whaleDistanceMax / 4;
 
@@ -111,42 +99,6 @@ function fakeHeatWhaleOrder(array) {
         return { ...whale };
     }
   });
-}
-
-function runRace(info, state) {
-  console.log('startRaceEvent', info, state.fieldSize);
-
-  if (info.fakeHeat) {
-    actions.reorderWhales();
-    newState.whales = fakeHeatWhaleOrder(state.whales);
-  }
-
-  const race = setInterval(() => {
-    // check if there's a winner yet
-    // if not, continue
-    // if so, set the winner and let the timer run down
-
-    // this state is overwriting the state written by checkWinner - checkWinner needs to be prioritized
-  //   if(state.running === true){
-  //     state = {
-  //       ...state,
-  //       race: race,
-  //       raceTimer: state.raceTimer -= state.interval,
-  //       whales: state.whales.map(whale => (checkWinner(whale, race)))
-  //     };
-
-  //     io.emit('whaleState', state);
-  //   } else {
-  //     getWinner(race);
-  //   }
-  // }, state.interval);
-
-  setTimeout(() => {
-    if(state.running === true){
-      console.log('state in timeout', );
-      getWinner(race);
-    }
-  }, state.raceTimer);
 }
 
 module.exports = {

@@ -37,7 +37,8 @@ module.exports = (state = initialState, action = {}) => {
     case UPDATE_RACE_POSITIONS:
       return {
         ...state,
-        racePositions: action.racePositions
+        racePositions: action.racePositions,
+        raceTimeRemaining: action.raceTimeRemaining
       };
     default:
       return {

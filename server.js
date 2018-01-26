@@ -4,6 +4,7 @@ const server = require('http').createServer(app);
 
 // turn on Primus and stick an ear into the internet
 const sockets = require('./server/socketInputOutput')(server);
+const store = require('./server/redux/store'); // boot store?
 
 app.use(require("body-parser")());
 

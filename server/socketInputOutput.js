@@ -1,6 +1,4 @@
 const Primus = require('primus');
-const _ = require('lodash');
-
 const store = require('./redux/store');
 const actions = require('./redux/actions');
 
@@ -11,23 +9,19 @@ const options = {
   transformer: 'engine.io'
 };
 
-
-function adminEvent(data) {
-  switch (data.event) {
-    case 'newHeat':
-      actions.resetRace();
-      break;
-    case 'startRace':
-      actions.startRace();
-      break;
-    case 'stopRace':
-      actions.stopRace();
-      break;
-    default:
-      console.log(data.event);
-      break;
+const adminEventHandlers = {
+  newHeat() {
+    actions.resetRace();
+  },
+  startRace() {
+    actions.startRace();
+  },
+  stopRace() {
+    actions.stopRace();
   }
-}
+};
+
+const defaultHandler = (data) => console.log(data.event);
 
 module.exports = async (server) => {
   try {
@@ -38,26 +32,31 @@ module.exports = async (server) => {
       console.log('Primus connected to a client', spark.id);
       spark.write('hello connection', spark.id);
 
+      // Handle data coming in from administrator
       spark.on('data', (data) => {
         // we never receive data from the game, only the admin panel.
         console.log('server received data', data);
-        if( !data.event) {
+        if( !data.adminEvent ) {
           console.log('non-admin event', data);
           return;
         }
 
-        adminEvent(data);
-        // store.subscribe() {
-        //   // on change do a thing
-        // }
-        // store.getState(); // this checks the state and tells me what's what.
+        const handler = adminEventHandlers[data.adminEvent.event] || defaultHandler;
+        handler(data);
+      });
+
+      // Subscribe to the store and output to any display clients
+      store.subscribe(() => {
+        const { raceTimeRemaining, whales } = store.getState();
+        console.log('when store changes... raceTimeRemaining:', raceTimeRemaining);
+        // spark.write({ timer: raceTimeRemaining, whales });
       });
     });
 
 
     primus.on('disconnection', (spark) => {
       // the spark that disconnected
-      spark.write('goodbye connnection');
+      spark.write('goodbye connnection', spark.id);
     });
   } catch (err) {
     throw new Error('Something went wrong', err.message, err.stack);
