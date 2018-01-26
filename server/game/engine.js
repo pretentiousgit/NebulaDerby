@@ -1,12 +1,14 @@
 module.exports = function Race() {
   const store = require('../redux/store');
   const actions = require('../redux/actions');
-  const state = store.getState();
+  const state1 = store.getState();
 
   return setInterval(() => {
-    console.log('running race');
-    actions.updateRacePositions();
-  }, state.interval);
+    const state = store.getState();
+    const newRaceTime = state.raceTimeRemaining -= state.interval;
+    store.dispatch(actions.updateRacePositions(newRaceTime));
+    console.log('running');
+  }, state1.interval);
 };
 
 // function runRace(info, state) {

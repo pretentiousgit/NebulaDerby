@@ -18,6 +18,15 @@ const adminEventHandlers = {
   },
   stopRace() {
     actions.stopRace();
+  },
+  tranzonicInterference() {
+    actions.tranzonic();
+  },
+  fleetAttack() {
+    actions.fleetAttack();
+  },
+  galactagasm() {
+    actions.galactagasm();
   }
 };
 
@@ -48,7 +57,7 @@ module.exports = async (server) => {
       // Subscribe to the store and output to any display clients
       store.subscribe(() => {
         const { raceTimeRemaining, whales } = store.getState();
-        console.log('when store changes... raceTimeRemaining:', raceTimeRemaining);
+        console.log('raceTimeRemaining:', raceTimeRemaining);
         // spark.write({ timer: raceTimeRemaining, whales });
       });
     });

@@ -7,6 +7,9 @@ const STOP_RACE = "STOP_RACE";
 const RESET_RACE = "RESET_RACE";
 const RE_ORDER_RACE_POSITIONS = "RE_ORDER_RACE_POSITIONS";
 const UPDATE_RACE_POSITIONS = "UPDATE_RACE_POSITIONS";
+const TRANZONIC = 'TRANZONIC';
+const GALACTAGASM = 'GALACTAGASM';
+const FLEET_ATTACK = 'FLEET_ATTACK';
 
 // Actions
 function resetRace() {
@@ -21,6 +24,7 @@ function resetRace() {
 function startRace() {
   console.log('START_RACE');
   const race = Race();
+
   return dispatch => {
     dispatch({
       type: START_RACE,
@@ -42,13 +46,39 @@ function stopRace() {
   };
 }
 
-function updateRacePositions() {
+function updateRacePositions(timeRemaining) {
+  console.log('UPDATE_RACE_POSITIONS');
   return dispatch => {
-    const state = store.getState();
-
     dispatch({
       type: UPDATE_RACE_POSITIONS,
-      raceTimeRemaining: state.raceTimeRemaining -= state.interval
+      raceTimeRemaining: timeRemaining
+    });
+  };
+}
+
+function tranzonic() {
+  console.log('TRANZONIC');
+  return dispatch => {
+    dispatch({
+      type: TRANZONIC
+    });
+  };
+}
+
+function fleetAttack() {
+  console.log('GALACTAGASM');
+  return dispatch => {
+    dispatch({
+      type: GALACTAGASM
+    });
+  };
+}
+
+function galactagasm() {
+  console.log('FLEET_ATTACK');
+  return dispatch => {
+    dispatch({
+      type: FLEET_ATTACK
     });
   };
 }
@@ -59,8 +89,14 @@ module.exports = Object.freeze({
   RESET_RACE: RESET_RACE,
   RE_ORDER_RACE_POSITIONS: RE_ORDER_RACE_POSITIONS,
   UPDATE_RACE_POSITIONS: UPDATE_RACE_POSITIONS,
+  TRANZONIC: TRANZONIC,
+  GALACTAGASM: GALACTAGASM,
+  FLEET_ATTACK: FLEET_ATTACK,
   resetRace,
   startRace,
   stopRace,
-  updateRacePositions
+  updateRacePositions,
+  tranzonic,
+  fleetAttack,
+  galactagasm
 });

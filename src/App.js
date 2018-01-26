@@ -94,17 +94,17 @@ class App extends Component {
             <Grid.Column>
               <Header as="h5">Events</Header>
               <Button.Group>
-                <Button onClick={() => this.sendEvent("Galactagasm")} color="pink">
+                <Button onClick={() => this.sendEvent("galactagasm")} color="pink">
                   Galactagasm
                 </Button>
                 <Button
-                  onClick={() => this.sendEvent("TranzonicInterference")}
+                  onClick={() => this.sendEvent("tranzonicInterference")}
                   color="orange"
                 >
                   <Icon name="lightning" /> Tranzonic <Icon name="lightning" />
                 </Button>
                 <Button
-                  onClick={() => this.sendEvent("FleetAttack")}
+                  onClick={() => this.sendEvent("fleetAttack")}
                   color="yellow"
                 >
                   Fleet Attack
