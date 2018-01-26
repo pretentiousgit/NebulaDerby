@@ -1,13 +1,9 @@
 const express = require("express");
 const app = express();
 const server = require('http').createServer(app);
-const path = require('path');
 
-const _ = require("lodash");
-const sortBy = require('lodash/sortBy');
-const reverse = require('lodash/reverse');
-
-const sockets = require('./server/sockets')(server);
+// turn on Primus and stick an ear into the internet
+const sockets = require('./server/socketInputOutput')(server);
 
 app.use(require("body-parser")());
 

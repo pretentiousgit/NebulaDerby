@@ -34,7 +34,8 @@ const initialWhales = [
   }
 ];
 
-module.exports = {
-  initialState,
-  initialWhales
-}
+module.exports = Object.freeze({
+  ...initialState,
+  whales: initialWhales,
+  pilots: require('./config.pilotsList')
+});
