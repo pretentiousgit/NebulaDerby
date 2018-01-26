@@ -5,7 +5,7 @@ const Race = require('../game/engine');
 const START_RACE = "START_RACE";
 const STOP_RACE = "STOP_RACE";
 const RESET_RACE = "RESET_RACE";
-const RE_ORDER_RACE_POSITIONS = "RE_ORDER_RACE_POSITIONS";
+const REORDER_RACE_POSITIONS = "REORDER_RACE_POSITIONS";
 const UPDATE_RACE_POSITIONS = "UPDATE_RACE_POSITIONS";
 const TRANZONIC = 'TRANZONIC';
 const GALACTAGASM = 'GALACTAGASM';
@@ -35,8 +35,6 @@ function startRace() {
 
 function stopRace() {
   console.log('STOP_RACE');
-  const state = store.getState();
-  clearInterval(state.race);
   return dispatch => {
     dispatch({
       type: STOP_RACE,
@@ -48,6 +46,16 @@ function stopRace() {
 
 function updateRacePositions(timeRemaining) {
   console.log('UPDATE_RACE_POSITIONS');
+  return dispatch => {
+    dispatch({
+      type: UPDATE_RACE_POSITIONS,
+      raceTimeRemaining: timeRemaining
+    });
+  };
+}
+
+function reorderRacePositions(timeRemaining) {
+  console.log('REORDER_RACE_POSITIONS');
   return dispatch => {
     dispatch({
       type: UPDATE_RACE_POSITIONS,
@@ -87,7 +95,7 @@ module.exports = Object.freeze({
   START_RACE: START_RACE,
   STOP_RACE: STOP_RACE,
   RESET_RACE: RESET_RACE,
-  RE_ORDER_RACE_POSITIONS: RE_ORDER_RACE_POSITIONS,
+  REORDER_RACE_POSITIONS: REORDER_RACE_POSITIONS,
   UPDATE_RACE_POSITIONS: UPDATE_RACE_POSITIONS,
   TRANZONIC: TRANZONIC,
   GALACTAGASM: GALACTAGASM,
@@ -96,6 +104,7 @@ module.exports = Object.freeze({
   startRace,
   stopRace,
   updateRacePositions,
+  reorderRacePositions,
   tranzonic,
   fleetAttack,
   galactagasm

@@ -3,12 +3,21 @@ module.exports = function Race() {
   const actions = require('../redux/actions');
   const state1 = store.getState();
 
-  return setInterval(() => {
+  const race = setInterval(() => {
     const state = store.getState();
     const newRaceTime = state.raceTimeRemaining -= state.interval;
-    store.dispatch(actions.updateRacePositions(newRaceTime));
+
+    if(newRaceTime > state.raceTimeTotal) {
+      store.dispatch(actions.updateRacePositions(newRaceTime));
+    } else {
+      console.log(state.raceTimeTotal);
+      store.dispatch(actions.stopRace());
+      // this is clearing on one iteration rather than if something is wrong
+      clearInterval(race);
+    }
     console.log('running');
   }, state1.interval);
+  return race;
 };
 
 // function runRace(info, state) {

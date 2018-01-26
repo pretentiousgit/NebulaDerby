@@ -4,7 +4,7 @@ const {
   STOP_RACE,
   RESET_RACE,
   UPDATE_RACE_POSITIONS,
-  RE_ORDER_RACE_POSITIONS
+  REORDER_RACE_POSITIONS
 } = require("./actions");
 
 // reduce them to the new state
@@ -29,7 +29,7 @@ module.exports = (state = initialState, action = {}) => {
         race: action.race,
         running: false
       };
-    case RE_ORDER_RACE_POSITIONS:
+    case REORDER_RACE_POSITIONS:
       return {
         ...state,
         race_positions: action.racePositions
