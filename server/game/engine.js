@@ -7,15 +7,15 @@ module.exports = function Race() {
     const state = store.getState();
     const newRaceTime = state.raceTimeRemaining -= state.interval;
 
-    if(newRaceTime > state.raceTimeTotal) {
-      store.dispatch(actions.updateRacePositions(newRaceTime));
-    } else {
-      console.log(state.raceTimeTotal);
+    console.log('comparisons', newRaceTime, state.raceTimeTotal);
+
+    if( !(newRaceTime > 0) ) {
       store.dispatch(actions.stopRace());
-      // this is clearing on one iteration rather than if something is wrong
       clearInterval(race);
     }
-    console.log('running');
+
+    store.dispatch(actions.updateRacePositions(newRaceTime));
+
   }, state1.interval);
   return race;
 };
