@@ -12,22 +12,22 @@ const options = {
 
 const adminEventHandlers = {
   newHeat() {
-    store.dispatch(actions.resetRace());
+    actions.resetRace();
   },
   startRace() {
     Race();
   },
   stopRace() {
-    store.dispatch(actions.stopRace());
+    actions.stopRace();
   },
   tranzonicInterference() {
-    store.dispatch(actions.tranzonic());
+    actions.tranzonic();
   },
   fleetAttack() {
-    store.dispatch(actions.fleetAttack());
+    actions.fleetAttack();
   },
   galactagasm() {
-    store.dispatch(actions.galactagasm());
+    actions.galactagasm();
   }
 };
 

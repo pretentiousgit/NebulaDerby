@@ -71,20 +71,24 @@ function galactagasm() {
 }
 
 module.exports = Object.freeze({
-  START_RACE: START_RACE,
-  STOP_RACE: STOP_RACE,
-  RESET_RACE: RESET_RACE,
-  REORDER_RACE_POSITIONS: REORDER_RACE_POSITIONS,
-  UPDATE_RACE_POSITIONS: UPDATE_RACE_POSITIONS,
-  TRANZONIC: TRANZONIC,
-  GALACTAGASM: GALACTAGASM,
-  FLEET_ATTACK: FLEET_ATTACK,
-  resetRace,
-  startRace,
-  stopRace,
-  updateRacePositions,
-  reorderRacePositions,
-  tranzonic,
-  fleetAttack,
-  galactagasm
+  actionTypes: {
+    START_RACE: START_RACE,
+    STOP_RACE: STOP_RACE,
+    RESET_RACE: RESET_RACE,
+    REORDER_RACE_POSITIONS: REORDER_RACE_POSITIONS,
+    UPDATE_RACE_POSITIONS: UPDATE_RACE_POSITIONS,
+    TRANZONIC: TRANZONIC,
+    GALACTAGASM: GALACTAGASM,
+    FLEET_ATTACK: FLEET_ATTACK
+  },
+  actions: {
+    resetRace,
+    startRace,
+    stopRace,
+    updateRacePositions,
+    reorderRacePositions,
+    tranzonic,
+    fleetAttack,
+    galactagasm
+  }
 });

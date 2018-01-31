@@ -8,7 +8,7 @@ const {
   TRANZONIC,
   GALACTAGASM,
   FLEET_ATTACK
-} = require("./actions");
+} = require("./actions").actionTypes;
 
 // reduce them to the new state
 const initialState = require('../config.initialState');
