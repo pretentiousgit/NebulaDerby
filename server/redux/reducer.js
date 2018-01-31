@@ -3,12 +3,14 @@ const {
   START_RACE,
   STOP_RACE,
   RESET_RACE,
+  REORDER_RACE_POSITIONS,
   UPDATE_RACE_POSITIONS,
-  REORDER_RACE_POSITIONS
+  TRANZONIC,
+  GALACTAGASM,
+  FLEET_ATTACK
 } = require("./actions");
 
 // reduce them to the new state
-
 const initialState = require('../config.initialState');
 
 module.exports = (state = initialState, action = {}) => {
@@ -20,14 +22,12 @@ module.exports = (state = initialState, action = {}) => {
     case START_RACE:
       return {
         ...state,
-        race: action.race,
-        running: true
+        running: action.running
       };
     case STOP_RACE:
       return {
         ...state,
-        race: action.race,
-        running: false
+        running: action.running
       };
     case REORDER_RACE_POSITIONS:
       return {
@@ -39,6 +39,19 @@ module.exports = (state = initialState, action = {}) => {
         ...state,
         racePositions: action.racePositions,
         raceTimeRemaining: action.raceTimeRemaining
+      };
+    case TRANZONIC:
+      return {
+        ...state
+      };
+    case GALACTAGASM:
+      return {
+        ...state
+      };
+    case FLEET_ATTACK:
+      return {
+        ...state,
+        running: action.running
       };
     default:
       return {

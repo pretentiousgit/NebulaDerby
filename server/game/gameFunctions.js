@@ -1,7 +1,7 @@
 const { reverse, sortBy } = require('lodash');
 
 const store = require('../redux/store');
-const actions = require('../redux/actions');
+const actions = require('../redux/boundActions');
 
 function clientScreenSize(data, state) {
   console.log('clientScreenSize', state);
@@ -18,6 +18,7 @@ function getWinner(race, whaleList) {
   console.log('race complete!', victory, standings);
   return {standings, victory};
 }
+
 
 // function handleAdminEvent(event) {
 //   if(event === 'FleetAttack'){
@@ -84,25 +85,27 @@ function calculateMix(final) {
 //   return update;
 // }
 
-function fakeHeatWhaleOrder(array) {
-  return array.map((whale) => {
-    switch (info.whaleOrder.indexOf(whale.name)) {
-      case 0:
-        return { ...whale, final: 1 };
-      case 1:
-        return { ...whale, final: 2 };
-      case 2:
-        return { ...whale, final: 3 };
-      case 3:
-        return { ...whale, final: 4 };
-      default:
-        return { ...whale };
-    }
-  });
-}
+
+
+// function fakeHeatWhaleOrder(array) {
+//   return array.map((whale) => {
+//     switch (info.whaleOrder.indexOf(whale.name)) {
+//       case 0:
+//         return { ...whale, final: 1 };
+//       case 1:
+//         return { ...whale, final: 2 };
+//       case 2:
+//         return { ...whale, final: 3 };
+//       case 3:
+//         return { ...whale, final: 4 };
+//       default:
+//         return { ...whale };
+//     }
+//   });
+// }
 
 module.exports = {
-  enterRoom,
-  adminEvent,
+  bindAction,
+  // fakeHeatWhaleOrder,
   clientScreenSize
 };

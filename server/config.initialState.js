@@ -4,7 +4,6 @@ const initialState = {
   raceTimeRemaining: 10000,
   interval: 120,
   running: false,
-  race: '',
   fakeHeat: false
 };
 

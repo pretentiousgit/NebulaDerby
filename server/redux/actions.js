@@ -1,6 +1,3 @@
-const store = require('./store');
-const Race = require('../game/engine');
-
 // Action Types
 const START_RACE = "START_RACE";
 const STOP_RACE = "STOP_RACE";
@@ -12,82 +9,64 @@ const GALACTAGASM = 'GALACTAGASM';
 const FLEET_ATTACK = 'FLEET_ATTACK';
 
 // Actions
-function resetRace() {
-  console.log('RESET_RACE');
-  return dispatch => {
-    dispatch({
-      type: RESET_RACE
-    });
-  };
-}
-
 function startRace() {
   console.log('START_RACE');
-  const race = Race();
-
-  return dispatch => {
-    dispatch({
-      type: START_RACE,
-      race: race
-    });
+  return {
+    type: START_RACE,
+    running: true
   };
 }
 
-function stopRace() {
-  console.log('STOP_RACE');
-  return dispatch => {
-    dispatch({
+function stopRace(message) {
+  console.log('STOP_RACE', message);
+  return {
       type: STOP_RACE,
-      running: false,
-      race: null
-    });
+      running: false
+    };
+}
+
+function resetRace() {
+  console.log('RESET_RACE');
+  return {
+      type: RESET_RACE
   };
 }
 
 function updateRacePositions(timeRemaining) {
   console.log('UPDATE_RACE_POSITIONS');
-  return dispatch => {
-    dispatch({
+  return {
       type: UPDATE_RACE_POSITIONS,
       raceTimeRemaining: timeRemaining
-    });
-  };
+    };
 }
 
 function reorderRacePositions(timeRemaining) {
   console.log('REORDER_RACE_POSITIONS');
-  return dispatch => {
-    dispatch({
+  return {
       type: UPDATE_RACE_POSITIONS,
       raceTimeRemaining: timeRemaining
-    });
   };
 }
 
 function tranzonic() {
   console.log('TRANZONIC');
-  return dispatch => {
-    dispatch({
+  return {
       type: TRANZONIC
-    });
   };
 }
 
 function fleetAttack() {
-  console.log('GALACTAGASM');
-  return dispatch => {
-    dispatch({
-      type: GALACTAGASM
-    });
+  console.log('FLEET_ATTACK');
+  return {
+      type: FLEET_ATTACK,
+      running: false
   };
 }
 
 function galactagasm() {
-  console.log('FLEET_ATTACK');
-  return dispatch => {
-    dispatch({
-      type: FLEET_ATTACK
-    });
+  console.log('GALACTAGASM');
+  return {
+      type: GALACTAGASM
   };
 }
 

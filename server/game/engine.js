@@ -1,21 +1,36 @@
 module.exports = function Race() {
   const store = require('../redux/store');
-  const actions = require('../redux/actions');
+  const actions = require('../redux/boundActions');
   const state1 = store.getState();
+
+  function endRace(message, race) {
+    store.dispatch(actions.stopRace(message));
+    clearInterval(race);
+    return;
+  }
+
+  console.log('is race running?', state1.running);
+
+  // turn on race state
+  if(state1.running === false) {
+    store.dispatch(actions.startRace());
+  }
 
   const race = setInterval(() => {
     const state = store.getState();
     const newRaceTime = state.raceTimeRemaining -= state.interval;
-
-    console.log('comparisons', newRaceTime, state.raceTimeTotal);
-
-    if( !(newRaceTime > 0) ) {
-      store.dispatch(actions.stopRace());
-      clearInterval(race);
+    // did we run out of time? Stop the race.
+    if( state.running === false) {
+      endRace('an action ended the race', race);
     }
 
-    store.dispatch(actions.updateRacePositions(newRaceTime));
+    // did we run out of time? Stop the race.
+    if( newRaceTime <= 0) {
+      endRace('new race time is less than zero', race);
+    }
 
+    // run the race normally
+    store.dispatch(actions.updateRacePositions(newRaceTime));
   }, state1.interval);
   return race;
 };

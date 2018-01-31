@@ -1,6 +1,7 @@
 const Primus = require('primus');
 const store = require('./redux/store');
-const actions = require('./redux/actions');
+const actions = require('./redux/boundActions');
+const Race = require('./game/engine');
 
 const options = {
   port: 3001,
@@ -11,22 +12,22 @@ const options = {
 
 const adminEventHandlers = {
   newHeat() {
-    actions.resetRace();
+    store.dispatch(actions.resetRace());
   },
   startRace() {
-    actions.startRace();
+    Race();
   },
   stopRace() {
-    actions.stopRace();
+    store.dispatch(actions.stopRace());
   },
   tranzonicInterference() {
-    actions.tranzonic();
+    store.dispatch(actions.tranzonic());
   },
   fleetAttack() {
-    actions.fleetAttack();
+    store.dispatch(actions.fleetAttack());
   },
   galactagasm() {
-    actions.galactagasm();
+    store.dispatch(actions.galactagasm());
   }
 };
 
@@ -45,6 +46,7 @@ module.exports = async (server) => {
       spark.on('data', (data) => {
         // we never receive data from the game, only the admin panel.
         console.log('server received data', data);
+
         if( !data.adminEvent ) {
           console.log('non-admin event', data);
           return;
