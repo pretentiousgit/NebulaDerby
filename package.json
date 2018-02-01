@@ -10,6 +10,7 @@
     "eslint-config-react-app": "^2.1.0",
     "eslint-plugin-prettier": "^2.1.2",
     "express": "^4.15.3",
+    "gaussian": "^1.1.0",
     "lodash": "^4.17.4",
     "lodash-move": "^1.1.1",
     "osc": "^2.2.0",

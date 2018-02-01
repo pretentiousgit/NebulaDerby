@@ -2,6 +2,7 @@ const Primus = require('primus');
 const store = require('./redux/store');
 const actions = require('./redux/boundActions');
 const Race = require('./game/engine');
+const gameFunctions = require('./game/gameFunctions');
 
 const options = {
   port: 3001,
@@ -41,6 +42,7 @@ module.exports = async (server) => {
     primus.on('connection', (spark) => {
       console.log('Primus connected to a client', spark.id);
       spark.write('hello connection', spark.id);
+      gameFunctions.generateFairMovementArray();
 
       // Handle data coming in from administrator
       spark.on('data', (data) => {
@@ -51,14 +53,6 @@ module.exports = async (server) => {
           console.log('non-admin event', data);
           return;
         }
-
-        // if( data.adminEvent.fakeHeat ) {
-        //   // run as a fake heat
-        // }
-
-        // if( data.adminEvent.whale.predator) {
-        //   // set up the predator attack animation/consequences
-        // };
 
         const handler = adminEventHandlers[data.adminEvent.event] || defaultHandler;
         handler(data);
