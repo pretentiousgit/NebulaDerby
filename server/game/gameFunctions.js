@@ -19,24 +19,6 @@ function getWinner(race, whaleList) {
   return {standings, victory};
 }
 
-
-// function handleAdminEvent(event) {
-//   if(event === 'FleetAttack'){
-//     io.emit('adminEvent', event);
-//     stopRace();
-//   } else {
-//     io.emit('adminEvent', event);
-//   }
-// }
-
-// function checkIfRunning(f) {
-//   if (state.running === true) {
-//     console.log('Heat already running');
-//   } else {
-//     f();
-//   }
-// }
-
 function calculateMix(final) {
   const fieldWidth = ((state.fieldSize) * 2);
   const numberOfIntervals = initialState.raceTimeRemaining / state.interval;
@@ -84,7 +66,6 @@ function calculateMix(final) {
 
 //   return update;
 // }
-
 
 
 // function fakeHeatWhaleOrder(array) {

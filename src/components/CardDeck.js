@@ -31,7 +31,9 @@ class CardDeck extends Component {
 
   onSortEnd({ oldIndex, newIndex }, e) {
     const { whaleOrder, setWhaleOrder } = this.props;
-    setWhaleOrder(arrayMove(whaleOrder, oldIndex, newIndex));
+    const newOrder = arrayMove(whaleOrder, oldIndex, newIndex);
+    setWhaleOrder(newOrder);
+    this.props.socket('whaleOrder', newOrder);
   }
 
   render() {

@@ -52,6 +52,14 @@ module.exports = async (server) => {
           return;
         }
 
+        // if( data.adminEvent.fakeHeat ) {
+        //   // run as a fake heat
+        // }
+
+        // if( data.adminEvent.whale.predator) {
+        //   // set up the predator attack animation/consequences
+        // };
+
         const handler = adminEventHandlers[data.adminEvent.event] || defaultHandler;
         handler(data);
       });
@@ -59,11 +67,9 @@ module.exports = async (server) => {
       // Subscribe to the store and output to any display clients
       store.subscribe(() => {
         const { raceTimeRemaining, whales } = store.getState();
-        console.log('raceTimeRemaining:', raceTimeRemaining);
         // spark.write({ timer: raceTimeRemaining, whales });
       });
     });
-
 
     primus.on('disconnection', (spark) => {
       // the spark that disconnected

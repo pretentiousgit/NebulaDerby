@@ -11,7 +11,7 @@ import {
 } from "semantic-ui-react";
 
 import Primus from './static/primus';
-import SortableComponent from "./components/CardDeck";
+import CardDeck from "./components/CardDeck";
 import Toggle from "react-toggle";
 
 import "./App.css";
@@ -115,7 +115,7 @@ class App extends Component {
         </Segment>
         <Header floated="left">Whales</Header>
         <Divider clearing />
-        <SortableComponent />
+        <CardDeck socket={this.sendEvent}/>
       </Segment>
     );
   }

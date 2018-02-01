@@ -9,8 +9,6 @@ module.exports = function Race() {
     return;
   }
 
-  console.log('is race running?', state1.running);
-
   // turn on race state
   if(state1.running === false) {
     store.dispatch(actions.startRace());
@@ -19,7 +17,8 @@ module.exports = function Race() {
   const race = setInterval(() => {
     const state = store.getState();
     const newRaceTime = state.raceTimeRemaining -= state.interval;
-    // did we run out of time? Stop the race.
+
+    // an event killed the race
     if( state.running === false) {
       endRace('an action ended the race', race);
     }
@@ -31,6 +30,13 @@ module.exports = function Race() {
 
     // run the race normally
     store.dispatch(actions.updateRacePositions(newRaceTime));
+
+    // todo: update each whale with their new position
+    // set the whale's position using a normal distribution from x
+    // if we have a predator whale, set that to true, and have the predator whale attack
+    // if we have a beacon set, add 5% to appropriate whale
+
+
   }, state1.interval);
   return race;
 };
@@ -43,26 +49,4 @@ module.exports = function Race() {
 //     actions.reorderWhales();
 //     newState.whales = fakeHeatWhaleOrder(state.whales);
 //   }
-
-//   const race = setInterval(() => {
-//     // check if there's a winner yet
-//     // if not, continue
-//     // if so, set the winner and let the timer run down
-
-//     // this state is overwriting the state written by checkWinner - checkWinner needs to be prioritized
-//   //   if(state.running === true){
-//   //     state = 
-
-//   //     io.emit('whaleState', state);
-//   //   } else {
-//   //     getWinner(race);
-//   //   }
-//   // }, state.interval);
-
-//   setTimeout(() => {
-//     if(state.running === true){
-//       console.log('state in timeout', );
-//       getWinner(race);
-//     }
-//   }, state.raceTimeRemaining);
 // }
