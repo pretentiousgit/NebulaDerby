@@ -33,7 +33,7 @@ function resetRace() {
 }
 
 function updateRacePositions(timeRemaining) {
-  console.log('UPDATE_RACE_POSITIONS');
+  console.log('UPDATE_RACE_POSITIONS', timeRemaining);
   return {
       type: UPDATE_RACE_POSITIONS,
       raceTimeRemaining: timeRemaining

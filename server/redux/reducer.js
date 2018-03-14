@@ -17,7 +17,7 @@ module.exports = (state = initialState, action = {}) => {
   switch (action.type) {
     case RESET_RACE:
       return {
-        state: { ...initialState }
+        ...initialState
       };
     case START_RACE:
       return {

@@ -7,8 +7,6 @@
     "body-parser": "^1.17.2",
     "classnames": "^2.2.5",
     "engine.io": "^3.1.4",
-    "eslint-config-react-app": "^2.1.0",
-    "eslint-plugin-prettier": "^2.1.2",
     "express": "^4.15.3",
     "gaussian": "^1.1.0",
     "lodash": "^4.17.4",
@@ -41,19 +39,10 @@
     "start": "concurrently \"nodemon server.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "eslint": "./node_modules/.bin/eslint --fix 'src/**/*@(.js|.jsx)'"
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "concurrently": "^3.5.0",
-    "eslint": "^4.2.0",
-    "eslint-config-airbnb": "^13.0.0",
-    "eslint-import-resolver-webpack": "^0.8.0",
-    "eslint-plugin-flowtype": "^2.35.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^5.0.1",
-    "eslint-plugin-react": "^7.1.0",
-    "prettier": "^1.5.3"
+    "concurrently": "^3.5.0"
   }
 }

@@ -83,17 +83,11 @@ function randn_bm() { // random box-mueller number around 0,1 - this is a good m
   return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
 }
 
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
-}
-
 function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-function generateFairMovementArray (fast = 90000, slow = 120000, interval = 120, distance = 1600) {
+function generateFairMovementArray (fast = 90000, slow = 120000, interval = 240, distance = 1600) {
   const slots = (int) => int / interval;
   const speed = (arrayPlaces) =>  Number((distance / arrayPlaces).toFixed(2)); // min of pixels we have to hit
 
@@ -115,66 +109,16 @@ function generateFairMovementArray (fast = 90000, slow = 120000, interval = 120,
     accumulator += step;
   }
 
-  console.log(whaleArray.length, 'is array in expected output range', Boolean(whaleArray.length > 750 && whaleArray.length < 1500));
+  console.log(whaleArray.length);
+
+  console.log('biggest step', Math.max(...whaleArray));
+  console.log('smallet step', Math.min(...whaleArray));
+
   return whaleArray;
 };
 
-  // the race takes about two minutes to run by default
-  // the fastest whale takes about two minutes to run a race
-  // A "race" is ~1600px of movement in 90 sec because 2 min's a long time in person
+// fair movement will generate a pretty even back and forth
 
-  // slowest derby ever run was 2:59
-  // fastest derby ever run was 1:59
-
-  // 1:59 == 119000 ms === 991 ticks at 120ms each
-  // 3:00 == 180000 ms === 1500 ticks at 120ms each
-  // 1600px = basic race length
-
-  // 1.6px per tick = race goes in 1:59, 991 ticks
-  // 1.06px per tick = race done in 3:00, 1500 ticks
-
-  // so if we have any tick that's bigger, another one has to be equivalently smaller
-
-  // the FASTEST a whale can go to win is 1:59/1.6
-
-  // the fastest whale covers an _average_ of 1.6 px per array slot, totalling 1600 in not more than minSpeed/tickLength ticks (1:59 = ~990)
-
-  // when we generate the averages, the fastest block should be positioned evenly away 
-
-  // TOTAL distance of the FASTEST whale is 1600px in 991
-  // the SLOWEST a whale can go to win is 3:00/1.06
-
-
-//   var distribution = gauss(mean, variance);
-
-//   // Take a random sample using inverse transform sampling method.
-//   var sample = distribution.ppf(Math.random());
-// }
-
-function calculateMix(final) {
-  const fieldWidth = ((state.fieldSize) * 2);
-  const numberOfIntervals = initialState.raceTimeRemaining / state.interval;
-  const whaleDistanceMax = (fieldWidth / numberOfIntervals);
-  const quarter = whaleDistanceMax / 4;
-
-  const minMovement = () => {
-    switch (final) {
-      case 1:
-        return whaleDistanceMax;
-      case 2:
-        return (whaleDistanceMax / 3) * 2;
-      case 3:
-        return whaleDistanceMax / 3;
-      case 4:
-        return quarter;
-      default:
-        return whaleDistanceMax;
-    }
-  };
-  const rando2 = Math.abs(randn_bm() * minMovement());
-
-  return rando2;
-};
 
 // function checkWinner(whale, i) {
 //   const update = {

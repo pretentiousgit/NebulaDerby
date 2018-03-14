@@ -8,7 +8,6 @@ const reducer = require('./reducer');
 // Its API is { subscribe, dispatch, getState }.
 const store = createStore(
   reducer
-  // applyMiddleware(thunk)
 );
 
 module.exports = store;
