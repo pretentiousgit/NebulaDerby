@@ -90,18 +90,14 @@ class App extends Component {
     return (
       <Segment>
         <Header floated="left" as="h2">
-          Nebula Space Derby
+          <Icon name="settings" />
+          Mr Zeenok's Nebula Derby Control Panel
         </Header>
-        <Button
-          className="green"
-          size="massive"
-          circular
-          icon="flag"
-          floated="right"
-          onClick={() => this.sendEvent("startRace", { fakeHeat: this.props.fakeHeat, whaleOrder: this.props.whaleOrder })}
-        />
         <Divider hidden clearing />
         <Segment>
+          <Grid>
+          <Grid.Row columns={2} divided>
+          <Grid.Column>
             <Header as="h5">Heat Controls</Header>
               <Button
                 className="blue"
@@ -122,11 +118,26 @@ class App extends Component {
                   this.sendEvent("newHeat", this.props);
                 }}
               >
-              Fake Heat
-              <Icon name="right arrow" />
+                Fake Heat
+                <Icon name="right arrow" />
               </Button>
-            </Segment>
-            <Segment>
+          </Grid.Column>
+          <Grid.Column>
+              <Button
+                className="green"
+                circular
+                size="massive"
+                floated="right"
+                onClick={() => this.sendEvent("startRace", { fakeHeat: this.props.fakeHeat, whaleOrder: this.props.whaleOrder })}
+              >
+                <Icon name="flag checkered" />
+                Start Race!
+              </Button>
+              </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </Segment>
+          <Segment>
               <Header as="h5">Events</Header>
                 <Button onClick={() => this.sendEvent("galactagasm")} color="pink">
                   Galactagasm
