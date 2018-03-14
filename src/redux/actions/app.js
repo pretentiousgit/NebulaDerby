@@ -1,26 +1,12 @@
 import move from "lodash-move";
 
 // Action Types
-export const GET_PILOTS = "GET_PILOTS";
-export const GET_PILOTS_SUCCESS = "GET_PILOTS_SUCCESS";
-export const GET_PILOTS_FAILURE = "GET_PILOTS_FAILURE";
-
-export const UPDATE_PILOTS = "UPDATE_PILOTS";
 export const UPDATE_WHALES = "UPDATE_WHALES";
 
 export const TOGGLE_PREDATOR = "TOGGLE_PREDATOR";
 export const TOGGLE_FAKE_HEAT = "TOGGLE_FAKE_HEAT";
 
 export const NEW_HEAT = "NEW_HEAT";
-
-export function updatePilots(pilot) {
-  return dispatch => {
-    dispatch({
-      type: UPDATE_PILOTS,
-      pilot: pilot
-    });
-  };
-}
 
 export function updateWhaleOrder(whaleOrder) {
   return dispatch => {

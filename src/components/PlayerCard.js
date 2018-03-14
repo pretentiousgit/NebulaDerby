@@ -8,7 +8,7 @@ import Toggle from "react-toggle";
 import "../static/reactToggle.css";
 import "../App.css";
 
-import { updatePilots, togglePredatorMode } from "../redux/actions/app";
+import { togglePredatorMode } from "../redux/actions/app";
 
 const DragHandle = SortableHandle(() =>
   <Icon name="content" size="large" color="grey" />
@@ -77,37 +77,12 @@ class PlayerCard extends Component {
                   {this.props.whale} {LoveHandle}
                 </Item.Header>
                 <Item.Content>
-                  <Dropdown
-                    placeholder="Select Pilot"
-                    fluid
-                    search
-                    options={this.props.pilots}
-                    selection
-                    onChange={(e, data) => {
-                      this.handleChange(e, data);
-                    }}
-                  />
                 </Item.Content>
               </Item>
             </Grid.Column>
             <Grid.Column width={2} verticalAlign="bottom">
               <Grid.Row />
               <Grid.Row>
-                {this.props.connected
-                  ? <Button
-                    circular
-                    icon="signal"
-                    color="green"
-                    size="medium"
-                    floated="right"
-                  />
-                  : <Button
-                    circular
-                    icon="signal"
-                    color="red"
-                    size="medium"
-                    floated="right"
-                  />}
               </Grid.Row>
             </Grid.Column>
           </Grid.Row>
@@ -123,14 +98,12 @@ PlayerCard.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    pilots: state.app.pilots,
     whaleOrder: state.app.whaleOrder
   };
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    updatePilots: (pilot, pilots) => dispatch(updatePilots(pilot, pilots)),
     sendPredatorMode: (whaleOrder, bool) =>
       dispatch(togglePredatorMode(whaleOrder, bool))
   };

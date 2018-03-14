@@ -45,7 +45,42 @@ class App extends Component {
     });
   }
 
-  setBeacon() { }
+  state = {
+
+  }
+
+  setBeacon(color) {
+    switch(color){
+      case "red":
+        this.setState({
+          beaconBlue: false,
+          beaconRed: true,
+          beaconGreen: false
+        });
+        break;
+      case "blue":
+        this.setState({
+          beaconBlue: true,
+          beaconRed: false,
+          beaconGreen: false
+        });
+        break;
+      case "green":
+        this.setState({
+          beaconBlue: false,
+          beaconRed: false,
+          beaconGreen: true
+        });
+        break;
+      default:
+        this.setState({
+          beaconBlue: false,
+          beaconRed: false,
+          beaconGreen: false
+        });
+        break;
+    }
+  }
 
   sendEvent(eventName, message) {
     primus.write({ adminEvent: { event: eventName, message: message }});
@@ -66,34 +101,33 @@ class App extends Component {
           onClick={() => this.sendEvent("startRace", { fakeHeat: this.props.fakeHeat, whaleOrder: this.props.whaleOrder })}
         />
         <Divider hidden clearing />
-
         <Segment>
-          <Grid verticalAlign="middle" columns="equal">
-            <Grid.Column width={3}>
-              <Header as="h5">New Heat</Header>
+            <Header as="h5">Heat Controls</Header>
               <Button
                 className="blue"
                 size="medium"
-                icon="refresh"
-                circular
                 onClick={() => {
                   this.sendEvent("newHeat", this.props);
                 }}
-              />
-            </Grid.Column>
-            <Grid.Column width={3}>
-              <Header as="h5">Fake Heat</Header>
-              <Toggle
-                className="fake-heat-toggle"
-                checked={this.props.fakeHeat}
-                onChange={e => {
-                  this.props.toggleFakeHeat(!this.props.fakeHeat);
+              >
+              <Icon name="refresh" />
+              New Heat
+              </Button>
+              <Button
+                className="red"
+                size="medium"
+                toggle
+                basic
+                onClick={() => {
+                  this.sendEvent("newHeat", this.props);
                 }}
-              />
-            </Grid.Column>
-            <Grid.Column>
+              >
+              Fake Heat
+              <Icon name="right arrow" />
+              </Button>
+            </Segment>
+            <Segment>
               <Header as="h5">Events</Header>
-              <Button.Group>
                 <Button onClick={() => this.sendEvent("galactagasm")} color="pink">
                   Galactagasm
                 </Button>
@@ -109,9 +143,32 @@ class App extends Component {
                 >
                   Fleet Attack
                 </Button>
-              </Button.Group>
-            </Grid.Column>
-          </Grid>
+        </Segment>
+        <Segment>
+          <Header as="h5">Beacons</Header>
+          <Button
+            onClick={() => (this.state.beaconGreen) ? this.setBeacon() : this.setBeacon("green")}
+            color="green"
+            basic={Boolean(!this.state.beaconGreen)}
+          >
+            <Icon name="flask" />
+            Boost Cyberwhale
+          </Button>
+          <Button
+            onClick={() => (this.state.beaconBlue) ? this.setBeacon() : this.setBeacon("blue")}
+            color="blue"
+            basic={Boolean(!this.state.beaconBlue)}
+          >
+            <Icon name="diamond" /> Boost Imperium
+          </Button>
+          <Button
+            onClick={() => (this.state.beaconRed) ? this.setBeacon() : this.setBeacon("red")}
+            color="red"
+            basic={Boolean(!this.state.beaconRed)}
+          >
+            <Icon name="bomb" />
+            Boost Rikkenor
+          </Button>
         </Segment>
         <Header floated="left">Whales</Header>
         <Divider clearing />
