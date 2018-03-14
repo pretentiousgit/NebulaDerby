@@ -45,8 +45,11 @@ class App extends Component {
     });
   }
 
-  state = {
+  state = {}
 
+  setFakeHeat(props) {
+    this.setState({ fakeHeat: !this.state.fakeHeat});
+    this.sendEvent("newHeat", props);
   }
 
   setBeacon(color) {
@@ -54,13 +57,13 @@ class App extends Component {
       case "red":
         this.setState({
           beaconBlue: false,
-          beaconRed: true,
+          beaconRed: !this.state.beaconRed,
           beaconGreen: false
         });
         break;
       case "blue":
         this.setState({
-          beaconBlue: true,
+          beaconBlue: !this.state.beaconBlue,
           beaconRed: false,
           beaconGreen: false
         });
@@ -69,7 +72,7 @@ class App extends Component {
         this.setState({
           beaconBlue: false,
           beaconRed: false,
-          beaconGreen: true
+          beaconGreen: !this.state.beaconGreen
         });
         break;
       default:
@@ -96,12 +99,12 @@ class App extends Component {
         <Divider hidden clearing />
         <Segment>
           <Grid>
-          <Grid.Row columns={2} divided>
+          <Grid.Row columns={2} divided verticalAlign="middle">
           <Grid.Column>
-            <Header as="h5">Heat Controls</Header>
               <Button
                 className="blue"
                 size="medium"
+                style={{ marginBottom: '1em'}}
                 onClick={() => {
                   this.sendEvent("newHeat", this.props);
                 }}
@@ -113,16 +116,16 @@ class App extends Component {
                 className="red"
                 size="medium"
                 toggle
-                basic
+                basic={Boolean(!this.state.fakeHeat)}
                 onClick={() => {
-                  this.sendEvent("newHeat", this.props);
+                  this.setFakeHeat(this.props);
                 }}
               >
                 Fake Heat
                 <Icon name="right arrow" />
               </Button>
           </Grid.Column>
-          <Grid.Column>
+          <Grid.Column textAlign="center">
               <Button
                 className="green"
                 circular
@@ -138,46 +141,61 @@ class App extends Component {
             </Grid>
           </Segment>
           <Segment>
-              <Header as="h5">Events</Header>
-                <Button onClick={() => this.sendEvent("galactagasm")} color="pink">
-                  Galactagasm
-                </Button>
-                <Button
-                  onClick={() => this.sendEvent("tranzonicInterference")}
-                  color="orange"
-                >
-                  <Icon name="lightning" /> Tranzonic <Icon name="lightning" />
-                </Button>
-                <Button
-                  onClick={() => this.sendEvent("fleetAttack")}
-                  color="yellow"
-                >
-                  Fleet Attack
-                </Button>
+            <Button
+              onClick={() => this.sendEvent("galactagasm")}
+              size="big"
+              color="pink"
+              style={{ marginBottom: '1em'}}
+            >
+              <Icon name="heartbeat" />
+              Galactagasm
+            </Button>
+            <Button
+              onClick={() => this.sendEvent("tranzonicInterference")}
+              color="orange"
+              size="big"
+              style={{ marginBottom: '1em'}}
+            >
+              <Icon name="lightning" />
+              Tranzonic Interference
+            </Button>
+            <Button
+              onClick={() => this.sendEvent("fleetAttack")}
+              color="yellow"
+              size="big"
+            >
+              <Icon name="bomb" />
+              Fleet Attack
+            </Button>
         </Segment>
         <Segment>
-          <Header as="h5">Beacons</Header>
           <Button
-            onClick={() => (this.state.beaconGreen) ? this.setBeacon() : this.setBeacon("green")}
+            onClick={() => this.setBeacon("green")}
             color="green"
+            size="big"
+            style={{ marginBottom: '1em'}}
             basic={Boolean(!this.state.beaconGreen)}
           >
             <Icon name="flask" />
             Boost Cyberwhale
           </Button>
           <Button
-            onClick={() => (this.state.beaconBlue) ? this.setBeacon() : this.setBeacon("blue")}
+            onClick={() => this.setBeacon("blue")}
             color="blue"
+            size="big"
+            style={{ marginBottom: '1em'}}
             basic={Boolean(!this.state.beaconBlue)}
           >
-            <Icon name="diamond" /> Boost Imperium
+            <Icon name="diamond" />
+            Boost Imperium
           </Button>
           <Button
-            onClick={() => (this.state.beaconRed) ? this.setBeacon() : this.setBeacon("red")}
+            onClick={() => this.setBeacon("red")}
             color="red"
+            size="big"
             basic={Boolean(!this.state.beaconRed)}
           >
-            <Icon name="bomb" />
+            <Icon name="fighter jet" />
             Boost Rikkenor
           </Button>
         </Segment>

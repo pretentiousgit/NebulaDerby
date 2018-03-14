@@ -35,55 +35,59 @@ class PlayerCard extends Component {
     this.props.updatePilots(value, options);
   }
 
+  state={}
+
+  setPredatorMode(e) {
+    this.setState({predatorMode: !this.state.predatorMode});
+    // this.props.sendPredatorMode(
+    //   this.props.whaleOrder,
+    //   e.target.checked
+    // );
+  };
+
   render() {
-    const LoveHandle =
-      this.props.whale.toLowerCase() === "love"
-        ? LoveWhaleState(this.props.LoveWhaleState)
-        : "";
+    const LoveHandle = this.props.whale.toLowerCase() === "love"
+    ? <div>
+        <Button icon="empty heart" circular basic color="purple" />
+        <Button icon="empty heart" circular basic color="pink" />
+        <Button icon="empty heart" circular basic color="red" />
+      </div>
+    : "";
+
 
     const PredatorMode =
       this.props.whale.toLowerCase() === "predator"
-        ? <label htmlFor="predator">
-          <span
-            style={{
-              position: "relative",
-              top: "-7px",
-              paddingRight: "5px"
-            }}
-          >
-            Predator Mode
-            </span>
-          <Toggle
-            id="predator"
-            onChange={e =>
-              this.props.sendPredatorMode(
-                this.props.whaleOrder,
-                e.target.checked
-              )}
-          />
-        </label>
+        ?
+            <Button
+              id="predator"
+              toggle
+              color='red'
+              circular
+              icon="hand lizard"
+              label="predator mode"
+              floated="right"
+              size="large"
+              basic={Boolean(!this.state.predatorMode)}
+              onClick={() => this.setPredatorMode()}
+            />
         : "";
 
     return (
       <Segment>
-        <Grid relaxed>
-          <Grid.Row stretched>
-            <Grid.Column width={1} textAlign="center">
+        <Grid columns={16}>
+          <Grid.Row>
+            <Grid.Column width={1}>
               <DragHandle />
             </Grid.Column>
-            <Grid.Column width={12}>
+            <Grid.Column width={3}>
               <Item>
                 <Item.Header as="h5">
-                  {this.props.whale} {LoveHandle}
+                  {this.props.whale}
                 </Item.Header>
-                <Item.Content>
-                </Item.Content>
               </Item>
             </Grid.Column>
-            <Grid.Column width={2} verticalAlign="bottom">
-              <Grid.Row />
-              <Grid.Row>
-              </Grid.Row>
+            <Grid.Column width={11} textAlign="right">
+              {LoveHandle} {PredatorMode}
             </Grid.Column>
           </Grid.Row>
         </Grid>
