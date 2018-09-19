@@ -28,5 +28,5 @@ server.listen(3001, () => {
     npm.commands.run(['fullscreen']);
   });
   // Specify app arguments
-  opn(`http://${ip.address()}:3001/game`, {app: ['midori', 'Fullscreen']});
+  opn(`http://${ip.address()}:3001/game`, {app: ['midori', '-e Fullscreen']});
 });
