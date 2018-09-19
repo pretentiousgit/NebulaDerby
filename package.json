@@ -40,7 +40,8 @@
     "dev": "concurrently \"nodemon server.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "fullscreen": "xset off && xset -dpms && xset s noblank"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
