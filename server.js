@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const server = require('http').createServer(app);
+const ip = require('ip');
+const opn = require('opn');
 
 // turn on Primus and stick an ear into the internet
 const sockets = require('./server/socketInputOutput')(server);
@@ -19,4 +21,7 @@ app.use('/', express.static(__dirname + '/build'));
 // Turn on server
 server.listen(3001, () => {
   console.log("Server listening on port 3001");
+  console.log ('local ip address', ip.address() );
+  // Specify app arguments
+  opn(`http://${ip.address()}:3001/game`, {app: ['google chrome', '--incognito']});
 });

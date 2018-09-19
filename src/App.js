@@ -31,7 +31,7 @@ const options = {
   strategy: 'online, timeout, disconnect'
 };
 
-const primus = Primus.connect('http://localhost:3001', { options });
+const primus = Primus.connect('http://10.3.141.1:3001', { options });
 
 // Game admin application starts
 class App extends Component {
