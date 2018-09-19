@@ -23,12 +23,7 @@ app.use('/', express.static(__dirname + '/build'));
 server.listen(3001, () => {
   console.log("Server listening on port 3001");
   console.log ('local ip address', ip.address() );
-  // npm.load({}, function (er) {
-  //   if (er) { return; }
-  //   npm.commands.run(['fullscreen']);
-  // });
-  // Specify app arguments
-  opn(`http://${ip.address()}:3001/game`, {app: ['midori', '-e Fullscreen']})
+  opn(`http://${ip.address()}:3001/game`, {app: ['chromium-browser', '--kiosk']})
   .catch((err) => {
     console.log(err);
   });
