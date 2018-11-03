@@ -1,1 +1,1 @@
-const socket = io.connect('http://localhost:3001');
+const socket = io.connect('http://192.168.0.100:3001/game');

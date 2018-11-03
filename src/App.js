@@ -10,7 +10,7 @@ import {
   Icon
 } from "semantic-ui-react";
 
-import Primus from './static/primus';
+import Primus from "./static/primus";
 import CardDeck from "./components/CardDeck";
 import Toggle from "react-toggle";
 
@@ -28,32 +28,37 @@ const options = {
     min: 500, // Number: The minimum delay before we try reconnect.
     retries: 10 // Number: How many times we should try to reconnect.
   },
-  strategy: 'online, timeout, disconnect'
+  strategy: "online, timeout, disconnect"
 };
 
-const primus = Primus.connect('http://10.3.141.1:3001', { options });
+const primus = Primus.connect(
+  "http://localhost:3001",
+  { options }
+);
 
 // Game admin application starts
 class App extends Component {
   componentDidMount() {
-    primus.on('open', () => {
-      console.log('Connection is alive and kicking');
-      primus.id((id) => {
+    // Get server IP address
+
+    primus.on("open", () => {
+      console.log("Connection is alive and kicking");
+      primus.id(id => {
         console.log(id);
         primus.write({ browserId: id });
       });
     });
   }
 
-  state = {}
+  state = {};
 
   setFakeHeat(props) {
-    this.setState({ fakeHeat: !this.state.fakeHeat});
+    this.setState({ fakeHeat: !this.state.fakeHeat });
     this.sendEvent("newHeat", props);
   }
 
   setBeacon(color) {
-    switch(color){
+    switch (color) {
       case "red":
         this.setState({
           beaconBlue: false,
@@ -86,7 +91,7 @@ class App extends Component {
   }
 
   sendEvent(eventName, message) {
-    primus.write({ adminEvent: { event: eventName, message: message }});
+    primus.write({ adminEvent: { event: eventName, message: message } });
   }
 
   render() {
@@ -99,81 +104,86 @@ class App extends Component {
         <Divider hidden clearing />
         <Segment>
           <Grid>
-          <Grid.Row columns={2} divided verticalAlign="middle">
-          <Grid.Column>
-              <Button
-                className="blue"
-                size="medium"
-                style={{ marginBottom: '1em'}}
-                onClick={() => {
-                  this.sendEvent("newHeat", this.props);
-                }}
-              >
-              <Icon name="refresh" />
-              New Heat
-              </Button>
-              <Button
-                className="red"
-                size="medium"
-                toggle
-                basic={Boolean(!this.state.fakeHeat)}
-                onClick={() => {
-                  this.setFakeHeat(this.props);
-                }}
-              >
-                Fake Heat
-                <Icon name="right arrow" />
-              </Button>
-          </Grid.Column>
-          <Grid.Column textAlign="center">
-              <Button
-                className="green"
-                circular
-                size="massive"
-                floated="right"
-                onClick={() => this.sendEvent("startRace", { fakeHeat: this.props.fakeHeat, whaleOrder: this.props.whaleOrder })}
-              >
-                <Icon name="flag checkered" />
-                Start Race!
-              </Button>
+            <Grid.Row columns={2} divided verticalAlign="middle">
+              <Grid.Column>
+                <Button
+                  className="blue"
+                  size="medium"
+                  style={{ marginBottom: "1em" }}
+                  onClick={() => {
+                    this.sendEvent("newHeat", this.props);
+                  }}
+                >
+                  <Icon name="refresh" />
+                  New Heat
+                </Button>
+                <Button
+                  className="red"
+                  size="medium"
+                  toggle
+                  basic={Boolean(!this.state.fakeHeat)}
+                  onClick={() => {
+                    this.setFakeHeat(this.props);
+                  }}
+                >
+                  Fake Heat
+                  <Icon name="right arrow" />
+                </Button>
               </Grid.Column>
-              </Grid.Row>
-            </Grid>
-          </Segment>
-          <Segment>
-            <Button
-              onClick={() => this.sendEvent("galactagasm")}
-              size="big"
-              color="pink"
-              style={{ marginBottom: '1em'}}
-            >
-              <Icon name="heartbeat" />
-              Galactagasm
-            </Button>
-            <Button
-              onClick={() => this.sendEvent("tranzonicInterference")}
-              color="orange"
-              size="big"
-              style={{ marginBottom: '1em'}}
-            >
-              <Icon name="lightning" />
-              Tranzonic Interference
-            </Button>
-            <Button
-              onClick={() => this.sendEvent("fleetAttack")}
-              color="yellow"
-              size="big"
-            >
-              <Icon name="bomb" />
-              Fleet Attack
-            </Button>
+              <Grid.Column textAlign="center">
+                <Button
+                  className="green"
+                  circular
+                  size="massive"
+                  floated="right"
+                  onClick={() =>
+                    this.sendEvent("startRace", {
+                      fakeHeat: this.props.fakeHeat,
+                      whaleOrder: this.props.whaleOrder
+                    })
+                  }
+                >
+                  <Icon name="flag checkered" />
+                  Start Race!
+                </Button>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Segment>
+        <Segment>
+          <Button
+            onClick={() => this.sendEvent("galactagasm")}
+            size="big"
+            color="pink"
+            style={{ marginBottom: "1em" }}
+          >
+            <Icon name="heartbeat" />
+            Galactagasm
+          </Button>
+          <Button
+            onClick={() => this.sendEvent("tranzonicInterference")}
+            color="orange"
+            size="big"
+            style={{ marginBottom: "1em" }}
+          >
+            <Icon name="lightning" />
+            Tranzonic Interference
+          </Button>
+          <Button
+            onClick={() => this.sendEvent("fleetAttack")}
+            color="yellow"
+            size="big"
+          >
+            <Icon name="bomb" />
+            Fleet Attack
+          </Button>
         </Segment>
         <Segment>
           <Button
             onClick={() => this.setBeacon("green")}
             color="green"
             size="big"
-            style={{ marginBottom: '1em'}}
+            style={{ marginBottom: "1em" }}
             basic={Boolean(!this.state.beaconGreen)}
           >
             <Icon name="flask" />
@@ -183,7 +193,7 @@ class App extends Component {
             onClick={() => this.setBeacon("blue")}
             color="blue"
             size="big"
-            style={{ marginBottom: '1em'}}
+            style={{ marginBottom: "1em" }}
             basic={Boolean(!this.state.beaconBlue)}
           >
             <Icon name="diamond" />
@@ -201,7 +211,7 @@ class App extends Component {
         </Segment>
         <Header floated="left">Whales</Header>
         <Divider clearing />
-        <CardDeck socket={this.sendEvent}/>
+        <CardDeck socket={this.sendEvent} />
       </Segment>
     );
   }
@@ -218,8 +228,11 @@ function mapStateToProps(state) {
 const mapDispatchToProps = dispatch => {
   return {
     newHeat: () => dispatch(newHeat()),
-    toggleFakeHeat: (val) => dispatch(toggleFakeHeat(val))
+    toggleFakeHeat: val => dispatch(toggleFakeHeat(val))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
