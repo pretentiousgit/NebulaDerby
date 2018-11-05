@@ -12,7 +12,7 @@ const rewriter = require("./server/rewriteGameIndex");
 const sockets = require("./server/socketInputOutput")(server);
 const store = require("./server/redux/store"); // boot store?
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
@@ -28,7 +28,7 @@ global.rootRequire = name =>
   require(`${__dirname}/$
 {name}`);
 
-app.use("/game", express.static(__dirname + "/hypeAnimation2"));
+app.use("/game", express.static(__dirname + "/hypeAnimation3"));
 
 app.use("/", express.static(__dirname + "/build"));
 
