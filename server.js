@@ -33,7 +33,7 @@ app.use("/game", express.static(__dirname + "/hypeAnimation3"));
 app.use("/", express.static(__dirname + "/build"));
 
 // Use FS to write the local ip address into the game's index.html
-rewriter();
+// rewriter();
 
 // Turn on server
 server.listen(3001, () => {
