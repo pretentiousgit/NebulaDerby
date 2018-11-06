@@ -1,61 +1,35 @@
-// import possible actions
-const {
-  START_RACE,
-  STOP_RACE,
-  RESET_RACE,
-  REORDER_RACE_POSITIONS,
-  UPDATE_RACE_POSITIONS,
-  TRANZONIC,
-  GALACTAGASM,
-  FLEET_ATTACK
-} = require("./actions").actionTypes;
-
+const Action = require("./actions").actionTypes;
 // reduce them to the new state
 const initialState = require('../config.initialState');
 
+function returnState(state, action) {
+  return { ...state };
+}
+
+function objectUpdate(state, newItems) {
+  const update = {
+    ...state,
+    ...newItems
+  };
+  return update;
+}
+
+const options = {
+  [Action.START_RACE]: objectUpdate,
+  [Action.STOP_RACE]: objectUpdate,
+  [Action.REORDER_RACE_POSITIONS]: objectUpdate,
+  [Action.UPDATE_RACE_POSITIONS]: objectUpdate,
+  [Action.TRANZONIC]: returnState,
+  [Action.GALACTAGASM]: returnState,
+  [Action.FLEET_ATTACK]: objectUpdate
+};
+
 module.exports = (state = initialState, action = {}) => {
-  switch (action.type) {
-    case RESET_RACE:
-      return {
-        ...initialState
-      };
-    case START_RACE:
-      return {
-        ...state,
-        running: action.running
-      };
-    case STOP_RACE:
-      return {
-        ...state,
-        running: action.running
-      };
-    case REORDER_RACE_POSITIONS:
-      return {
-        ...state,
-        race_positions: action.racePositions
-      };
-    case UPDATE_RACE_POSITIONS:
-      return {
-        ...state,
-        racePositions: action.racePositions,
-        raceTimeRemaining: action.raceTimeRemaining
-      };
-    case TRANZONIC:
-      return {
-        ...state
-      };
-    case GALACTAGASM:
-      return {
-        ...state
-      };
-    case FLEET_ATTACK:
-      return {
-        ...state,
-        running: action.running
-      };
-    default:
-      return {
-        ...state
-      };
+  console.log('server action', action);
+  let cleanState = state;
+  if (state.error && action.type !== Action.CATCH_ERROR) {
+    cleanState = { ...state, error: { messages: [] } };
   }
+  const func = options[action.type] || returnState;
+  return func(cleanState, action);
 };

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 
 import {
   Button,
@@ -12,67 +11,62 @@ import {
 
 import io from "./static/socket.io.slim.js";
 import CardDeck from "./components/CardDeck";
-import Toggle from "react-toggle";
 
 import "./App.css";
 import "./static/reactToggle.css";
-
-import { newHeat, toggleFakeHeat } from "./redux/actions/app";
 
 // Socket.io business
 const socket = io("http://localhost:3001", () => {
   console.log('Connected to server');
 });
 
+
 // Game admin application starts
 class App extends Component {
   componentDidMount() {
     // Get server IP address
-
     socket.on('connect', () => {
       console.log("socket connected", socket.id);
       socket.emit('adminShake', { browserId: socket.id, message: 'admin browser' });
     });
+
+    socket.on('whaleState', (d) => {
+      console.log('whale update', d);
+    });
+
+    socket.on('raceEnd', (d) => {
+      console.log('Race complete');
+      this.setState({ raceInProgress: false });
+    });
+
+    socket.on('setBeacon', (d) => {
+      this.setState(d);
+    });
   }
 
-  state = {};
-
-  setFakeHeat(props) {
-    this.setState({ fakeHeat: !this.state.fakeHeat });
-    this.sendEvent("newHeat", props);
-  }
+  state = {
+    blue: false,
+    red: false,
+    green: false,
+    raceInProgress: false,
+    fakeHeat: false,
+    predatorTarget: null,
+    loveWhaleState: 1,
+    whaleOrder: [
+      'predator',
+      'cyber',
+      'imperial',
+      'love'
+    ]
+  };
 
   setBeacon(color) {
-    switch (color) {
-      case "red":
-        this.setState({
-          beaconBlue: false,
-          beaconRed: !this.state.beaconRed,
-          beaconGreen: false
-        });
-        break;
-      case "blue":
-        this.setState({
-          beaconBlue: !this.state.beaconBlue,
-          beaconRed: false,
-          beaconGreen: false
-        });
-        break;
-      case "green":
-        this.setState({
-          beaconBlue: false,
-          beaconRed: false,
-          beaconGreen: !this.state.beaconGreen
-        });
-        break;
-      default:
-        this.setState({
-          beaconBlue: false,
-          beaconRed: false,
-          beaconGreen: false
-        });
-        break;
-    }
+    socket.emit('beacon', { color, set: this.state[color] });
+  }
+
+  startRace(message) {
+    console.log('emitted StartRace');
+    socket.emit('startRace');
   }
 
   sendEvent(eventName, message) {
@@ -92,20 +86,8 @@ class App extends Component {
             <Grid.Row columns={2} divided verticalAlign="middle">
               <Grid.Column>
                 <Button
-                  className="blue"
-                  size="medium"
-                  style={{ marginBottom: "1em" }}
-                  onClick={() => {
-                    this.sendEvent("newHeat", this.props);
-                  }}
-                >
-                  <Icon name="refresh" />
-                  New Heat
-                </Button>
-                <Button
                   className="red"
                   size="medium"
-                  toggle
                   basic={Boolean(!this.state.fakeHeat)}
                   onClick={() => {
                     this.setFakeHeat(this.props);
@@ -121,10 +103,12 @@ class App extends Component {
                   circular
                   size="massive"
                   floated="right"
+                  disabled={this.state.raceInProgress}
+                  basic={Boolean(this.state.raceInProgress)}
                   onClick={() =>
-                    this.sendEvent("startRace", {
-                      fakeHeat: this.props.fakeHeat,
-                      whaleOrder: this.props.whaleOrder
+                    this.startRace({
+                      fakeHeat: this.state.fakeHeat,
+                      whaleOrder: this.state.whaleOrder
                     })
                   }
                 >
@@ -169,7 +153,7 @@ class App extends Component {
             color="green"
             size="big"
             style={{ marginBottom: "1em" }}
-            basic={Boolean(!this.state.beaconGreen)}
+            basic={Boolean(!this.state.green)}
           >
             <Icon name="flask" />
             Boost Cyberwhale
@@ -179,7 +163,7 @@ class App extends Component {
             color="blue"
             size="big"
             style={{ marginBottom: "1em" }}
-            basic={Boolean(!this.state.beaconBlue)}
+            basic={Boolean(!this.state.blue)}
           >
             <Icon name="diamond" />
             Boost Imperium
@@ -188,7 +172,7 @@ class App extends Component {
             onClick={() => this.setBeacon("red")}
             color="red"
             size="big"
-            basic={Boolean(!this.state.beaconRed)}
+            basic={Boolean(!this.state.red)}
           >
             <Icon name="fighter jet" />
             Boost Rikkenor
@@ -202,22 +186,4 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    pilots: state.app.pilots,
-    whaleOrder: state.app.whaleOrder,
-    fakeHeat: state.app.fakeHeat
-  };
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    newHeat: () => dispatch(newHeat()),
-    toggleFakeHeat: val => dispatch(toggleFakeHeat(val))
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default App;

@@ -4,24 +4,10 @@ const Race = require('./game/engine');
 const gameFunctions = require('./game/gameFunctions');
 
 const adminEventHandlers = {
-  newHeat() {
-    actions.resetRace();
-  },
-  startRace() {
-    Race();
-  },
-  stopRace() {
-    actions.stopRace();
-  },
-  tranzonicInterference() {
-    actions.tranzonic();
-  },
-  fleetAttack() {
-    actions.fleetAttack();
-  },
-  galactagasm() {
-    actions.galactagasm();
-  }
+  newHeat: actions.resetRace,
+  tranzonicInterference: actions.tranzonic,
+  fleetAttack: actions.fleetAttack,
+  galactagasm: actions.galactagasm
 };
 
 const defaultHandler = (data) => console.log(data.event);
@@ -57,10 +43,29 @@ module.exports = async (server) => {
       });
 
       // Handle DM event
+      client.on('startRace', (d) => {
+        console.log('Received start race request');
+        Race();
+      });
+
+      client.on('beacon', (d) => {
+        //Todo: emit a state-set for the beacon
+        console.log(d);
+        const def = {
+          blue: false,
+          red: false,
+          green: false
+        };
+
+        def[d.color] = !d.set;
+        client.emit('setBeacon', def);
+      });
+
+      // Handle DM event
       client.on('adminEvent', (d) => {
         console.log('Admin event', d);
         const handler = adminEventHandlers[d.event] || defaultHandler;
-        handler(d);
+        handler();
       });
 
       client.on('disconnect', (client) => {
@@ -72,6 +77,9 @@ module.exports = async (server) => {
       store.subscribe(() => {
         const { raceTimeRemaining, whales } = store.getState();
         client.emit('whaleState', { timer: raceTimeRemaining, whales });
+        if (raceTimeRemaining <= 0) {
+          client.emit('raceEnd');
+        }
       });
     });
 
