@@ -1,16 +1,7 @@
-const Primus = require('primus');
-const access = require('access-control');
 const store = require('./redux/store');
 const actions = require('./redux/boundActions');
 const Race = require('./game/engine');
 const gameFunctions = require('./game/gameFunctions');
-
-const options = {
-  port: 3001,
-  pathname: '/api',
-  pingInterval: false,
-  transformer: 'engine.io'
-};
 
 const adminEventHandlers = {
   newHeat() {
@@ -37,39 +28,53 @@ const defaultHandler = (data) => console.log(data.event);
 
 module.exports = async (server) => {
   try {
-    const primus = new Primus(server, options);
-    console.log('Primus booting on port ', options.port);
+    const io = require('socket.io')(server);
+    console.log('socket.io booting');
 
-    primus.on('connection', (spark) => {
-      console.log('Primus connected to a client', spark.id);
-      spark.write('hello connection', spark.id);
-      gameFunctions.generateFairMovementArray();
+    io.on('connection', (client) => {
+      console.log('Socket connected to a client', client.id);
+      client.emit('hello', { id: client.id });
 
-      // Handle data coming in from administrator
-      spark.on('data', (data) => {
-        // we never receive data from the game, only the admin panel.
-        console.log('server received data', data);
+      //TODO: PUT BACK gameFunctions.generateFairMovementArray();
+      client.on('handshake', (d) => {
+        console.log('Handshake ', d);
+      });
 
-        if( !data.adminEvent ) {
-          console.log('non-admin event', data);
-          return;
-        }
+      client.on('message', (d) => {
+        console.log('message ', d);
+      });
 
-        const handler = adminEventHandlers[data.adminEvent.event] || defaultHandler;
-        handler(data);
+      client.on('event', (d) => {
+        console.log('Event ', d);
+      });
+
+      client.on('adminShake', (d) => {
+        console.log('Admin panel connected');
+      });
+
+      client.on('gameShake', (d) => {
+        console.log('Game screen connected');
+      });
+
+      // Handle DM event
+      client.on('adminEvent', (d) => {
+        console.log('Admin event', d);
+        const handler = adminEventHandlers[d.event] || defaultHandler;
+        handler(d);
+      });
+
+      client.on('disconnect', (client) => {
+        // the client that disconnected
+        console.log('Client disconnect ', client.id);
       });
 
       // Subscribe to the store and output to any display clients
       store.subscribe(() => {
         const { raceTimeRemaining, whales } = store.getState();
-        // spark.write({ timer: raceTimeRemaining, whales });
+        client.emit('whaleState', { timer: raceTimeRemaining, whales });
       });
     });
 
-    primus.on('disconnection', (spark) => {
-      // the spark that disconnected
-      spark.write('goodbye connnection', spark.id);
-    });
   } catch (err) {
     throw new Error('Something went wrong', err.message, err.stack);
   }

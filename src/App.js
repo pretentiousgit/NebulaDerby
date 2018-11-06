@@ -10,7 +10,7 @@ import {
   Icon
 } from "semantic-ui-react";
 
-import Primus from "./static/primus";
+import io from "./static/socket.io.slim.js";
 import CardDeck from "./components/CardDeck";
 import Toggle from "react-toggle";
 
@@ -19,34 +19,19 @@ import "./static/reactToggle.css";
 
 import { newHeat, toggleFakeHeat } from "./redux/actions/app";
 
-// Primus connection options
-const options = {
-  pingTimeout: 10000,
-  timeout: 10000,
-  reconnect: {
-    max: Infinity, // Number: The max delay before we try to reconnect.
-    min: 500, // Number: The minimum delay before we try reconnect.
-    retries: 10 // Number: How many times we should try to reconnect.
-  },
-  strategy: "online, timeout, disconnect"
-};
-
-const primus = Primus.connect(
-  "http://localhost:3001",
-  { options }
-);
+// Socket.io business
+const socket = io("http://localhost:3001", () => {
+  console.log('Connected to server');
+});
 
 // Game admin application starts
 class App extends Component {
   componentDidMount() {
     // Get server IP address
 
-    primus.on("open", () => {
-      console.log("Connection is alive and kicking");
-      primus.id(id => {
-        console.log(id);
-        primus.write({ browserId: id });
-      });
+    socket.on('connect', () => {
+      console.log("socket connected", socket.id);
+      socket.emit('adminShake', { browserId: socket.id, message: 'admin browser' });
     });
   }
 
@@ -91,7 +76,7 @@ class App extends Component {
   }
 
   sendEvent(eventName, message) {
-    primus.write({ adminEvent: { event: eventName, message: message } });
+    socket.emit('adminEvent', { event: eventName, message: message });
   }
 
   render() {

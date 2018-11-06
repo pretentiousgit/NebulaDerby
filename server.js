@@ -8,7 +8,7 @@ const fs = require("fs");
 
 const rewriter = require("./server/rewriteGameIndex");
 
-// turn on Primus and stick an ear into the internet
+// turn on sockets and stick an ear into the internet
 const sockets = require("./server/socketInputOutput")(server);
 const store = require("./server/redux/store"); // boot store?
 
@@ -28,7 +28,8 @@ global.rootRequire = name =>
   require(`${__dirname}/$
 {name}`);
 
-app.use("/game", express.static(__dirname + "/hypeAnimation3"));
+app.use("/game", express.static(__dirname + "/hypeAnimation"));
+// app.use("/game", express.static(__dirname + "/testSocket"));
 
 app.use("/", express.static(__dirname + "/build"));
 

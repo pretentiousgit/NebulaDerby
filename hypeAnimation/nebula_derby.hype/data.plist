@@ -49,15 +49,15 @@
 	</array>
 	<key>displayedAttributes</key>
 	<array>
-		<string>FilterEffectBlur</string>
-		<string>BackgroundColor</string>
+		<string>DisplayHiddenOverride</string>
 		<string>kPropertiesMenuItemIdentifierAll</string>
+		<string>FilterEffectHue</string>
 		<string>RotationAngle</string>
 		<string>kPropertiesMenuItemIdentifierPosition</string>
+		<string>FilterEffectBlur</string>
+		<string>BackgroundColor</string>
 		<string>FilterEffectBrightness</string>
 		<string>kPropertiesMenuItemIdentifierOpacity</string>
-		<string>DisplayHiddenOverride</string>
-		<string>FilterEffectHue</string>
 	</array>
 	<key>documentVersion</key>
 	<string>574</string>
@@ -113,7 +113,7 @@
 	<key>hasManuallyChangedCSSPositioning</key>
 	<false/>
 	<key>lastCheckDate</key>
-	<date>2018-10-21T14:29:27Z</date>
+	<date>2018-11-06T16:00:18Z</date>
 	<key>layout</key>
 	<dict>
 		<key>currentInspectorPane</key>
@@ -121,9 +121,9 @@
 		<key>customizableLayout</key>
 		<dict>
 			<key>frame</key>
-			<string>{{0, 0}, {1920, 981}}</string>
+			<string>{{0, 0}, {1353, 617}}</string>
 			<key>identifier</key>
-			<string>container 88</string>
+			<string>container 152</string>
 			<key>isCustomizableViewContainer</key>
 			<true/>
 			<key>isCustomizableViewWrapper</key>
@@ -134,9 +134,32 @@
 			<array>
 				<dict>
 					<key>frame</key>
-					<string>{{0, 0}, {1649, 981}}</string>
+					<string>{{0, 0}, {270, 617}}</string>
 					<key>identifier</key>
-					<string>container 53</string>
+					<string>container 162</string>
+					<key>isCustomizableViewContainer</key>
+					<true/>
+					<key>isCustomizableViewWrapper</key>
+					<true/>
+					<key>isVertical</key>
+					<true/>
+					<key>subviews</key>
+					<array>
+						<dict>
+							<key>frame</key>
+							<string>{{0, 0}, {270, 617}}</string>
+							<key>identifier</key>
+							<string>sceneSelectorCustomizableContainer</string>
+							<key>isCustomizableViewContainer</key>
+							<false/>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>frame</key>
+					<string>{{271, 0}, {1082, 617}}</string>
+					<key>identifier</key>
+					<string>container 163</string>
 					<key>isCustomizableViewContainer</key>
 					<true/>
 					<key>isCustomizableViewWrapper</key>
@@ -147,9 +170,9 @@
 					<array>
 						<dict>
 							<key>frame</key>
-							<string>{{0, 0}, {1378, 981}}</string>
+							<string>{{271, 0}, {811, 617}}</string>
 							<key>identifier</key>
-							<string>container 42</string>
+							<string>container 141</string>
 							<key>isCustomizableViewContainer</key>
 							<true/>
 							<key>isCustomizableViewWrapper</key>
@@ -160,30 +183,7 @@
 							<array>
 								<dict>
 									<key>frame</key>
-									<string>{{0, 0}, {135, 981}}</string>
-									<key>identifier</key>
-									<string>container 32</string>
-									<key>isCustomizableViewContainer</key>
-									<true/>
-									<key>isCustomizableViewWrapper</key>
-									<true/>
-									<key>isVertical</key>
-									<true/>
-									<key>subviews</key>
-									<array>
-										<dict>
-											<key>frame</key>
-											<string>{{0, 0}, {135, 981}}</string>
-											<key>identifier</key>
-											<string>sceneSelectorCustomizableContainer</string>
-											<key>isCustomizableViewContainer</key>
-											<false/>
-										</dict>
-									</array>
-								</dict>
-								<dict>
-									<key>frame</key>
-									<string>{{136, 0}, {1242, 981}}</string>
+									<string>{{271, 0}, {540, 617}}</string>
 									<key>identifier</key>
 									<string>container 33</string>
 									<key>isCustomizableViewContainer</key>
@@ -196,7 +196,7 @@
 									<array>
 										<dict>
 											<key>frame</key>
-											<string>{{136, 0}, {1242, 497.76953125}}</string>
+											<string>{{271, 0}, {540, 135}}</string>
 											<key>identifier</key>
 											<string>container 4</string>
 											<key>isCustomizableViewContainer</key>
@@ -209,7 +209,7 @@
 											<array>
 												<dict>
 													<key>frame</key>
-													<string>{{136, 0}, {1242, 497.76953125}}</string>
+													<string>{{271, 0}, {540, 135}}</string>
 													<key>identifier</key>
 													<string>timelineCustomizableContainer</string>
 													<key>isCustomizableViewContainer</key>
@@ -219,7 +219,7 @@
 										</dict>
 										<dict>
 											<key>frame</key>
-											<string>{{136, 498.76953125}, {1242, 482.23046875}}</string>
+											<string>{{271, 136}, {540, 481}}</string>
 											<key>identifier</key>
 											<string>container 3</string>
 											<key>isCustomizableViewContainer</key>
@@ -232,7 +232,7 @@
 											<array>
 												<dict>
 													<key>frame</key>
-													<string>{{136, 498.76953125}, {1242, 482.23046875}}</string>
+													<string>{{271, 136}, {540, 481}}</string>
 													<key>identifier</key>
 													<string>sceneEditorCustomizableContainer</string>
 													<key>isCustomizableViewContainer</key>
@@ -242,13 +242,36 @@
 										</dict>
 									</array>
 								</dict>
+								<dict>
+									<key>frame</key>
+									<string>{{812, 0}, {270, 617}}</string>
+									<key>identifier</key>
+									<string>container 65</string>
+									<key>isCustomizableViewContainer</key>
+									<true/>
+									<key>isCustomizableViewWrapper</key>
+									<true/>
+									<key>isVertical</key>
+									<true/>
+									<key>subviews</key>
+									<array>
+										<dict>
+											<key>frame</key>
+											<string>{{812, 0}, {270, 617}}</string>
+											<key>identifier</key>
+											<string>inspectorCustomizableContainer</string>
+											<key>isCustomizableViewContainer</key>
+											<false/>
+										</dict>
+									</array>
+								</dict>
 							</array>
 						</dict>
 						<dict>
 							<key>frame</key>
-							<string>{{1379, 0}, {270, 981}}</string>
+							<string>{{1083, 0}, {270, 617}}</string>
 							<key>identifier</key>
-							<string>container 41</string>
+							<string>container 140</string>
 							<key>isCustomizableViewContainer</key>
 							<true/>
 							<key>isCustomizableViewWrapper</key>
@@ -259,36 +282,13 @@
 							<array>
 								<dict>
 									<key>frame</key>
-									<string>{{1379, 0}, {270, 981}}</string>
+									<string>{{1083, 0}, {270, 617}}</string>
 									<key>identifier</key>
-									<string>inspectorCustomizableContainer</string>
+									<string>resourcesCustomizableContainer</string>
 									<key>isCustomizableViewContainer</key>
 									<false/>
 								</dict>
 							</array>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>frame</key>
-					<string>{{1650, 0}, {270, 981}}</string>
-					<key>identifier</key>
-					<string>container 52</string>
-					<key>isCustomizableViewContainer</key>
-					<true/>
-					<key>isCustomizableViewWrapper</key>
-					<true/>
-					<key>isVertical</key>
-					<true/>
-					<key>subviews</key>
-					<array>
-						<dict>
-							<key>frame</key>
-							<string>{{1650, 0}, {270, 981}}</string>
-							<key>identifier</key>
-							<string>resourcesCustomizableContainer</string>
-							<key>isCustomizableViewContainer</key>
-							<false/>
 						</dict>
 					</array>
 				</dict>
@@ -297,7 +297,7 @@
 		<key>keyframeTimelineHeight</key>
 		<real>285</real>
 		<key>mainWindowFrame</key>
-		<string>0 123 1280 654 0 0 1280 777 </string>
+		<string>5 115 1353 661 0 0 1280 777 </string>
 		<key>openTabs</key>
 		<array>
 			<dict>
@@ -316,7 +316,7 @@
 		<key>showSceneSelectorView</key>
 		<true/>
 		<key>showSceneVariantSelectorView</key>
-		<false/>
+		<true/>
 		<key>shownFilterEffectApplyMode</key>
 		<integer>0</integer>
 	</dict>
@@ -463,7 +463,7 @@
 			</dict>
 			<dict>
 				<key>expanded</key>
-				<true/>
+				<false/>
 				<key>name</key>
 				<string>predatorWhale</string>
 				<key>oid</key>
@@ -512,56 +512,6 @@
 		</array>
 		<key>resources</key>
 		<array>
-			<dict>
-				<key>fileModificationDate</key>
-				<date>2017-08-23T21:24:28Z</date>
-				<key>fileSize</key>
-				<integer>52900</integer>
-				<key>md5</key>
-				<string>272B6BB1AEE2B475FD08DBE3C5017DAE</string>
-				<key>notifyOnBookmarkChange</key>
-				<true/>
-				<key>originalPath</key>
-				<string>/Users/alexleitch/Projects/SocketIoC3/socket.io.slim.js</string>
-				<key>resourceName</key>
-				<string>socket.io.slim.js</string>
-				<key>securityScopedBookmark</key>
-				<data>
-				Ym9va/ACAAAAAAQQMAAAALmefuB+usRz9BhlpClHl/5j
-				EYo+yJY/qkRdN0RLb9ho7AEAAAQAAAADAwAAAAkAKAUA
-				AAABAQAAVXNlcnMAAAAKAAAAAQEAAGFsZXhsZWl0Y2gA
-				AAgAAAABAQAAUHJvamVjdHMKAAAAAQEAAFNvY2tldElv
-				QzMAABEAAAABAQAAc29ja2V0LmlvLnNsaW0uanMAAAAU
-				AAAAAQYAABAAAAAgAAAANAAAAEQAAABYAAAACAAAAAQD
-				AAA+mAIAAAAAAAgAAAAEAwAAHssHAAAAAAAIAAAABAMA
-				AHvn3gMAAAAACAAAAAQDAABTbPgDAAAAAAgAAAAEAwAA
-				X2z4AwAAAAAUAAAAAQYAAJAAAACgAAAAsAAAAMAAAADQ
-				AAAACAAAAAAEAABBv04qDAAAABgAAAABAgAAAQAAAAAA
-				AAAPAAAAAAAAAAAAAAAAAAAACAAAAAQDAAADAAAAAAAA
-				AAQAAAADAwAA9gEAAAgAAAABCQAAZmlsZTovLy8MAAAA
-				AQEAAE1hY2ludG9zaCBIRAgAAAAEAwAAAFAFRVsAAAAI
-				AAAAAAQAAEG7ekYOAAAAJAAAAAEBAABFNEUyQ0MzQi1E
-				OEU5LTM4OTktODVFQy1DQTNFRkFDQjhEREUYAAAAAQIA
-				AIEAAAABAAAA7xMAAAEAAAAAAAAAAAAAAAEAAAABAQAA
-				LwAAAAAAAAABBQAAzAAAAP7///8BAAAAAAAAABAAAAAE
-				EAAAdAAAAAAAAAAFEAAA4AAAAAAAAAAQEAAADAEAAAAA
-				AABAEAAA/AAAAAAAAAACIAAA2AEAAAAAAAAFIAAASAEA
-				AAAAAAAQIAAAWAEAAAAAAAARIAAAjAEAAAAAAAASIAAA
-				bAEAAAAAAAATIAAAfAEAAAAAAAAgIAAAuAEAAAAAAAAw
-				IAAA5AEAAAAAAAABwAAALAEAAAAAAAARwAAAIAAAAAAA
-				AAASwAAAPAEAAAAAAAAQ0AAABAAAAAAAAAA=
-				</data>
-				<key>shouldAutoResize</key>
-				<true/>
-				<key>shouldIncludeInDocumentHeadHTML</key>
-				<true/>
-				<key>shouldPreload</key>
-				<true/>
-				<key>shouldRemoveWhenNoLongerReferenced</key>
-				<false/>
-				<key>type</key>
-				<string>FileResource</string>
-			</dict>
 			<dict>
 				<key>fileModificationDate</key>
 				<date>2017-08-20T12:31:36Z</date>
@@ -916,58 +866,6 @@
 				<true/>
 				<key>shouldIncludeInDocumentHeadHTML</key>
 				<false/>
-				<key>shouldPreload</key>
-				<true/>
-				<key>shouldRemoveWhenNoLongerReferenced</key>
-				<false/>
-				<key>type</key>
-				<string>FileResource</string>
-			</dict>
-			<dict>
-				<key>fileModificationDate</key>
-				<date>2017-09-11T19:13:30Z</date>
-				<key>fileSize</key>
-				<integer>51</integer>
-				<key>md5</key>
-				<string>E68061688550A17AE8F9B86749C4395A</string>
-				<key>notifyOnBookmarkChange</key>
-				<true/>
-				<key>originalPath</key>
-				<string>/Users/alexleitch/Projects/nebula_derby/hypeAnimation/socketGlobal.js</string>
-				<key>resourceName</key>
-				<string>socketGlobal.js</string>
-				<key>securityScopedBookmark</key>
-				<data>
-				Ym9vaxwDAAAAAAQQMAAAAMxJyYlE2mN7yh9guVFbBs4L
-				vebvD6O9nPlhK1KuIvaFGAIAAAQAAAADAwAAAAkAKAUA
-				AAABAQAAVXNlcnMAAAAKAAAAAQEAAGFsZXhsZWl0Y2gA
-				AAgAAAABAQAAUHJvamVjdHMMAAAAAQEAAG5lYnVsYV9k
-				ZXJieQ0AAAABAQAAaHlwZUFuaW1hdGlvbgAAAA8AAAAB
-				AQAAc29ja2V0R2xvYmFsLmpzABgAAAABBgAAEAAAACAA
-				AAA0AAAARAAAAFgAAABwAAAACAAAAAQDAAA+mAIAAAAA
-				AAgAAAAEAwAAHssHAAAAAAAIAAAABAMAAHvn3gMAAAAA
-				CAAAAAQDAACdpvUDAAAAAAgAAAAEAwAA9FL7AwAAAAAI
-				AAAABAMAABFm+wMAAAAAGAAAAAEGAACoAAAAuAAAAMgA
-				AADYAAAA6AAAAPgAAAAIAAAAAAQAAEG/WbQiAAAAGAAA
-				AAECAAABAAAAAAAAAA8AAAAAAAAAAAAAAAAAAAAIAAAA
-				BAMAAAQAAAAAAAAABAAAAAMDAAD2AQAACAAAAAEJAABm
-				aWxlOi8vLwwAAAABAQAATWFjaW50b3NoIEhECAAAAAQD
-				AAAAUAVFWwAAAAgAAAAABAAAQbt6Rg4AAAAkAAAAAQEA
-				AEU0RTJDQzNCLUQ4RTktMzg5OS04NUVDLUNBM0VGQUNC
-				OERERRgAAAABAgAAgQAAAAEAAADvEwAAAQAAAAAAAAAA
-				AAAAAQAAAAEBAAAvAAAAAAAAAAEFAADMAAAA/v///wEA
-				AAAAAAAAEAAAAAQQAACIAAAAAAAAAAUQAAAIAQAAAAAA
-				ABAQAAA4AQAAAAAAAEAQAAAoAQAAAAAAAAIgAAAEAgAA
-				AAAAAAUgAAB0AQAAAAAAABAgAACEAQAAAAAAABEgAAC4
-				AQAAAAAAABIgAACYAQAAAAAAABMgAACoAQAAAAAAACAg
-				AADkAQAAAAAAADAgAAAQAgAAAAAAAAHAAABYAQAAAAAA
-				ABHAAAAgAAAAAAAAABLAAABoAQAAAAAAABDQAAAEAAAA
-				AAAAAA==
-				</data>
-				<key>shouldAutoResize</key>
-				<true/>
-				<key>shouldIncludeInDocumentHeadHTML</key>
-				<true/>
 				<key>shouldPreload</key>
 				<true/>
 				<key>shouldRemoveWhenNoLongerReferenced</key>
@@ -1370,13 +1268,13 @@
 							<key>92</key>
 							<real>1</real>
 							<key>kTimelineDefaultIdentifier</key>
-							<real>0.0</real>
+							<real>6</real>
 						</dict>
 						<key>timescale</key>
 						<integer>110</integer>
 					</dict>
 					<key>canvasSize</key>
-					<string>{3341, 1512}</string>
+					<string>{3243, 1511}</string>
 					<key>hypeScene</key>
 					<dict>
 						<key>backgroundColor</key>
@@ -1401,7 +1299,7 @@
 					<key>rootSymbolControllerOid</key>
 					<string>2</string>
 					<key>scrollViewOffset</key>
-					<string>{50, 289}</string>
+					<string>{0, 14}</string>
 					<key>zoomFactor</key>
 					<real>0.5</real>
 				</dict>
@@ -1459,222 +1357,216 @@
 			<string>// element - DOMHTMLElement that triggered this function being called
 // event - event that triggered this function being called
 function initSocket(hypeDocument, element, event) {
-	console.log('initSocket loaded');
-	
-	
-// Primus connection options
-const options = {
-  pingTimeout: 10000,
-  timeout: 10000,
-  reconnect: {
-    max: Infinity, // Number: The max delay before we try to reconnect.
-    min: 500, // Number: The minimum delay before we try reconnect.
-    retries: 10 // Number: How many times we should try to reconnect.
-  },
-  strategy: 'online, timeout, disconnect'
+console.log('initSocket loaded');
+
+
+const socket = io('http://localhost:3001');
+socket.on('connect', () =&gt; {
+      console.log("socket connected", socket.id);
+      socket.emit('gameShake', { browserId: socket.id, message: 'game screen' });
+});
+
+function reset() {
+  console.log('play reset');
+  clearVictoryMessage();
+  clearEvents();
+  var arr = {
+    whales: [
+      {
+        name: 'loveWhale',
+        left: 60,
+        top: 808,
+        element: document.getElementById('loveWhale')
+      },
+      {
+        name: 'cyberWhale',
+        left: 60,
+        top: 629,
+        element: document.getElementById('cyberWhale')
+      },
+      {
+        name: 'imperialWhale',
+        left: 60,
+        top: 257,
+        element: document.getElementById('imperialWhale')
+      },
+      {
+        name: 'predatorWhale',
+        left: 60,
+        top: 398,
+        element: document.getElementById('predatorWhale')
+      }
+    ]
+  };
+  setWhalePositions(arr);
+
 };
 
-const socket = Primus.connect('http://192.168.0.100:3001', { options });
+function playWiper() {
+  console.log('Playing wiper');
+  hypeDocument.startTimelineNamed('wiper', hypeDocument.kDirectionForward);
+}
 
-	function reset() {
-		console.log('play reset');
-		clearVictoryMessage();
-		clearEvents();
-		var arr = {whales:[
-			{
-			  name: 'loveWhale',
-			  left: 60,
-        	  top:808,
-			  element: document.getElementById('loveWhale')
-			},
-			{
-			  name: 'cyberWhale',
-			  left: 60,
-        	  top:629,
-			  element: document.getElementById('cyberWhale')
-			},
-			{
-			  name: 'imperialWhale',
-			  left: 60,
-        	  top:257,
-			  element: document.getElementById('imperialWhale')
-			},
-			{
-			  name: 'predatorWhale',
-			  left: 60,
-        	  top:398,
-			  element: document.getElementById('predatorWhale')
-			}
-		]};
-		setWhalePositions(arr);
-		
-	};
-	
-	function playWiper(){
-		console.log('Playing wiper');
-		hypeDocument.startTimelineNamed('wiper', hypeDocument.kDirectionForward)
-	}
-	
-	function pred_imperial(){
-		console.log('Playing pred_imperial');
-		hypeDocument.startTimelineNamed('predator_imperial', hypeDocument.kDirectionForward)
-	}
-	
-	function pred_cyber(){
-		console.log('Playing pred_cyber');
-		hypeDocument.startTimelineNamed('predator_cyber', hypeDocument.kDirectionForward)
-	}
-	
-	function pred_love(){
-		console.log('Playing pred_love');
-		hypeDocument.startTimelineNamed('predator_love', hypeDocument.kDirectionForward)
-	}
-		
-	function setWhalePositions(array) {
-		console.log('check array', array);
-		array.whales.map((whale) =&gt; {	
-			const el = whale.element || whales.find((obj) =&gt; obj.name === whale.name).element;
-			hypeDocument.setElementProperty(el, 'left', whale.left, 0.24, 'easeout');
-			hypeDocument.setElementProperty(el, 'top', whale.top, 0.24, 'easeout');
-			hypeDocument.setElementProperty(el, 'opacity', 1, 0.24, 'easeout');
-			hypeDocument.setElementProperty(el, 'rotateZ', 0, 0.24, 'easeout');
-			hypeDocument.setElementProperty(el, 'rotateY', 0, 0.24, 'easeout');
-			hypeDocument.setElementProperty(el, 'rotateX', 0, 0.24, 'easeout');
-		})
-	}
-	
-	function getWhalePositions() {
-		document.getElementById('')
-	}
-	
-	function clearVictoryMessage() {
-		hypeDocument.setElementProperty(hypeDocument.getElementById('victory'), 'opacity', 0);
-		hypeDocument.setElementProperty(hypeDocument.getElementById('victoryWhale'), 'opacity', 0);
-		hypeDocument.getElementById('victoryWhale').innerHTML = '';
-	}
-	
-	function clearEvents() {
-		hypeDocument.pauseTimelineNamed('fleetLoop');
-		hypeDocument.pauseTimelineNamed('galactagasm');
-		hypeDocument.pauseTimelineNamed('tranzonic');
+function pred_imperial() {
+  console.log('Playing pred_imperial');
+  hypeDocument.startTimelineNamed('predator_imperial', hypeDocument.kDirectionForward);
+}
 
-	 	hypeDocument.setElementProperty(hypeDocument.getElementById('rectangle'), 'opacity', 0);
-		
-		hypeDocument.setElementProperty(hypeDocument.getElementById('tranz1'), 'opacity', 0);
-		hypeDocument.setElementProperty(hypeDocument.getElementById('tranz2'), 'opacity', 0);
-		hypeDocument.setElementProperty(hypeDocument.getElementById('tranzBG'), 'opacity', 0);
-		hypeDocument.setElementProperty(hypeDocument.getElementById('tranzText'), 'opacity', 0);
-		
-		hypeDocument.setElementProperty(hypeDocument.getElementById('gasm'), 'opacity', 0);
-		
-		hypeDocument.setElementProperty(hypeDocument.getElementById('fleetAttackText'), 'opacity', 0);
-		hypeDocument.setElementProperty(hypeDocument.getElementById('fleetAttackBG'), 'opacity', 0);
-	}
-  	
-	const whales = [{
-		name: "imperial",
-		element: hypeDocument.getElementById('imperialWhale')
-	},
-	{
-		name: "cyber",
-		element: hypeDocument.getElementById('cyberWhale')
-	},
-	{
-		name: "predator",
-		element: hypeDocument.getElementById('predatorWhale')
-	},
-		{
-		name: "love",
-		element: hypeDocument.getElementById('loveWhale')
-	}]
-	
-	document.addEventListener("keydown", function(e) {
-		console.log('event', e, e.which);
-		
-		if(e.which === 32){
-			pred_imperial();
-		}
-		if(e.which === 65){
-			pred_cyber();
-		}
-		if(e.which === 83){
-			pred_love();
-		}
-		
-		if(e.which === 82){
-			reset();
-		}
-	})
+function pred_cyber() {
+  console.log('Playing pred_cyber');
+  hypeDocument.startTimelineNamed('predator_cyber', hypeDocument.kDirectionForward);
+}
 
-	socket.on('startRace', function (msg) {
-		clearVictoryMessage();
-		clearEvents();
-  		function millisToMinutesAndSeconds(millis) {
-		    var minutes = Math.floor(millis / 60000);
-		    var seconds = ((millis % 60000) / 1000).toFixed(0);
-		    return (minutes + ":" + (seconds &lt; 10 ? '0' : '') + seconds);
-		}
+function pred_love() {
+  console.log('Playing pred_love');
+  hypeDocument.startTimelineNamed('predator_love', hypeDocument.kDirectionForward);
+}
 
-		const timer = hypeDocument.getElementById('gameTimer');
-		console.log('timer', timer, msg);
+function setWhalePositions(array) {
+  console.log('check array', array);
+  array.whales.map((whale) =&gt; {
+    const el = whale.element || whales.find((obj) =&gt; obj.name === whale.name).element;
+    hypeDocument.setElementProperty(el, 'left', whale.left, 0.24, 'easeout');
+    hypeDocument.setElementProperty(el, 'top', whale.top, 0.24, 'easeout');
+    hypeDocument.setElementProperty(el, 'opacity', 1, 0.24, 'easeout');
+    hypeDocument.setElementProperty(el, 'rotateZ', 0, 0.24, 'easeout');
+    hypeDocument.setElementProperty(el, 'rotateY', 0, 0.24, 'easeout');
+    hypeDocument.setElementProperty(el, 'rotateX', 0, 0.24, 'easeout');
+  });
+}
 
-		var timerValue = msg;
+function getWhalePositions() {
+  document.getElementById('');
+}
 
-		const intervalId = setInterval(() =&gt; {
-			timer.innerHTML = millisToMinutesAndSeconds(timerValue);
-		    timerValue -= 20;
-		}, 20);
-  
-		setTimeout(() =&gt; {
-  			clearInterval(intervalId);
-		}, msg)
-	})
-	
-	socket.on('whaleState', (msg) =&gt; {
-		setWhalePositions(msg);
-	})
-	
-	socket.on('newHeat', (msg) =&gt; {
-		setWhalePositions(msg);
-		clearVictoryMessage();
-		clearEvents();
-	});
-	
-	socket.on('predator', (msg) =&gt; {
-		// set predator whale's target
-		// do a bunch of blood splashes
-		// have target whale turn belly-up and fall offscreen
-		setWhalePositions(msg);
-		clearVictoryMessage();
-		clearEvents();
-	});
-	
-	socket.on('winner', (msg) =&gt; {
-		hypeDocument.getElementById('victoryWhale').innerHTML = msg.faction;
-		hypeDocument.startTimelineNamed('victory', hypeDocument.kDirectionForward);
-	})
-	
-	socket.on('adminEvent', (event) =&gt; {
-		console.log('Event', event);
-		if(event === 'FleetAttack' ) {
-			hypeDocument.startTimelineNamed('fleetAttack', hypeDocument.kDirectionForward)
-			hypeDocument.startTimelineNamed('fleetLoop', hypeDocument.kDirectionForward)
-		}
-		if(event === 'Galactagasm' ) {
-			hypeDocument.startTimelineNamed('galactagasm', hypeDocument.kDirectionForward)
-			setTimeout(() =&gt; {
-				hypeDocument.pauseTimelineNamed('galactagasm')
-				clearEvents();
-			}, 15000)
-		}
-		if(event === 'TranzonicInterference' ) {
-			hypeDocument.startTimelineNamed('tranzonic', hypeDocument.kDirectionForward)
-			setTimeout(() =&gt; {
-				hypeDocument.pauseTimelineNamed('tranzonic');
-				clearEvents();
-			}, 15000)
-		}
-	})
+function clearVictoryMessage() {
+  hypeDocument.setElementProperty(hypeDocument.getElementById('victory'), 'opacity', 0);
+  hypeDocument.setElementProperty(hypeDocument.getElementById('victoryWhale'), 'opacity', 0);
+  hypeDocument.getElementById('victoryWhale').innerHTML = '';
+}
+
+function clearEvents() {
+  hypeDocument.pauseTimelineNamed('fleetLoop');
+  hypeDocument.pauseTimelineNamed('galactagasm');
+  hypeDocument.pauseTimelineNamed('tranzonic');
+
+  hypeDocument.setElementProperty(hypeDocument.getElementById('rectangle'), 'opacity', 0);
+
+  hypeDocument.setElementProperty(hypeDocument.getElementById('tranz1'), 'opacity', 0);
+  hypeDocument.setElementProperty(hypeDocument.getElementById('tranz2'), 'opacity', 0);
+  hypeDocument.setElementProperty(hypeDocument.getElementById('tranzBG'), 'opacity', 0);
+  hypeDocument.setElementProperty(hypeDocument.getElementById('tranzText'), 'opacity', 0);
+
+  hypeDocument.setElementProperty(hypeDocument.getElementById('gasm'), 'opacity', 0);
+
+  hypeDocument.setElementProperty(hypeDocument.getElementById('fleetAttackText'), 'opacity', 0);
+  hypeDocument.setElementProperty(hypeDocument.getElementById('fleetAttackBG'), 'opacity', 0);
+}
+
+const whales = [{
+  name: "imperial",
+  element: hypeDocument.getElementById('imperialWhale')
+},
+{
+  name: "cyber",
+  element: hypeDocument.getElementById('cyberWhale')
+},
+{
+  name: "predator",
+  element: hypeDocument.getElementById('predatorWhale')
+},
+{
+  name: "love",
+  element: hypeDocument.getElementById('loveWhale')
+}];
+
+document.addEventListener("keydown", function (e) {
+  console.log('event', e, e.which);
+
+  if (e.which === 32) {
+    pred_imperial();
+  }
+  if (e.which === 65) {
+    pred_cyber();
+  }
+  if (e.which === 83) {
+    pred_love();
+  }
+
+  if (e.which === 82) {
+    reset();
+  }
+});
+
+socket.on('startRace', function (msg) {
+  clearVictoryMessage();
+  clearEvents();
+  function millisToMinutesAndSeconds(millis) {
+    var minutes = Math.floor(millis / 60000);
+    var seconds = ((millis % 60000) / 1000).toFixed(0);
+    return (minutes + ":" + (seconds &lt; 10 ? '0' : '') + seconds);
+  }
+
+  const timer = hypeDocument.getElementById('gameTimer');
+  console.log('timer', timer, msg);
+
+  var timerValue = msg;
+
+  const intervalId = setInterval(() =&gt; {
+    timer.innerHTML = millisToMinutesAndSeconds(timerValue);
+    timerValue -= 20;
+  }, 20);
+
+  setTimeout(() =&gt; {
+    clearInterval(intervalId);
+  }, msg);
+});
+
+socket.on('whaleState', (msg) =&gt; {
+  setWhalePositions(msg);
+});
+
+socket.on('newHeat', (msg) =&gt; {
+  setWhalePositions(msg);
+  clearVictoryMessage();
+  clearEvents();
+});
+
+socket.on('predator', (msg) =&gt; {
+  // set predator whale's target
+  // do a bunch of blood splashes
+  // have target whale turn belly-up and fall offscreen
+  setWhalePositions(msg);
+  clearVictoryMessage();
+  clearEvents();
+});
+
+socket.on('winner', (msg) =&gt; {
+  hypeDocument.getElementById('victoryWhale').innerHTML = msg.faction;
+  hypeDocument.startTimelineNamed('victory', hypeDocument.kDirectionForward);
+});
+
+socket.on('adminEvent', (event) =&gt; {
+  console.log('Event', event);
+  if (event === 'FleetAttack') {
+    hypeDocument.startTimelineNamed('fleetAttack', hypeDocument.kDirectionForward);
+    hypeDocument.startTimelineNamed('fleetLoop', hypeDocument.kDirectionForward);
+  }
+  if (event === 'Galactagasm') {
+    hypeDocument.startTimelineNamed('galactagasm', hypeDocument.kDirectionForward);
+    setTimeout(() =&gt; {
+      hypeDocument.pauseTimelineNamed('galactagasm');
+      clearEvents();
+    }, 15000);
+  }
+  if (event === 'TranzonicInterference') {
+    hypeDocument.startTimelineNamed('tranzonic', hypeDocument.kDirectionForward);
+    setTimeout(() =&gt; {
+      hypeDocument.pauseTimelineNamed('tranzonic');
+      clearEvents();
+    }, 15000);
+  }
+});
 }
 </string>
 		</dict>
@@ -1707,11 +1599,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 	<array>
 		<dict>
 			<key>documentIdentifier</key>
-			<string>FD714B54-250C-42BF-B426-377AE00E6787-58388-000345B7190BC499</string>
+			<string>BB3F74F2-3754-4DE7-9D58-FD4D963A5C90-76070-0005319764CF4C35</string>
 			<key>selectedObjects</key>
-			<array>
-				<string>90</string>
-			</array>
+			<array/>
 			<key>symbol</key>
 			<dict>
 				<key>addToNewSceneControllers</key>
@@ -1966,9 +1856,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FFFFFF</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2056,12 +1946,6 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>PaddingLeft</string>
-							<key>objectValue</key>
-							<string>8px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
 							<string>27</string>
@@ -2071,6 +1955,12 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<string>Width</string>
 							<key>objectValue</key>
 							<string>1496px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingLeft</string>
+							<key>objectValue</key>
+							<string>8px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2098,30 +1988,24 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FFFFFF</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>126</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>BorderWidthBottom</string>
+							<string>BorderWidthLeft</string>
 							<key>objectValue</key>
 							<string>0px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>BackgroundColor</string>
 							<key>objectValue</key>
-							<string>div</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>BorderColorBottom</string>
-							<key>objectValue</key>
-							<string>#D8DDE4</string>
+							<string>rgba(255, 38, 0, 0.450)</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2131,9 +2015,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Opacity</string>
+							<string>BorderColorBottom</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>#D8DDE4</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>DomID</string>
+							<key>objectValue</key>
+							<string>fleetAttackBG</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2147,9 +2037,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ClassType</string>
+							<string>Opacity</string>
 							<key>objectValue</key>
-							<string>Rectangle</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2189,9 +2079,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>ClassType</string>
 							<key>objectValue</key>
-							<string>fleetAttackBG</string>
+							<string>Rectangle</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2261,15 +2151,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BorderWidthLeft</string>
+							<string>BorderWidthBottom</string>
 							<key>objectValue</key>
 							<string>0px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BackgroundColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>rgba(255, 38, 0, 0.450)</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>127</key>
@@ -2282,9 +2172,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FFFB00</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2378,12 +2268,6 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>PaddingLeft</string>
-							<key>objectValue</key>
-							<string>8px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
 							<string>30</string>
@@ -2393,6 +2277,12 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<string>Width</string>
 							<key>objectValue</key>
 							<string>849px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingLeft</string>
+							<key>objectValue</key>
+							<string>8px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2426,30 +2316,24 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FFFB00</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>129</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>BorderWidthBottom</string>
+							<string>BorderWidthLeft</string>
 							<key>objectValue</key>
 							<string>0px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>BackgroundColor</string>
 							<key>objectValue</key>
-							<string>div</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>BorderColorBottom</string>
-							<key>objectValue</key>
-							<string>#D8DDE4</string>
+							<string>#003600</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2459,9 +2343,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Opacity</string>
+							<string>BorderColorBottom</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>#D8DDE4</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>DomID</string>
+							<key>objectValue</key>
+							<string>tranzBG</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2475,9 +2365,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ClassType</string>
+							<string>Opacity</string>
 							<key>objectValue</key>
-							<string>Rectangle</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2517,9 +2407,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>ClassType</string>
 							<key>objectValue</key>
-							<string>tranzBG</string>
+							<string>Rectangle</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2589,15 +2479,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BorderWidthLeft</string>
+							<string>BorderWidthBottom</string>
 							<key>objectValue</key>
 							<string>0px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BackgroundColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#003600</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>130</key>
@@ -2610,9 +2500,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FFFC79</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2700,12 +2590,6 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>PaddingLeft</string>
-							<key>objectValue</key>
-							<string>8px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
 							<string>32</string>
@@ -2715,6 +2599,12 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<string>Width</string>
 							<key>objectValue</key>
 							<string>1704px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingLeft</string>
+							<key>objectValue</key>
+							<string>8px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2742,9 +2632,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FFFC79</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>131</key>
@@ -2988,9 +2878,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FFFB00</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3012,9 +2902,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>Opacity</string>
 							<key>objectValue</key>
-							<string>tranz2</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3024,15 +2914,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Opacity</string>
-							<key>objectValue</key>
-							<string>0</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>WordWrap</string>
 							<key>objectValue</key>
 							<string>break-word</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ClassType</string>
+							<key>objectValue</key>
+							<string>Text</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3054,9 +2944,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ClassType</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>Text</string>
+							<string>tranz2</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3144,18 +3034,18 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FFFB00</string>
 						</dict>
 					</array>
 					<key>146</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>684px</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3219,9 +3109,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BackgroundImageResourceGroupOid</string>
+							<string>AutoresizingMask</string>
 							<key>objectValue</key>
-							<string>144</string>
+							<string>82</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3237,15 +3127,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>AccessibilityRole</string>
+							<string>BackgroundImageResourceGroupOid</string>
 							<key>objectValue</key>
-							<string>img</string>
+							<string>144</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>AutoresizingMask</string>
+							<string>AccessibilityRole</string>
 							<key>objectValue</key>
-							<string>82</string>
+							<string>img</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3303,18 +3193,18 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>684px</string>
 						</dict>
 					</array>
 					<key>15</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>7144px</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3420,15 +3310,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BackgroundSize</string>
-							<key>objectValue</key>
-							<string>100% 100%</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
 							<string>1</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BackgroundSize</string>
+							<key>objectValue</key>
+							<string>100% 100%</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3450,18 +3340,18 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>7144px</string>
 						</dict>
 					</array>
 					<key>151</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>1280px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3513,9 +3403,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BackgroundImageResourceGroupOid</string>
+							<string>AutoresizingMask</string>
 							<key>objectValue</key>
-							<string>150</string>
+							<string>82</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3531,15 +3421,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>AccessibilityRole</string>
+							<string>BackgroundImageResourceGroupOid</string>
 							<key>objectValue</key>
-							<string>img</string>
+							<string>150</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>AutoresizingMask</string>
+							<string>AccessibilityRole</string>
 							<key>objectValue</key>
-							<string>82</string>
+							<string>img</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3609,18 +3499,18 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>1280px</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>166</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>684px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3726,15 +3616,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DisplayHiddenOverride</string>
-							<key>objectValue</key>
-							<string>1</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>Width</string>
 							<key>objectValue</key>
 							<string>1280px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>DisplayHiddenOverride</string>
+							<key>objectValue</key>
+							<string>1</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3768,9 +3658,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>684px</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>167</key>
@@ -4056,15 +3946,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DisplayName</string>
-							<key>objectValue</key>
-							<string>imperialWhale</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>TransformOriginYOffset</string>
 							<key>objectValue</key>
 							<string>0%</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>DisplayName</string>
+							<key>objectValue</key>
+							<string>imperialWhale</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4086,15 +3976,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ExplicitDimensions</string>
-							<key>objectValue</key>
-							<string>YES</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>AltText</string>
 							<key>objectValue</key>
 							<string>A cartoonish blue sperm whale</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ExplicitDimensions</string>
+							<key>objectValue</key>
+							<string>YES</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4176,15 +4066,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>AccessibilityRole</string>
-							<key>objectValue</key>
-							<string>img</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>Overflow</string>
 							<key>objectValue</key>
 							<string>visible</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>AccessibilityRole</string>
+							<key>objectValue</key>
+							<string>img</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4203,15 +4093,21 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FFD479</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>PaddingRight</string>
 							<key>objectValue</key>
 							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ExplicitDimensions</string>
+							<key>objectValue</key>
+							<string>YES</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4227,12 +4123,6 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
-							<key>objectValue</key>
-							<string>gameTimer</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>Display</string>
 							<key>objectValue</key>
 							<string>inline</string>
@@ -4245,9 +4135,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ClassType</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>Text</string>
+							<string>gameTimer</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4269,9 +4159,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ExplicitDimensions</string>
+							<string>ClassType</string>
 							<key>objectValue</key>
-							<string>YES</string>
+							<string>Text</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4353,18 +4243,18 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FFD479</string>
 						</dict>
 					</array>
 					<key>43</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>2134px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4392,15 +4282,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>Opacity</string>
 							<key>objectValue</key>
-							<string>cyberWhale</string>
+							<string>1</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ClassType</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>Image</string>
+							<string>cyberWhale</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4416,9 +4306,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Opacity</string>
+							<string>ClassType</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>Image</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4524,18 +4414,18 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>2134px</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>44</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>2134px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4563,15 +4453,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>Opacity</string>
 							<key>objectValue</key>
-							<string>loveWhale</string>
+							<string>1</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ClassType</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>Image</string>
+							<string>loveWhale</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4587,9 +4477,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Opacity</string>
+							<string>ClassType</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>Image</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4689,18 +4579,18 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>2134px</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>88</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>433px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4716,9 +4606,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ConstrainProportions</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>YES</string>
+							<string>bolt</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4728,15 +4618,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Opacity</string>
+							<string>ConstrainProportions</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>YES</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ClassType</string>
+							<string>Opacity</string>
 							<key>objectValue</key>
-							<string>Image</string>
+							<string>1</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4758,9 +4648,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>ClassType</string>
 							<key>objectValue</key>
-							<string>bolt</string>
+							<string>Image</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4872,9 +4762,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>433px</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>90</key>
@@ -5088,9 +4978,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FFFB00</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5250,9 +5140,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FFFB00</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>97</key>
@@ -5265,9 +5155,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FFFB00</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5277,15 +5167,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BackdropFilterEffectBlur</string>
+							<string>ExplicitDimensions</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>YES</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>FontSize</string>
+							<string>BackdropFilterEffectBlur</string>
 							<key>objectValue</key>
-							<string>96px</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5301,15 +5191,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>WordWrap</string>
+							<string>FontSize</string>
 							<key>objectValue</key>
-							<string>break-word</string>
+							<string>96px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ClassType</string>
+							<string>WordWrap</string>
 							<key>objectValue</key>
-							<string>Text</string>
+							<string>break-word</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5337,9 +5227,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ExplicitDimensions</string>
+							<string>ClassType</string>
 							<key>objectValue</key>
-							<string>YES</string>
+							<string>Text</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5433,9 +5323,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FFFB00</string>
+							<string>div</string>
 						</dict>
 					</array>
 				</dict>
@@ -7840,7 +7730,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>3728E6D8-35FE-43AB-82E4-9AFD7F656C5E-58388-000345B6E3A677E6</string>
+									<string>5E614E63-8CEC-4DD2-A2D9-CC6445B409B5-76070-00053197366CE542</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -7937,7 +7827,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>3728E6D8-35FE-43AB-82E4-9AFD7F656C5E-58388-000345B6E3A677E6</string>
+									<string>5E614E63-8CEC-4DD2-A2D9-CC6445B409B5-76070-00053197366CE542</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -8034,7 +7924,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>3728E6D8-35FE-43AB-82E4-9AFD7F656C5E-58388-000345B6E3A677E6</string>
+									<string>5E614E63-8CEC-4DD2-A2D9-CC6445B409B5-76070-00053197366CE542</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -8128,7 +8018,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>92BA62EF-52BC-4D07-94E2-AA689116812F-58388-00034A1125931DC8</string>
 								<key>zIndex</key>
-								<integer>1</integer>
+								<integer>2</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -8164,7 +8054,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>0CD5D73B-319A-4465-82D8-1B13B8E41AA4-58388-00034A11257E38E2</string>
 								<key>zIndex</key>
-								<integer>1</integer>
+								<integer>2</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -8236,7 +8126,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>F107978E-A0F2-43B4-AE7D-1E8F5B1F6982-58388-00034A10D46716C1</string>
 								<key>zIndex</key>
-								<integer>1</integer>
+								<integer>2</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -8337,7 +8227,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>8B5F782D-5389-4CEF-8684-D79D90988DAE-58388-00034A1125867AF0</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>3</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -8366,7 +8256,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>AB846C77-6457-4E64-A62B-CBB277337BFC-58388-00034A10D4769089</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>3</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -8404,7 +8294,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>A8CF2F8D-7317-4859-A56A-E5FC63A78BAE-58388-000345B6E3A88B11</string>
+									<string>68C7E216-CA6A-4CC0-AD46-8766AD62E1EC-76070-000531973670C564</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -8426,7 +8316,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>D282B40F-E0CB-4822-B860-F8E7CA5866CC-50965-0003456C4C2D9C01</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>3</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -8464,7 +8354,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>A8CF2F8D-7317-4859-A56A-E5FC63A78BAE-58388-000345B6E3A88B11</string>
+									<string>68C7E216-CA6A-4CC0-AD46-8766AD62E1EC-76070-000531973670C564</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -8486,7 +8376,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>85ABC717-4FDF-4CC7-9E58-DC08515D74EA-50965-0003456C4C2C3802</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>4</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -8524,7 +8414,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>A8CF2F8D-7317-4859-A56A-E5FC63A78BAE-58388-000345B6E3A88B11</string>
+									<string>68C7E216-CA6A-4CC0-AD46-8766AD62E1EC-76070-000531973670C564</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -8575,7 +8465,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>118C5226-3310-4AE6-9F1F-C0E4CFD8078E-50965-0003458C217B8831</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>4</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -8604,7 +8494,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>EFA10073-1C00-4C78-9133-32C2F37FBA54-58388-00034A112598A540</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>4</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -8640,7 +8530,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>220EA515-D347-4F79-9C99-ADA3A900A394-58388-00034A8BB276A19B</string>
 								<key>zIndex</key>
-								<integer>1</integer>
+								<integer>4</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -8669,7 +8559,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>111554A1-9488-47F8-952B-4C67832D7D38-58388-00034A8CBD7D3D55</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>5</integer>
 							</dict>
 						</array>
 						<key>firstKeyframeIsRelative</key>
@@ -8780,7 +8670,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>99F6414F-E163-4EFD-97FF-2054657BCEED-58388-0003467C77955115</string>
 								<key>zIndex</key>
-								<integer>1</integer>
+								<integer>3</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -8835,7 +8725,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>A6E88F50-F8C2-4355-8905-8B0C0D75F36C-58388-0003476D96E59F69</string>
+									<string>95A43DEC-9716-44CE-80DB-27C457CFBB07-76070-000531973673AB02</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>151</string>
@@ -8912,7 +8802,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>A6E88F50-F8C2-4355-8905-8B0C0D75F36C-58388-0003476D96E59F69</string>
+									<string>95A43DEC-9716-44CE-80DB-27C457CFBB07-76070-000531973673AB02</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>151</string>
@@ -8989,7 +8879,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>A6E88F50-F8C2-4355-8905-8B0C0D75F36C-58388-0003476D96E59F69</string>
+									<string>95A43DEC-9716-44CE-80DB-27C457CFBB07-76070-000531973673AB02</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>151</string>
@@ -9047,7 +8937,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>EC89BEA6-9BE6-4B60-AA0E-DEE75ACEC9F8-58388-00034837F66B1C5C</string>
 								<key>zIndex</key>
-								<integer>1</integer>
+								<integer>2</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -9083,7 +8973,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>9B655B6D-8A97-42B5-992E-38D496CC458F-58388-00034837F651C6E5</string>
 								<key>zIndex</key>
-								<integer>1</integer>
+								<integer>2</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -9119,7 +9009,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>2EA26809-F429-4912-B2CC-06AF587955EF-58388-00034963720174D5</string>
 								<key>zIndex</key>
-								<integer>1</integer>
+								<integer>3</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -9155,7 +9045,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>354BD9BA-D2C9-4D56-9C1A-A6691B2CF988-58388-000349637219C0D7</string>
 								<key>zIndex</key>
-								<integer>1</integer>
+								<integer>3</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -9184,7 +9074,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>2606FA64-74FC-4CA2-93A4-86DFE285912A-58388-00034845681FBF5B</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>4</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -9213,7 +9103,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>6FD85124-FC90-4F1A-B204-3A625659F08C-58388-0003484567FA0A1F</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>4</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -9242,7 +9132,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>84256D66-9F31-4126-B237-69665F8DFCC4-58388-0003496372105DA1</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>5</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -9271,7 +9161,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>237F4B66-8935-4B97-AA8B-892902CE746B-58388-00034963721E1160</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>5</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -9309,7 +9199,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>9ADECD08-5C56-41CD-826B-DFB8220E15DB-58388-0003476DF18E5849</string>
+									<string>2F78FE2E-50F6-4990-9B93-1A01F65F4055-76070-000531973677444F</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>151</string>
@@ -9331,7 +9221,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>D2C740DF-3E3E-4706-8458-F8DD05AABEBF-58388-000345D5D38A8027</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>6</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -9369,7 +9259,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>9ADECD08-5C56-41CD-826B-DFB8220E15DB-58388-0003476DF18E5849</string>
+									<string>2F78FE2E-50F6-4990-9B93-1A01F65F4055-76070-000531973677444F</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>151</string>
@@ -9429,7 +9319,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>9ADECD08-5C56-41CD-826B-DFB8220E15DB-58388-0003476DF18E5849</string>
+									<string>2F78FE2E-50F6-4990-9B93-1A01F65F4055-76070-000531973677444F</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>151</string>
@@ -9451,7 +9341,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>8E50F8F0-9888-44BA-B767-F2883D50EDEA-58388-000345D5D38B2685</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>6</integer>
 							</dict>
 						</array>
 						<key>firstKeyframeIsRelative</key>
@@ -9523,7 +9413,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>72B3026B-4A3E-4F9C-BD9B-E198B1106609-58388-00034AF224845EA3</string>
+									<string>3CAAA394-7CAC-4948-BF92-B6E7D40B786C-76070-0005319736794B36</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -9600,7 +9490,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>72B3026B-4A3E-4F9C-BD9B-E198B1106609-58388-00034AF224845EA3</string>
+									<string>3CAAA394-7CAC-4948-BF92-B6E7D40B786C-76070-0005319736794B36</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -9677,7 +9567,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>72B3026B-4A3E-4F9C-BD9B-E198B1106609-58388-00034AF224845EA3</string>
+									<string>3CAAA394-7CAC-4948-BF92-B6E7D40B786C-76070-0005319736794B36</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -9862,7 +9752,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>B00FCEFC-7DEF-4DA9-9639-EEF81EA42EEA-58388-00034AF224958C63</string>
+									<string>4728F285-C3D3-4686-B3DC-2974FE46A331-76070-00053197367BF872</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -9939,7 +9829,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>B00FCEFC-7DEF-4DA9-9639-EEF81EA42EEA-58388-00034AF224958C63</string>
+									<string>4728F285-C3D3-4686-B3DC-2974FE46A331-76070-00053197367BF872</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -10016,7 +9906,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>B00FCEFC-7DEF-4DA9-9639-EEF81EA42EEA-58388-00034AF224958C63</string>
+									<string>4728F285-C3D3-4686-B3DC-2974FE46A331-76070-00053197367BF872</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -10146,7 +10036,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>746A8450-17FF-4062-9E6C-A10EA6F6733A-58388-00034B8161FDFAA8</string>
 								<key>zIndex</key>
-								<integer>1</integer>
+								<integer>5</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -10182,7 +10072,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>5D4724AB-FB72-4342-9E4A-5DA1C5D22420-58388-00034B0A1825417D</string>
 								<key>zIndex</key>
-								<integer>5</integer>
+								<integer>6</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -10254,7 +10144,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>F394A325-2C24-4331-89CD-52D2BEE3695D-58388-00034B81620C4ED1</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>7</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -10299,7 +10189,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>ED5F4313-58D4-48E4-BEB1-5325DB1730A9-58388-00034AF8DC30DC4D</string>
+									<string>AF2DCCEA-B55C-4F8D-8409-0466C0817499-76070-00053197367FA101</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -10366,7 +10256,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>ED5F4313-58D4-48E4-BEB1-5325DB1730A9-58388-00034AF8DC30DC4D</string>
+									<string>AF2DCCEA-B55C-4F8D-8409-0466C0817499-76070-00053197367FA101</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -10433,7 +10323,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>ED5F4313-58D4-48E4-BEB1-5325DB1730A9-58388-00034AF8DC30DC4D</string>
+									<string>AF2DCCEA-B55C-4F8D-8409-0466C0817499-76070-00053197367FA101</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -10563,7 +10453,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>3736C245-111B-49D2-A1EE-33754B6B7018-58388-00034B85178F61DC</string>
 								<key>zIndex</key>
-								<integer>3</integer>
+								<integer>8</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -10599,11 +10489,11 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>BDEE1720-7C59-45FC-94D2-A70E8BF5FFED-58388-00034B0CB8062407</string>
 								<key>zIndex</key>
-								<integer>6</integer>
+								<integer>9</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
-								<real>2.3666666746139526</real>
+								<real>2.3666667938232422</real>
 								<key>endValue</key>
 								<dict>
 									<key>identifier</key>
@@ -10635,7 +10525,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>050222C9-F115-42E0-BDE0-D7FA0D4581F5-58388-00034B87260FFE5F</string>
 								<key>zIndex</key>
-								<integer>1</integer>
+								<integer>4</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -10673,7 +10563,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>217C816C-E4B6-4733-8A8A-1AF1E963D452-58388-00034AFBA185BEC2</string>
+									<string>4A8CCB26-014E-485D-B540-84112ED9C56C-76070-0005319736831465</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -10733,7 +10623,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>217C816C-E4B6-4733-8A8A-1AF1E963D452-58388-00034AFBA185BEC2</string>
+									<string>4A8CCB26-014E-485D-B540-84112ED9C56C-76070-0005319736831465</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -10793,7 +10683,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>217C816C-E4B6-4733-8A8A-1AF1E963D452-58388-00034AFBA185BEC2</string>
+									<string>4A8CCB26-014E-485D-B540-84112ED9C56C-76070-0005319736831465</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -10851,7 +10741,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>74BB91F5-CE9A-4A2A-909D-C1AB50B1DC16-58388-00034B9335333038</string>
 								<key>zIndex</key>
-								<integer>4</integer>
+								<integer>10</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -10880,7 +10770,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>1A8495A0-3CA8-4C3C-9DB0-3A2EC66DDC26-58388-00034B0E2BB618EA</string>
 								<key>zIndex</key>
-								<integer>7</integer>
+								<integer>11</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -10916,7 +10806,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>283B9AF0-7E2E-4002-8811-D13952780F3C-58388-00034B933534BD04</string>
 								<key>zIndex</key>
-								<integer>5</integer>
+								<integer>12</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -10952,7 +10842,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>8C91C3B7-D58B-4512-8D81-56FADD344013-58388-00034B933535D0C9</string>
 								<key>zIndex</key>
-								<integer>6</integer>
+								<integer>13</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -10988,7 +10878,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>788674E5-00CA-4C6D-956A-6AF73810D2E8-58388-00034B93C70D40EF</string>
 								<key>zIndex</key>
-								<integer>7</integer>
+								<integer>14</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -11024,7 +10914,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>21D425A2-D542-4F9D-BF9C-C3FC8FC6EEBD-58388-00034B93C70EB39C</string>
 								<key>zIndex</key>
-								<integer>8</integer>
+								<integer>15</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -11053,7 +10943,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>62FDF866-A585-48B6-9EDA-5B38F807CFE4-58388-00034B93C70FADBE</string>
 								<key>zIndex</key>
-								<integer>9</integer>
+								<integer>16</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -11082,7 +10972,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>44051AFB-C6AA-40E3-B256-412B11319B17-58388-00034B887F4BE54B</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>5</integer>
 							</dict>
 						</array>
 						<key>firstKeyframeIsRelative</key>
@@ -11154,7 +11044,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>C9FE712C-7360-473C-9BC4-09714E637E72-58388-00034BCD1AB8A517</string>
+									<string>C98819C9-8024-40BF-AF24-4C00EE261F84-76070-000531973687FB59</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -11231,7 +11121,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>C9FE712C-7360-473C-9BC4-09714E637E72-58388-00034BCD1AB8A517</string>
+									<string>C98819C9-8024-40BF-AF24-4C00EE261F84-76070-000531973687FB59</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -11308,7 +11198,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>C9FE712C-7360-473C-9BC4-09714E637E72-58388-00034BCD1AB8A517</string>
+									<string>C98819C9-8024-40BF-AF24-4C00EE261F84-76070-000531973687FB59</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -11421,7 +11311,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>89D81DC0-7268-475E-8492-84091E3BAD4B-58388-00034BCD1AD4A0CD</string>
+									<string>4E24EEB2-A9A8-4450-B711-F12E1267BD5F-76070-00053197368A0B73</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -11498,7 +11388,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>89D81DC0-7268-475E-8492-84091E3BAD4B-58388-00034BCD1AD4A0CD</string>
+									<string>4E24EEB2-A9A8-4450-B711-F12E1267BD5F-76070-00053197368A0B73</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -11575,7 +11465,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>89D81DC0-7268-475E-8492-84091E3BAD4B-58388-00034BCD1AD4A0CD</string>
+									<string>4E24EEB2-A9A8-4450-B711-F12E1267BD5F-76070-00053197368A0B73</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -11724,7 +11614,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>94FDD83C-72C6-4E3E-8878-82AD4DA46686-58388-00034BDED6A61317</string>
+									<string>6908412C-7F04-4C76-BAF8-0419C25DEDCD-76070-00053197368C6F3C</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -11801,7 +11691,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>94FDD83C-72C6-4E3E-8878-82AD4DA46686-58388-00034BDED6A61317</string>
+									<string>6908412C-7F04-4C76-BAF8-0419C25DEDCD-76070-00053197368C6F3C</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -11878,7 +11768,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>94FDD83C-72C6-4E3E-8878-82AD4DA46686-58388-00034BDED6A61317</string>
+									<string>6908412C-7F04-4C76-BAF8-0419C25DEDCD-76070-00053197368C6F3C</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -11972,7 +11862,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>2368ECA6-4D2A-419A-93C0-3DB0BB9BEE72-58388-00034E68090BDA52</string>
 								<key>zIndex</key>
-								<integer>1</integer>
+								<integer>4</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -12044,7 +11934,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>99381781-2304-470F-AACA-A09CEFC83781-58388-00034E69B35670A8</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>5</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -12123,7 +12013,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>06D2A02A-B323-49FB-8504-4EC6A1D55567-58388-00034E8BF73A3EA7</string>
 								<key>zIndex</key>
-								<integer>3</integer>
+								<integer>6</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -12159,7 +12049,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>2A740CBE-2E95-4AFF-993D-762BD712964C-58388-00034E49138BCA40</string>
 								<key>zIndex</key>
-								<integer>4</integer>
+								<integer>7</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -12195,7 +12085,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>D9166C15-15CB-41F5-9D19-B92A0D88A766-58388-00034E8DE921B110</string>
 								<key>zIndex</key>
-								<integer>4</integer>
+								<integer>8</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -12262,7 +12152,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>178D5068-5B3A-44EF-841F-1CE1C47330E8-58388-00034BE5ABE72E8A</string>
+									<string>4A14367C-117D-40FB-BE19-29A8702DE38F-76070-00053197369218B8</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -12322,7 +12212,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>178D5068-5B3A-44EF-841F-1CE1C47330E8-58388-00034BE5ABE72E8A</string>
+									<string>4A14367C-117D-40FB-BE19-29A8702DE38F-76070-00053197369218B8</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -12382,7 +12272,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>178D5068-5B3A-44EF-841F-1CE1C47330E8-58388-00034BE5ABE72E8A</string>
+									<string>4A14367C-117D-40FB-BE19-29A8702DE38F-76070-00053197369218B8</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -12440,7 +12330,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>2A515C79-7CA6-43DA-BA7D-8CA38774EAC5-58388-00034E8DE9249387</string>
 								<key>zIndex</key>
-								<integer>5</integer>
+								<integer>9</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -12469,7 +12359,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>43EAB54B-E879-4143-8170-9D2592A01F29-58388-00034E4BB27569F7</string>
 								<key>zIndex</key>
-								<integer>5</integer>
+								<integer>10</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -12505,7 +12395,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>5F7071CD-12BB-408E-8421-EB1D6B567C99-58388-00034E8DE92617B6</string>
 								<key>zIndex</key>
-								<integer>6</integer>
+								<integer>11</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -12541,7 +12431,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>CA8800CE-F4BE-44A1-8242-472E43E8AB45-58388-00034E8E861E4C96</string>
 								<key>zIndex</key>
-								<integer>7</integer>
+								<integer>12</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -12570,7 +12460,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>4EB87C5D-E519-44D2-AF97-D3AE95E8F347-58388-00034E8E8620DFB7</string>
 								<key>zIndex</key>
-								<integer>8</integer>
+								<integer>13</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -12606,7 +12496,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>169D6D53-3597-40C9-B342-F8AF44EF3E16-58388-00034E7DE6A1C356</string>
 								<key>zIndex</key>
-								<integer>1</integer>
+								<integer>4</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -12635,7 +12525,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>uuid</key>
 								<string>8C8BE36A-D711-4DD8-B4EF-B240F6CA906D-58388-00034E7EEECCCEF8</string>
 								<key>zIndex</key>
-								<integer>2</integer>
+								<integer>5</integer>
 							</dict>
 						</array>
 						<key>firstKeyframeIsRelative</key>
