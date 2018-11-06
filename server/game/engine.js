@@ -3,8 +3,6 @@ module.exports = function Race() {
   const actions = require('../redux/boundActions');
   const state1 = store.getState();
 
-  console.log('check our state', state1);
-
   function endRace(message, race) {
     clearInterval(race);
     console.log('Received EndRace Request');
@@ -14,6 +12,7 @@ module.exports = function Race() {
 
   // turn on race state
   if (state1.running === false) {
+    //Set "running" to true this is a weird not-useful thing?
     store.dispatch(actions.startRace());
   }
 
@@ -35,5 +34,6 @@ module.exports = function Race() {
     // if we have a predator whale, set that to true, and have the predator whale attack
     // if we have a beacon set, add 5% to appropriate whale
   }, state1.interval);
+
   return race;
 };

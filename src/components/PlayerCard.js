@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
 import { Button, Item, Grid, Segment, Dropdown, Icon } from "semantic-ui-react";
 import { SortableHandle } from "react-sortable-hoc";
 import Toggle from "react-toggle";
 
 import "../static/reactToggle.css";
 import "../App.css";
-
-import { togglePredatorMode } from "../redux/actions/app";
 
 const DragHandle = SortableHandle(() =>
   <Icon name="content" size="large" color="grey" />
@@ -35,41 +32,38 @@ class PlayerCard extends Component {
     this.props.updatePilots(value, options);
   }
 
-  state={}
+  state = {}
 
   setPredatorMode(e) {
-    this.setState({predatorMode: !this.state.predatorMode});
-    // this.props.sendPredatorMode(
-    //   this.props.whaleOrder,
-    //   e.target.checked
-    // );
+    this.setState({ predatorMode: !this.state.predatorMode });
+    //todo: pass in socket from above?
   };
 
   render() {
     const LoveHandle = this.props.whale.toLowerCase() === "love"
-    ? <div>
+      ? <div>
         <Button icon="empty heart" circular basic color="purple" />
         <Button icon="empty heart" circular basic color="pink" />
         <Button icon="empty heart" circular basic color="red" />
       </div>
-    : "";
+      : "";
 
 
     const PredatorMode =
       this.props.whale.toLowerCase() === "predator"
         ?
-            <Button
-              id="predator"
-              toggle
-              color='red'
-              circular
-              icon="hand lizard"
-              label="predator mode"
-              floated="right"
-              size="large"
-              basic={Boolean(!this.state.predatorMode)}
-              onClick={() => this.setPredatorMode()}
-            />
+        <Button
+          id="predator"
+          toggle
+          color='red'
+          circular
+          icon="hand lizard"
+          label="predator mode"
+          floated="right"
+          size="large"
+          basic={Boolean(!this.state.predatorMode)}
+          onClick={() => this.setPredatorMode()}
+        />
         : "";
 
     return (
@@ -100,17 +94,4 @@ PlayerCard.propTypes = {
   whale: PropTypes.string
 };
 
-function mapStateToProps(state) {
-  return {
-    whaleOrder: state.app.whaleOrder
-  };
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    sendPredatorMode: (whaleOrder, bool) =>
-      dispatch(togglePredatorMode(whaleOrder, bool))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(PlayerCard);
+export default PlayerCard;

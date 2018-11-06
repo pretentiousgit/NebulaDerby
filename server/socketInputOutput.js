@@ -46,7 +46,19 @@ module.exports = async (server) => {
       // Handle DM event
       client.on('startRace', (d) => {
         console.log('Received start race request');
-        Race();
+        const { running, raceTimeRemaining } = store.getState();
+
+        console.log('timeRemaining', raceTimeRemaining);
+        if (raceTimeRemaining < 0) {
+          actions.newHeat();
+          Race();
+        } else if (!running) {
+          console.log('calling race');
+          Race();
+        } else {
+          console.log('Race is running');
+          // adminEventHandlers.resetRace();
+        }
       });
 
       client.on('beacon', (d) => {
@@ -93,27 +105,3 @@ module.exports = async (server) => {
     throw new Error('Something went wrong', err.message, err.stack);
   }
 };
-
-function handleRace(state) {
-  const { raceTimeRemaining, whales, running } = state;
-  client.emit('whaleState', { timer: raceTimeRemaining, whales });
-  if (running === false) {
-    client.emit('raceEnd');
-  }
-}
-
-function observeStore(store, select, onChange) {
-  let currentState;
-
-  function handleChange() {
-    let nextState = select(store.getState());
-    if (nextState !== currentState) {
-      currentState = nextState;
-      onChange(currentState);
-    }
-  }
-
-  let unsubscribe = store.subscribe(handleChange);
-  handleChange();
-  return unsubscribe;
-}

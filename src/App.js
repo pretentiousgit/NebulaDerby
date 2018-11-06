@@ -181,7 +181,7 @@ class App extends Component {
         </Segment>
         <Header floated="left">Whales</Header>
         <Divider clearing />
-        <CardDeck socket={this.sendEvent} />
+        {/* <CardDeck socket={this.sendEvent} /> */}
       </Segment>
     );
   }

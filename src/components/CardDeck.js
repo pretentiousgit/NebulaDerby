@@ -6,8 +6,6 @@ import {
 } from "react-sortable-hoc";
 import PlayerCard from "./PlayerCard";
 
-import { connect } from "react-redux";
-import { updateWhaleOrder } from "../redux/actions/app";
 
 const SortableItem = SortableElement(({ value }) =>
   <PlayerCard whale={value} />
@@ -16,9 +14,9 @@ const SortableItem = SortableElement(({ value }) =>
 const SortableList = SortableContainer(({ items }) => {
   return (
     <div>
-      {items.map((value, index) =>
+      {/* {items.map((value, index) =>
         <SortableItem key={`item-${value}`} index={index} value={value} />
-      )}
+      )} */}
     </div>
   );
 });
@@ -47,17 +45,4 @@ class CardDeck extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    whaleOrder: state.app.whaleOrder,
-    predatorMode: state.app.predatorMode
-  };
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    setWhaleOrder: whaleOrder => dispatch(updateWhaleOrder(whaleOrder))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(CardDeck);
+export default CardDeck;
