@@ -66,6 +66,7 @@ class App extends Component {
 
   startRace(message) {
     console.log('emitted StartRace');
+    this.setState({ raceInProgress: true });
     socket.emit('startRace');
   }
 

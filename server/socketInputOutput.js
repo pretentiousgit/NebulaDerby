@@ -2,6 +2,7 @@ const store = require('./redux/store');
 const actions = require('./redux/boundActions');
 const Race = require('./game/engine');
 const gameFunctions = require('./game/gameFunctions');
+const watch = require('redux-watch');
 
 const adminEventHandlers = {
   newHeat: actions.resetRace,
@@ -74,13 +75,18 @@ module.exports = async (server) => {
       });
 
       // Subscribe to the store and output to any display clients
-      store.subscribe(() => {
-        const { raceTimeRemaining, whales } = store.getState();
-        client.emit('whaleState', { timer: raceTimeRemaining, whales });
-        if (raceTimeRemaining <= 0) {
+      let race = watch(store.getState, 'whales');
+      store.subscribe(race((newVal, oldVal, objectPath) => {
+        console.log('check new and old val', newVal, oldVal);
+        client.emit('whaleState', { whales: newVal });
+      }));
+
+      let cancel = watch(store.getState, 'running');
+      store.subscribe(cancel((newVal, oldVal, objectPath) => {
+        if (newVal === false && oldVal === true) {
           client.emit('raceEnd');
         }
-      });
+      }));
     });
 
   } catch (err) {
@@ -88,3 +94,26 @@ module.exports = async (server) => {
   }
 };
 
+function handleRace(state) {
+  const { raceTimeRemaining, whales, running } = state;
+  client.emit('whaleState', { timer: raceTimeRemaining, whales });
+  if (running === false) {
+    client.emit('raceEnd');
+  }
+}
+
+function observeStore(store, select, onChange) {
+  let currentState;
+
+  function handleChange() {
+    let nextState = select(store.getState());
+    if (nextState !== currentState) {
+      currentState = nextState;
+      onChange(currentState);
+    }
+  }
+
+  let unsubscribe = store.subscribe(handleChange);
+  handleChange();
+  return unsubscribe;
+}
