@@ -2,6 +2,13 @@ const Action = require("./actions").actionTypes;
 // reduce them to the new state
 const initialState = require('../config.initialState');
 
+function randn_bm() { // random box-mueller number around 0,1 - this is a good multiplier for another number
+  var u = 0, v = 0;
+  while (u === 0) u = Math.random(); //Converting [0,1] to (0,1)
+  while (v === 0) v = Math.random();
+  return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+}
+
 function returnState(state, action) {
   console.log('state return');
   return { ...state };
@@ -20,7 +27,23 @@ function newHeat(state, action) {
   return {
     ...state,
     running: action.running,
-    raceTimeRemaining: initialState.raceTimeTotal
+    raceTimeRemaining: initialState.raceTimeTotal,
+    whales: initialState.whales
+  };
+}
+
+function updateRacePositions(state, action) {
+  const newWhales = state.whales.map((whale) => {
+    let newWhale = whale;
+
+    newWhale.position = Math.abs(whale.position + (60 * randn_bm()));
+
+    return newWhale;
+  });
+  return {
+    ...state,
+    raceTimeRemaining: action.raceTimeRemaining,
+    whales: newWhales
   };
 }
 
@@ -28,7 +51,7 @@ const options = {
   [Action.START_RACE]: objectUpdate,
   [Action.STOP_RACE]: objectUpdate,
   [Action.NEW_HEAT]: newHeat,
-  [Action.UPDATE_RACE_POSITIONS]: objectUpdate,
+  [Action.UPDATE_RACE_POSITIONS]: updateRacePositions,
   [Action.TRANZONIC]: returnState,
   [Action.GALACTAGASM]: returnState,
   [Action.FLEET_ATTACK]: objectUpdate

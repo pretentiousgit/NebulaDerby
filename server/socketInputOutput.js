@@ -15,7 +15,16 @@ const defaultHandler = (data) => console.log(data.event);
 
 module.exports = async (server) => {
   try {
-    const io = require('socket.io')(server);
+    const io = require('socket.io')(server,
+      {
+        serveClient: true,
+        // below are engine.IO options
+        pingInterval: 1000,
+        pingTimeout: 10000,
+        upgradeTimeout: 30000,
+        cookie: false
+      }
+    );
     console.log('socket.io booting');
 
     io.on('connection', (client) => {
@@ -87,9 +96,10 @@ module.exports = async (server) => {
       });
 
       // Subscribe to the store and output to any display clients
+      // Todo: update the whales on every interval
       let race = watch(store.getState, 'whales');
       store.subscribe(race((newVal, oldVal, objectPath) => {
-        console.log('check new and old val', newVal, oldVal);
+        console.log('check whale values', newVal, oldVal);
         client.emit('whaleState', { whales: newVal });
       }));
 

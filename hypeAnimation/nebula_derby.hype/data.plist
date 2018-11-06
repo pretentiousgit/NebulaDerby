@@ -113,7 +113,7 @@
 	<key>hasManuallyChangedCSSPositioning</key>
 	<false/>
 	<key>lastCheckDate</key>
-	<date>2018-11-06T16:00:18Z</date>
+	<date>2018-11-06T23:55:36Z</date>
 	<key>layout</key>
 	<dict>
 		<key>currentInspectorPane</key>
@@ -1435,6 +1435,16 @@ function setWhalePositions(array) {
   });
 }
 
+function raceWhalePositions(array) {
+  console.log('check array', array);
+  array.whales.map((whale) =&gt; {
+    const el = whale.element || whales.find((obj) =&gt; obj.name === whale.name).element;
+    hypeDocument.setElementProperty(el, 'left', whale.position, 0.24, 'easeout');
+  });
+}
+
+
+
 function getWhalePositions() {
   document.getElementById('');
 }
@@ -1523,7 +1533,8 @@ socket.on('startRace', function (msg) {
 });
 
 socket.on('whaleState', (msg) =&gt; {
-  setWhalePositions(msg);
+  console.log('Whale update', msg);
+  raceWhalePositions(msg);
 });
 
 socket.on('newHeat', (msg) =&gt; {
