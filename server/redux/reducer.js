@@ -10,12 +10,12 @@ function randn_bm() { // random box-mueller number around 0,1 - this is a good m
 }
 
 function returnState(state, action) {
-  console.log('state return');
+  // console.log('state return');
   return { ...state };
 }
 
 function objectUpdate(state, newItems) {
-  console.log('object update');
+  // console.log('object update');
   const update = {
     ...state,
     ...newItems
@@ -24,19 +24,28 @@ function objectUpdate(state, newItems) {
 }
 
 function newHeat(state, action) {
+  const whales = initialState.whales.map((m) => {
+    m.position = 60;
+    return m;
+  });
   return {
     ...state,
     running: action.running,
     raceTimeRemaining: initialState.raceTimeTotal,
-    whales: initialState.whales
+    whales: whales,
+    winner: null
   };
 }
 
 function updateRacePositions(state, action) {
-  const newWhales = state.whales.map((whale) => {
+  const { raceTimeTotal, interval, whales } = state;
+  const step = raceTimeTotal / interval;
+
+  const newWhales = whales.map((whale) => {
     let newWhale = whale;
 
-    newWhale.position = Math.abs(whale.position + (60 * randn_bm()));
+    const randomBM = Math.abs(randn_bm());
+    newWhale.position = whale.position + (step * randomBM);
 
     return newWhale;
   });
@@ -54,7 +63,9 @@ const options = {
   [Action.UPDATE_RACE_POSITIONS]: updateRacePositions,
   [Action.TRANZONIC]: returnState,
   [Action.GALACTAGASM]: returnState,
-  [Action.FLEET_ATTACK]: objectUpdate
+  [Action.FLEET_ATTACK]: objectUpdate,
+  [Action.WINNER]: objectUpdate,
+  [Action.SET_FINISH_LINE]: objectUpdate
 };
 
 module.exports = (state = initialState, action = {}) => {

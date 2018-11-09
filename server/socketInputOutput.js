@@ -1,11 +1,9 @@
 const store = require('./redux/store');
 const actions = require('./redux/boundActions');
 const Race = require('./game/engine');
-const gameFunctions = require('./game/gameFunctions');
 const watch = require('redux-watch');
 
 const adminEventHandlers = {
-  newHeat: actions.resetRace,
   tranzonicInterference: actions.tranzonic,
   fleetAttack: actions.fleetAttack,
   galactagasm: actions.galactagasm
@@ -31,7 +29,6 @@ module.exports = async (server) => {
       console.log('Socket connected to a client', client.id);
       client.emit('hello', { id: client.id });
 
-      //TODO: PUT BACK gameFunctions.generateFairMovementArray();
       client.on('handshake', (d) => {
         console.log('Handshake ', d);
       });
@@ -49,7 +46,8 @@ module.exports = async (server) => {
       });
 
       client.on('gameShake', (d) => {
-        console.log('Game screen connected');
+        console.log('Game screen connected', d);
+        actions.setFinishLine(d.finishLine - d.whaleWidth);
       });
 
       // Handle DM event
@@ -58,11 +56,11 @@ module.exports = async (server) => {
         const { running, raceTimeRemaining } = store.getState();
 
         console.log('timeRemaining', raceTimeRemaining);
-        if (raceTimeRemaining < 0) {
-          actions.newHeat();
-          Race();
-        } else if (!running) {
+        if (!running) {
           console.log('calling race');
+          // Deal with a whale position reset
+          client.broadcast.emit('newHeat');
+          actions.newHeat();
           Race();
         } else {
           console.log('Race is running');
@@ -83,11 +81,24 @@ module.exports = async (server) => {
         client.emit('setBeacon', def);
       });
 
+      client.on('fakeHeat', (d) => {
+        //Todo: emit a state-set for the beacon
+        console.log(d);
+        const def = {
+          fakeHeat: false
+        };
+
+        def.fakeHeat = !d.set;
+        client.emit('setFakeHeat', def);
+      });
+
       // Handle DM event
       client.on('adminEvent', (d) => {
-        console.log('Admin event', d);
+        console.log('Admin event', d.event);
         const handler = adminEventHandlers[d.event] || defaultHandler;
         handler();
+        client.broadcast.emit(d.event);
+        client.broadcast.emit('adminEvent', { hello: 'world' });
       });
 
       client.on('disconnect', (client) => {
@@ -95,18 +106,25 @@ module.exports = async (server) => {
         console.log('Client disconnect ', client.id);
       });
 
-      // Subscribe to the store and output to any display clients
-      // Todo: update the whales on every interval
       let race = watch(store.getState, 'whales');
       store.subscribe(race((newVal, oldVal, objectPath) => {
-        console.log('check whale values', newVal, oldVal);
-        client.emit('whaleState', { whales: newVal });
+        client.broadcast.emit('whaleState', { whales: newVal });
+
+        // Deal with winning
+        const finishLine = store.getState().finishLine;
+        const winner = newVal.filter((w) => {
+          return w.position > finishLine;
+        });
+
+        if (winner.length > 0) {
+          client.broadcast.emit('winner', { faction: winner[0].faction });
+        }
       }));
 
       let cancel = watch(store.getState, 'running');
       store.subscribe(cancel((newVal, oldVal, objectPath) => {
         if (newVal === false && oldVal === true) {
-          client.emit('raceEnd');
+          client.broadcast.emit('raceEnd');
         }
       }));
     });

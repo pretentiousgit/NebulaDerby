@@ -42,6 +42,10 @@ class App extends Component {
     socket.on('setBeacon', (d) => {
       this.setState(d);
     });
+
+    socket.on('setFakeHeat', (d) => {
+      this.setState(d);
+    });
   }
 
   state = {
@@ -62,6 +66,10 @@ class App extends Component {
 
   setBeacon(color) {
     socket.emit('beacon', { color, set: this.state[color] });
+  }
+
+  setFakeHeat(message) {
+    socket.emit('fakeHeat', { set: this.state.fakeHeat });
   }
 
   startRace(message) {

@@ -2,9 +2,11 @@
 const initialState = {
   raceTimeTotal: 4000,
   raceTimeRemaining: 4000,
+  finishLine: 900,
   interval: 120,
   running: false,
-  fakeHeat: false
+  fakeHeat: false,
+  winner: []
 };
 
 const initialWhales = [

@@ -6,6 +6,8 @@ const UPDATE_RACE_POSITIONS = "UPDATE_RACE_POSITIONS";
 const TRANZONIC = 'TRANZONIC';
 const GALACTAGASM = 'GALACTAGASM';
 const FLEET_ATTACK = 'FLEET_ATTACK';
+const SET_FINISH_LINE = 'SET_FINISH_LINE';
+const WINNER = 'WINNER';
 
 // Actions
 function startRace() {
@@ -62,6 +64,22 @@ function galactagasm() {
   };
 }
 
+function setFinishLine(f) {
+  console.log('FINISH_LINE', f);
+  return {
+    type: SET_FINISH_LINE,
+    finishLine: f
+  };
+}
+
+function setWinner(winner) {
+  console.log('WINNER', winner);
+  return {
+    type: WINNER,
+    winner
+  };
+}
+
 module.exports = Object.freeze({
   actionTypes: {
     START_RACE: START_RACE,
@@ -70,13 +88,16 @@ module.exports = Object.freeze({
     UPDATE_RACE_POSITIONS: UPDATE_RACE_POSITIONS,
     TRANZONIC: TRANZONIC,
     GALACTAGASM: GALACTAGASM,
-    FLEET_ATTACK: FLEET_ATTACK
+    FLEET_ATTACK: FLEET_ATTACK,
+    SET_FINISH_LINE: SET_FINISH_LINE
   },
   actions: {
     newHeat,
     startRace,
     stopRace,
+    setFinishLine,
     updateRacePositions,
+    setWinner,
     tranzonic,
     fleetAttack,
     galactagasm

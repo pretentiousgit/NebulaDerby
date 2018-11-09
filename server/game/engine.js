@@ -18,15 +18,23 @@ module.exports = function Race() {
 
   const race = setInterval(() => {
     const state = store.getState();
-    const newRaceTime = state.raceTimeRemaining -= state.interval;
 
-    // an event killed the race
-    if (state.running === false || newRaceTime <= 0) {
+    const { whales, finishLine } = state;
+
+    const winner = whales.filter((f) => {
+      return f.position > finishLine;
+    });
+
+    // A whale won
+    if (state.running === false || winner.length > 0) {
+      console.log('Winner', winner);
       endRace('an action ended the race', race);
+      store.dispatch(actions.setWinner(winner[0]));
     }
 
+    const newRaceTime = state.raceTimeRemaining -= state.interval;
+
     // run the race normally
-    console.log('dispatch');
     store.dispatch(actions.updateRacePositions(newRaceTime));
 
     // todo: update each whale with their new position

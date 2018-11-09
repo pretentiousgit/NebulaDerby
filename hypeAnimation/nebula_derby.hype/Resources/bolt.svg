@@ -1,19 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="433px" height="2867px" viewBox="0 0 433 2867" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
-    <title>Slice 1</title>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="55px" height="2668px" viewBox="0 0 55 2668" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.3 (67297) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
     <desc>Created with Sketch.</desc>
-    <defs>
-        <filter x="-39.6%" y="-1.4%" width="179.2%" height="102.8%" filterUnits="objectBoundingBox" id="filter-1">
-            <feGaussianBlur stdDeviation="10" in="SourceGraphic"></feGaussianBlur>
-        </filter>
-    </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <polygon id="Path" stroke="#B0FFEE" stroke-width="15" fill="#B0FFEE" filter="url(#filter-1)" points="100.25 100.171875 194.90625 370.296875 146.352509 797.921875 194.90625 1304.6875 146.352509 1978.375 194.90625 2469.96875 100.25 2741.46875 147.578125 2769.54688 194.90625 2741.46875 146.352509 2536.5 194.90625 2074 147.578125 1304.6875 194.90625 919.546875 146.352509 370.296875 194.90625 118.78125 146.352509 109.235607"></polygon>
-        <polygon id="Path" stroke="#50E3C2" stroke-width="5" fill="#B0FFEE" points="100.25 100.171875 194.90625 370.296875 146.352509 797.921875 194.90625 1304.6875 146.352509 1978.375 194.90625 2469.96875 100.25 2741.46875 147.578125 2769.54688 194.90625 2741.46875 146.352509 2536.5 194.90625 2074 147.578125 1304.6875 194.90625 919.546875 146.352509 370.296875 194.90625 118.78125 146.352509 109.235607"></polygon>
-        <polygon id="Path" fill="#FFFFFF" points="187.260427 371.156756 165.701699 309.6336 153.916063 370.684953 168.535939 536.068026"></polygon>
-        <path d="M153.879151,1978.27526 L174.982963,2191.94576 L187.382081,2073.83762 L168.782039,1771.49636 L153.879151,1978.27526 Z M109.350728,2738.14735 L147.578125,2760.82633 L186.337191,2737.83193 L155.235583,2606.53704 L109.350728,2738.14735 Z M155.106395,1304.91654 L169.964179,1546.42788 L187.380403,1304.7762 L173.248691,1157.28054 L155.106395,1304.91654 Z M153.944805,2536.01343 L157.987534,2553.07975 L187.280074,2469.06073 L174.527912,2339.94848 L153.944805,2536.01343 Z" id="Path" fill="#FFFFFF"></path>
-        <polygon id="Path" fill="#FFFFFF" points="187.365635 919.41829 166.677678 685.391815 153.893191 797.988005 175.094833 1019.27402"></polygon>
-        <polygon id="Path" fill="#FFFFFF" points="186.125482 124.698524 111.661747 110.058988 161.497192 252.276744"></polygon>
+        <g id="Group" transform="translate(3.000000, 3.000000)">
+            <polygon id="Path" stroke="#50E3C2" stroke-width="5" fill="#B0FFEE" points="0.352509 49.8848847 48.90625 261.296875 0.352509 688.921875 48.90625 1195.6875 0.352509 1869.375 48.90625 2360.96875 9.106395 2500.18143 1.578125 2660.54688 48.90625 2632.46875 0.352509 2427.5 48.90625 1965 1.578125 1195.6875 48.90625 810.546875 0.352509 261.296875 48.90625 9.78125 0.352509 0.235607"></polygon>
+            <polygon id="Path" fill="#FFFFFF" points="41.344364 262.523156 19.785636 201 8 262.051353 22.619876 427.434426"></polygon>
+            <polygon id="Path-Copy" fill="#FFFFFF" points="41.280074 17.8826497 7.879151 6.48185244 9.106395 52.1011672 22.619876 107.434426"></polygon>
+            <polygon id="Path-path" fill="#FFFFFF" fill-rule="nonzero" points="7.879151 1869.27526 28.982963 2082.94576 41.382081 1964.83762 22.782039 1662.49636"></polygon>
+            <polygon id="Path-path" fill="#FFFFFF" fill-rule="nonzero" points="9.106395 1195.91654 23.964179 1437.42788 41.380403 1195.7762 27.248691 1048.28054"></polygon>
+            <polygon id="Path-path" fill="#FFFFFF" fill-rule="nonzero" points="8 2427.06495 12.042729 2444.13127 41.335269 2360.11225 28.583107 2231"></polygon>
+            <polygon id="Path-path-Copy" fill="#FFFFFF" fill-rule="nonzero" points="13.606403 2535.42054 7.879151 2646.5769 41.280074 2628.73551 13.606403 2515.58274"></polygon>
+            <polygon id="Path" fill="#FFFFFF" points="41.365635 810.41829 20.677678 576.391815 7.893191 688.988005 29.094833 910.27402"></polygon>
+        </g>
     </g>
 </svg>

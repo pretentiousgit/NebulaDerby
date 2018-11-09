@@ -20,7 +20,7 @@
 			<key>externalRuntimeURL</key>
 			<string></string>
 			<key>includeTextContents</key>
-			<true/>
+			<false/>
 			<key>inlineDocumentLoader</key>
 			<false/>
 			<key>layoutOrSceneSlice</key>
@@ -36,7 +36,7 @@
 			<key>saveHtmlFile</key>
 			<true/>
 			<key>saveRestorableDocument</key>
-			<true/>
+			<false/>
 			<key>sceneControllerOidsToExport</key>
 			<array>
 				<string>3</string>
@@ -49,15 +49,15 @@
 	</array>
 	<key>displayedAttributes</key>
 	<array>
-		<string>DisplayHiddenOverride</string>
+		<string>FilterEffectBrightness</string>
 		<string>kPropertiesMenuItemIdentifierAll</string>
-		<string>FilterEffectHue</string>
+		<string>kPropertiesMenuItemIdentifierOpacity</string>
 		<string>RotationAngle</string>
 		<string>kPropertiesMenuItemIdentifierPosition</string>
+		<string>DisplayHiddenOverride</string>
 		<string>FilterEffectBlur</string>
 		<string>BackgroundColor</string>
-		<string>FilterEffectBrightness</string>
-		<string>kPropertiesMenuItemIdentifierOpacity</string>
+		<string>FilterEffectHue</string>
 	</array>
 	<key>documentVersion</key>
 	<string>574</string>
@@ -105,6 +105,26 @@
 			<key>oid</key>
 			<string>C89C9359-2AC3-4EA5-B090-042DAE83AEF1-21542-0003D3D2408D5667</string>
 		</dict>
+		<dict>
+			<key>additionalHeadHTML</key>
+			<string>&lt;link href='https://fonts.googleapis.com/css?family=Miltonian+Tattoo&amp;subset=latin' rel='stylesheet' type='text/css'&gt;</string>
+			<key>categories</key>
+			<array>
+				<string>Google Fonts</string>
+				<string>Web</string>
+				<string>iOS</string>
+			</array>
+			<key>fontNames</key>
+			<array>
+				<string>Miltonian Tattoo</string>
+			</array>
+			<key>fontSource</key>
+			<integer>1</integer>
+			<key>name</key>
+			<string>Miltonian Tattoo</string>
+			<key>oid</key>
+			<string>B492787A-CF15-43D4-B860-8F248FCDAFD2-341-00001C87D72552B3</string>
+		</dict>
 	</array>
 	<key>guidesAreLocked</key>
 	<false/>
@@ -113,17 +133,17 @@
 	<key>hasManuallyChangedCSSPositioning</key>
 	<false/>
 	<key>lastCheckDate</key>
-	<date>2018-11-06T23:55:36Z</date>
+	<date>2018-11-09T02:13:34Z</date>
 	<key>layout</key>
 	<dict>
 		<key>currentInspectorPane</key>
-		<integer>1</integer>
+		<integer>4</integer>
 		<key>customizableLayout</key>
 		<dict>
 			<key>frame</key>
-			<string>{{0, 0}, {1353, 617}}</string>
+			<string>{{0, 0}, {1920, 981}}</string>
 			<key>identifier</key>
-			<string>container 152</string>
+			<string>container 33</string>
 			<key>isCustomizableViewContainer</key>
 			<true/>
 			<key>isCustomizableViewWrapper</key>
@@ -134,32 +154,9 @@
 			<array>
 				<dict>
 					<key>frame</key>
-					<string>{{0, 0}, {270, 617}}</string>
+					<string>{{0, 0}, {1649, 981}}</string>
 					<key>identifier</key>
-					<string>container 162</string>
-					<key>isCustomizableViewContainer</key>
-					<true/>
-					<key>isCustomizableViewWrapper</key>
-					<true/>
-					<key>isVertical</key>
-					<true/>
-					<key>subviews</key>
-					<array>
-						<dict>
-							<key>frame</key>
-							<string>{{0, 0}, {270, 617}}</string>
-							<key>identifier</key>
-							<string>sceneSelectorCustomizableContainer</string>
-							<key>isCustomizableViewContainer</key>
-							<false/>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>frame</key>
-					<string>{{271, 0}, {1082, 617}}</string>
-					<key>identifier</key>
-					<string>container 163</string>
+					<string>container 44</string>
 					<key>isCustomizableViewContainer</key>
 					<true/>
 					<key>isCustomizableViewWrapper</key>
@@ -170,9 +167,9 @@
 					<array>
 						<dict>
 							<key>frame</key>
-							<string>{{271, 0}, {811, 617}}</string>
+							<string>{{0, 0}, {1378, 981}}</string>
 							<key>identifier</key>
-							<string>container 141</string>
+							<string>container 33</string>
 							<key>isCustomizableViewContainer</key>
 							<true/>
 							<key>isCustomizableViewWrapper</key>
@@ -183,9 +180,32 @@
 							<array>
 								<dict>
 									<key>frame</key>
-									<string>{{271, 0}, {540, 617}}</string>
+									<string>{{0, 0}, {270, 981}}</string>
 									<key>identifier</key>
-									<string>container 33</string>
+									<string>container 23</string>
+									<key>isCustomizableViewContainer</key>
+									<true/>
+									<key>isCustomizableViewWrapper</key>
+									<true/>
+									<key>isVertical</key>
+									<true/>
+									<key>subviews</key>
+									<array>
+										<dict>
+											<key>frame</key>
+											<string>{{0, 0}, {270, 981}}</string>
+											<key>identifier</key>
+											<string>sceneSelectorCustomizableContainer</string>
+											<key>isCustomizableViewContainer</key>
+											<false/>
+										</dict>
+									</array>
+								</dict>
+								<dict>
+									<key>frame</key>
+									<string>{{271, 0}, {1107, 981}}</string>
+									<key>identifier</key>
+									<string>container 24</string>
 									<key>isCustomizableViewContainer</key>
 									<true/>
 									<key>isCustomizableViewWrapper</key>
@@ -196,7 +216,7 @@
 									<array>
 										<dict>
 											<key>frame</key>
-											<string>{{271, 0}, {540, 135}}</string>
+											<string>{{271, 0}, {1107, 248}}</string>
 											<key>identifier</key>
 											<string>container 4</string>
 											<key>isCustomizableViewContainer</key>
@@ -209,7 +229,7 @@
 											<array>
 												<dict>
 													<key>frame</key>
-													<string>{{271, 0}, {540, 135}}</string>
+													<string>{{271, 0}, {1107, 248}}</string>
 													<key>identifier</key>
 													<string>timelineCustomizableContainer</string>
 													<key>isCustomizableViewContainer</key>
@@ -219,7 +239,7 @@
 										</dict>
 										<dict>
 											<key>frame</key>
-											<string>{{271, 136}, {540, 481}}</string>
+											<string>{{271, 249}, {1107, 732}}</string>
 											<key>identifier</key>
 											<string>container 3</string>
 											<key>isCustomizableViewContainer</key>
@@ -232,7 +252,7 @@
 											<array>
 												<dict>
 													<key>frame</key>
-													<string>{{271, 136}, {540, 481}}</string>
+													<string>{{271, 249}, {1107, 732}}</string>
 													<key>identifier</key>
 													<string>sceneEditorCustomizableContainer</string>
 													<key>isCustomizableViewContainer</key>
@@ -242,36 +262,13 @@
 										</dict>
 									</array>
 								</dict>
-								<dict>
-									<key>frame</key>
-									<string>{{812, 0}, {270, 617}}</string>
-									<key>identifier</key>
-									<string>container 65</string>
-									<key>isCustomizableViewContainer</key>
-									<true/>
-									<key>isCustomizableViewWrapper</key>
-									<true/>
-									<key>isVertical</key>
-									<true/>
-									<key>subviews</key>
-									<array>
-										<dict>
-											<key>frame</key>
-											<string>{{812, 0}, {270, 617}}</string>
-											<key>identifier</key>
-											<string>inspectorCustomizableContainer</string>
-											<key>isCustomizableViewContainer</key>
-											<false/>
-										</dict>
-									</array>
-								</dict>
 							</array>
 						</dict>
 						<dict>
 							<key>frame</key>
-							<string>{{1083, 0}, {270, 617}}</string>
+							<string>{{1379, 0}, {270, 981}}</string>
 							<key>identifier</key>
-							<string>container 140</string>
+							<string>container 32</string>
 							<key>isCustomizableViewContainer</key>
 							<true/>
 							<key>isCustomizableViewWrapper</key>
@@ -282,9 +279,9 @@
 							<array>
 								<dict>
 									<key>frame</key>
-									<string>{{1083, 0}, {270, 617}}</string>
+									<string>{{1379, 0}, {270, 981}}</string>
 									<key>identifier</key>
-									<string>resourcesCustomizableContainer</string>
+									<string>inspectorCustomizableContainer</string>
 									<key>isCustomizableViewContainer</key>
 									<false/>
 								</dict>
@@ -292,12 +289,35 @@
 						</dict>
 					</array>
 				</dict>
+				<dict>
+					<key>frame</key>
+					<string>{{1650, 0}, {270, 981}}</string>
+					<key>identifier</key>
+					<string>container 43</string>
+					<key>isCustomizableViewContainer</key>
+					<true/>
+					<key>isCustomizableViewWrapper</key>
+					<true/>
+					<key>isVertical</key>
+					<true/>
+					<key>subviews</key>
+					<array>
+						<dict>
+							<key>frame</key>
+							<string>{{1650, 0}, {270, 981}}</string>
+							<key>identifier</key>
+							<string>resourcesCustomizableContainer</string>
+							<key>isCustomizableViewContainer</key>
+							<false/>
+						</dict>
+					</array>
+				</dict>
 			</array>
 		</dict>
 		<key>keyframeTimelineHeight</key>
-		<real>285</real>
+		<real>103</real>
 		<key>mainWindowFrame</key>
-		<string>5 115 1353 661 0 0 1280 777 </string>
+		<string>-335 855 1920 1025 -335 800 1920 1080 </string>
 		<key>openTabs</key>
 		<array>
 			<dict>
@@ -384,7 +404,7 @@
 	<key>monotypeProjectID</key>
 	<string>899EB620-156D-40DA-93A8-51659FFD4B5A-37120-000305F6DA974245</string>
 	<key>oidCounter</key>
-	<integer>174</integer>
+	<integer>185</integer>
 	<key>resourcesInfo</key>
 	<dict>
 		<key>groups</key>
@@ -451,18 +471,6 @@
 			</dict>
 			<dict>
 				<key>expanded</key>
-				<true/>
-				<key>name</key>
-				<string>bolt</string>
-				<key>oid</key>
-				<string>87</string>
-				<key>resources</key>
-				<array>
-					<string>bolt.svg</string>
-				</array>
-			</dict>
-			<dict>
-				<key>expanded</key>
 				<false/>
 				<key>name</key>
 				<string>predatorWhale</string>
@@ -507,6 +515,18 @@
 				<key>resources</key>
 				<array>
 					<string>wiper.svg</string>
+				</array>
+			</dict>
+			<dict>
+				<key>expanded</key>
+				<true/>
+				<key>name</key>
+				<string>bolt</string>
+				<key>oid</key>
+				<string>184</string>
+				<key>resources</key>
+				<array>
+					<string>bolt.svg</string>
 				</array>
 			</dict>
 		</array>
@@ -823,58 +843,6 @@
 			</dict>
 			<dict>
 				<key>fileModificationDate</key>
-				<date>2017-09-11T14:40:52Z</date>
-				<key>fileSize</key>
-				<integer>109200</integer>
-				<key>md5</key>
-				<string>DC580049946D9A159A30105F275E16E8</string>
-				<key>notifyOnBookmarkChange</key>
-				<true/>
-				<key>originalPath</key>
-				<string>/Users/alexleitch/Downloads/onlinefontconverter.com/converted-files/AZSailorTattoo.woff</string>
-				<key>resourceName</key>
-				<string>AZSailorTattoo.woff</string>
-				<key>securityScopedBookmark</key>
-				<data>
-				Ym9vazADAAAAAAQQMAAAAEkUPidoQxjZu7oMfb41vYpG
-				UCbDEGoU0BqCI8HIAE4CLAIAAAQAAAADAwAAAAkAKAUA
-				AAABAQAAVXNlcnMAAAAKAAAAAQEAAGFsZXhsZWl0Y2gA
-				AAkAAAABAQAARG93bmxvYWRzAAAAFwAAAAEBAABvbmxp
-				bmVmb250Y29udmVydGVyLmNvbQAPAAAAAQEAAGNvbnZl
-				cnRlZC1maWxlcwATAAAAAQEAAEFaU2FpbG9yVGF0dG9v
-				LndvZmYAGAAAAAEGAAAQAAAAIAAAADQAAABIAAAAaAAA
-				AIAAAAAIAAAABAMAAD6YAgAAAAAACAAAAAQDAAAeywcA
-				AAAAAAgAAAAEAwAAIcsHAAAAAAAIAAAABAMAANPR/QMA
-				AAAACAAAAAQDAADV0f0DAAAAAAgAAAAEAwAA2NH9AwAA
-				AAAYAAAAAQYAALwAAADMAAAA3AAAAOwAAAD8AAAADAEA
-				AAgAAAAABAAAQb9mn64AAAAYAAAAAQIAAAEAAAAAAAAA
-				DwAAAAAAAAAAAAAAAAAAAAgAAAAEAwAABAAAAAAAAAAE
-				AAAAAwMAAPYBAAAIAAAAAQkAAGZpbGU6Ly8vDAAAAAEB
-				AABNYWNpbnRvc2ggSEQIAAAABAMAAABQBUVbAAAACAAA
-				AAAEAABBu3pGDgAAACQAAAABAQAARTRFMkNDM0ItRDhF
-				OS0zODk5LTg1RUMtQ0EzRUZBQ0I4RERFGAAAAAECAACB
-				AAAAAQAAAO8TAAABAAAAAAAAAAAAAAABAAAAAQEAAC8A
-				AAAAAAAAAQUAAMwAAAD+////AQAAAAAAAAAQAAAABBAA
-				AJwAAAAAAAAABRAAABwBAAAAAAAAEBAAAEwBAAAAAAAA
-				QBAAADwBAAAAAAAAAiAAABgCAAAAAAAABSAAAIgBAAAA
-				AAAAECAAAJgBAAAAAAAAESAAAMwBAAAAAAAAEiAAAKwB
-				AAAAAAAAEyAAALwBAAAAAAAAICAAAPgBAAAAAAAAMCAA
-				ACQCAAAAAAAAAcAAAGwBAAAAAAAAEcAAACAAAAAAAAAA
-				EsAAAHwBAAAAAAAAENAAAAQAAAAAAAAA
-				</data>
-				<key>shouldAutoResize</key>
-				<true/>
-				<key>shouldIncludeInDocumentHeadHTML</key>
-				<false/>
-				<key>shouldPreload</key>
-				<true/>
-				<key>shouldRemoveWhenNoLongerReferenced</key>
-				<false/>
-				<key>type</key>
-				<string>FileResource</string>
-			</dict>
-			<dict>
-				<key>fileModificationDate</key>
 				<date>2017-09-15T15:23:50Z</date>
 				<key>fileSize</key>
 				<integer>963367</integer>
@@ -1012,56 +980,6 @@
 				bAEAAAAAAAATIAAAfAEAAAAAAAAgIAAAuAEAAAAAAAAw
 				IAAA5AEAAAAAAAABwAAALAEAAAAAAAARwAAAIAAAAAAA
 				AAASwAAAPAEAAAAAAAAQ0AAABAAAAAAAAAA=
-				</data>
-				<key>shouldAutoResize</key>
-				<true/>
-				<key>shouldIncludeInDocumentHeadHTML</key>
-				<false/>
-				<key>shouldPreload</key>
-				<true/>
-				<key>shouldRemoveWhenNoLongerReferenced</key>
-				<false/>
-				<key>type</key>
-				<string>FileResource</string>
-			</dict>
-			<dict>
-				<key>fileModificationDate</key>
-				<date>2017-09-16T13:07:28Z</date>
-				<key>fileSize</key>
-				<integer>2495</integer>
-				<key>md5</key>
-				<string>C2D519EE82C9762077D19EB135EC8AA3</string>
-				<key>notifyOnBookmarkChange</key>
-				<true/>
-				<key>originalPath</key>
-				<string>/Users/alexleitch/Google Drive/NebulaDerby/bolt.svg</string>
-				<key>resourceName</key>
-				<string>bolt.svg</string>
-				<key>securityScopedBookmark</key>
-				<data>
-				Ym9va+gCAAAAAAQQMAAAAL2LHFf656X3XQvqkvMRpVTJ
-				cFzqPjaI60JkAiaqMD6/5AEAAAQAAAADAwAAAAkAKAUA
-				AAABAQAAVXNlcnMAAAAKAAAAAQEAAGFsZXhsZWl0Y2gA
-				AAwAAAABAQAAR29vZ2xlIERyaXZlCwAAAAEBAABOZWJ1
-				bGFEZXJieQAIAAAAAQEAAGJvbHQuc3ZnFAAAAAEGAAAQ
-				AAAAIAAAADQAAABIAAAAXAAAAAgAAAAEAwAAPpgCAAAA
-				AAAIAAAABAMAAB7LBwAAAAAACAAAAAQDAABSyfQDAAAA
-				AAgAAAAEAwAAPsr0AwAAAAAIAAAABAMAAOzJAAQAAAAA
-				FAAAAAEGAACIAAAAmAAAAKgAAAC4AAAAyAAAAAgAAAAA
-				BAAAQb9tWZAAAAAYAAAAAQIAAAEAAAAAAAAADwAAAAAA
-				AAAAAAAAAAAAAAgAAAAEAwAAAwAAAAAAAAAEAAAAAwMA
-				APYBAAAIAAAAAQkAAGZpbGU6Ly8vDAAAAAEBAABNYWNp
-				bnRvc2ggSEQIAAAABAMAAABQBUVbAAAACAAAAAAEAABB
-				u3pGDgAAACQAAAABAQAARTRFMkNDM0ItRDhFOS0zODk5
-				LTg1RUMtQ0EzRUZBQ0I4RERFGAAAAAECAACBAAAAAQAA
-				AO8TAAABAAAAAAAAAAAAAAABAAAAAQEAAC8AAAAAAAAA
-				AQUAAMwAAAD+////AQAAAAAAAAAQAAAABBAAAGwAAAAA
-				AAAABRAAANgAAAAAAAAAEBAAAAQBAAAAAAAAQBAAAPQA
-				AAAAAAAAAiAAANABAAAAAAAABSAAAEABAAAAAAAAECAA
-				AFABAAAAAAAAESAAAIQBAAAAAAAAEiAAAGQBAAAAAAAA
-				EyAAAHQBAAAAAAAAICAAALABAAAAAAAAMCAAANwBAAAA
-				AAAAAcAAACQBAAAAAAAAEcAAACAAAAAAAAAAEsAAADQB
-				AAAAAAAAENAAAAQAAAAAAAAA
 				</data>
 				<key>shouldAutoResize</key>
 				<true/>
@@ -1231,6 +1149,59 @@
 				<key>type</key>
 				<string>FileResource</string>
 			</dict>
+			<dict>
+				<key>fileModificationDate</key>
+				<date>2018-11-09T00:50:46Z</date>
+				<key>fileSize</key>
+				<integer>2032</integer>
+				<key>md5</key>
+				<string>7C807253136BBE6B2D2D812D1FF07B2A</string>
+				<key>notifyOnBookmarkChange</key>
+				<true/>
+				<key>originalPath</key>
+				<string>/Users/alexleitch/Projects/NebulaDerby/hypeAnimation/index.hyperesources/bolt.svg</string>
+				<key>resourceName</key>
+				<string>bolt.svg</string>
+				<key>securityScopedBookmark</key>
+				<data>
+				Ym9va0gDAAAAAAQQMAAAAOiOeYwEbZbhaL5IBHgjvvQw
+				mRWQvyXBC5kMF7KoZw8dRAIAAAQAAAADAwAAAAkAKAUA
+				AAABAQAAVXNlcnMAAAAKAAAAAQEAAGFsZXhsZWl0Y2gA
+				AAgAAAABAQAAUHJvamVjdHMLAAAAAQEAAE5lYnVsYURl
+				cmJ5AA0AAAABAQAAaHlwZUFuaW1hdGlvbgAAABMAAAAB
+				AQAAaW5kZXguaHlwZXJlc291cmNlcwAIAAAAAQEAAGJv
+				bHQuc3ZnHAAAAAEGAAAQAAAAIAAAADQAAABEAAAAWAAA
+				AHAAAACMAAAACAAAAAQDAAA60gkAAAAAAAgAAAAEAwAA
+				GnghAAAAAAAIAAAABAMAANQoPgAAAAAACAAAAAQDAAA5
+				440AAAAAAAgAAAAEAwAAm2OsAAAAAAAIAAAABAMAAK94
+				sAAAAAAACAAAAAQDAAD0grAAAAAAABwAAAABBgAAwAAA
+				ANAAAADgAAAA8AAAAAABAAAQAQAAIAEAAAgAAAAABAAA
+				QcDKiLNqSmkYAAAAAQIAAAEAAAAAAAAADwAAAAAAAAAA
+				AAAAAAAAAAgAAAAEAwAABQAAAAAAAAAEAAAAAwMAAPYB
+				AAAIAAAAAQkAAGZpbGU6Ly8vDAAAAAEBAABNYWNpbnRv
+				c2ggSEQIAAAABAMAAACwYG50AAAACAAAAAAEAABBwECH
+				PYAAACQAAAABAQAARTRFMDIxOEQtMjVDRi0zMTlCLUI4
+				RDAtM0Y5MEM2REMyMkY2GAAAAAECAACBAAAAAQAAAO8T
+				AAABAAAAAAAAAAAAAAABAAAAAQEAAC8AAAAAAAAAAQUA
+				AMwAAAD+////AQAAAAAAAAAQAAAABBAAAJwAAAAAAAAA
+				BRAAADABAAAAAAAAEBAAAGQBAAAAAAAAQBAAAFQBAAAA
+				AAAAAiAAADACAAAAAAAABSAAAKABAAAAAAAAECAAALAB
+				AAAAAAAAESAAAOQBAAAAAAAAEiAAAMQBAAAAAAAAEyAA
+				ANQBAAAAAAAAICAAABACAAAAAAAAMCAAADwCAAAAAAAA
+				AcAAAIQBAAAAAAAAEcAAACAAAAAAAAAAEsAAAJQBAAAA
+				AAAAENAAAAQAAAAAAAAA
+				</data>
+				<key>shouldAutoResize</key>
+				<true/>
+				<key>shouldIncludeInDocumentHeadHTML</key>
+				<false/>
+				<key>shouldPreload</key>
+				<true/>
+				<key>shouldRemoveWhenNoLongerReferenced</key>
+				<false/>
+				<key>type</key>
+				<string>FileResource</string>
+			</dict>
 		</array>
 	</dict>
 	<key>sceneContainers</key>
@@ -1250,7 +1221,7 @@
 						<key>timeCursors</key>
 						<dict>
 							<key>103</key>
-							<real>1.0333333015441895</real>
+							<real>0.46666666865348816</real>
 							<key>105</key>
 							<real>0.69999998807907104</real>
 							<key>109</key>
@@ -1268,13 +1239,13 @@
 							<key>92</key>
 							<real>1</real>
 							<key>kTimelineDefaultIdentifier</key>
-							<real>6</real>
+							<real>0.5</real>
 						</dict>
 						<key>timescale</key>
 						<integer>110</integer>
 					</dict>
 					<key>canvasSize</key>
-					<string>{3243, 1511}</string>
+					<string>{3243, 1653}</string>
 					<key>hypeScene</key>
 					<dict>
 						<key>backgroundColor</key>
@@ -1299,7 +1270,7 @@
 					<key>rootSymbolControllerOid</key>
 					<string>2</string>
 					<key>scrollViewOffset</key>
-					<string>{0, 14}</string>
+					<string>{57, 84}</string>
 					<key>zoomFactor</key>
 					<real>0.5</real>
 				</dict>
@@ -1359,11 +1330,21 @@
 function initSocket(hypeDocument, element, event) {
 console.log('initSocket loaded');
 
+function offset(el) {
+    var rect = el.getBoundingClientRect(),
+    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    return { top: rect.top + scrollTop, left: rect.left + scrollLeft, width: rect.width, height: rect.height }
+}
 
 const socket = io('http://localhost:3001');
 socket.on('connect', () =&gt; {
       console.log("socket connected", socket.id);
-      socket.emit('gameShake', { browserId: socket.id, message: 'game screen' });
+      const finishPos = document.getElementById('bolt');
+      const w = document.getElementById('loveWhale');
+      const whaleWidth = offset(w).width;
+      console.log('whalewidth', whaleWidth, w);
+      socket.emit('gameShake', { browserId: socket.id, message: 'game screen', finishLine: offset(finishPos).left, whaleWidth: whaleWidth });
 });
 
 function reset() {
@@ -1538,7 +1519,6 @@ socket.on('whaleState', (msg) =&gt; {
 });
 
 socket.on('newHeat', (msg) =&gt; {
-  setWhalePositions(msg);
   clearVictoryMessage();
   clearEvents();
 });
@@ -1553,32 +1533,43 @@ socket.on('predator', (msg) =&gt; {
 });
 
 socket.on('winner', (msg) =&gt; {
+  console.log('Winner', msg);
+
+  hypeDocument.pauseTimelineNamed('tranzonic');
+  hypeDocument.pauseTimelineNamed('galactagasm');
+  clearEvents();
+  
   hypeDocument.getElementById('victoryWhale').innerHTML = msg.faction;
   hypeDocument.startTimelineNamed('victory', hypeDocument.kDirectionForward);
 });
 
-socket.on('adminEvent', (event) =&gt; {
-  console.log('Event', event);
-  if (event === 'FleetAttack') {
-    hypeDocument.startTimelineNamed('fleetAttack', hypeDocument.kDirectionForward);
-    hypeDocument.startTimelineNamed('fleetLoop', hypeDocument.kDirectionForward);
-  }
-  if (event === 'Galactagasm') {
-    hypeDocument.startTimelineNamed('galactagasm', hypeDocument.kDirectionForward);
+socket.on('adminEvent', (d) =&gt; {
+	console.log('Admin event', d);
+});
+
+socket.on('galactagasm', () =&gt; {
+	hypeDocument.startTimelineNamed('galactagasm', hypeDocument.kDirectionForward);
     setTimeout(() =&gt; {
       hypeDocument.pauseTimelineNamed('galactagasm');
       clearEvents();
-    }, 15000);
-  }
-  if (event === 'TranzonicInterference') {
+    }, 15000);	
+})
+
+socket.on('tranzonicInterference', () =&gt; {
     hypeDocument.startTimelineNamed('tranzonic', hypeDocument.kDirectionForward);
     setTimeout(() =&gt; {
       hypeDocument.pauseTimelineNamed('tranzonic');
       clearEvents();
     }, 15000);
-  }
-});
-}
+})
+
+socket.on('fleetAttack', () =&gt; {
+    hypeDocument.startTimelineNamed('fleetAttack', hypeDocument.kDirectionForward);
+    hypeDocument.startTimelineNamed('fleetLoop', hypeDocument.kDirectionForward);
+	whales.map((w) =&gt; {
+		w.element.style.backgroundImage = "url(index.hyperesources/splatter.svg)";
+	})
+})}
 </string>
 		</dict>
 		<dict>
@@ -1610,9 +1601,11 @@ function sendSocketMessage(hypeDocument, element, event) {
 	<array>
 		<dict>
 			<key>documentIdentifier</key>
-			<string>BB3F74F2-3754-4DE7-9D58-FD4D963A5C90-76070-0005319764CF4C35</string>
+			<string>07A8266A-A466-44D0-B3AA-28EE88056FDC-341-00000012815B3D3D</string>
 			<key>selectedObjects</key>
-			<array/>
+			<array>
+				<string>95</string>
+			</array>
 			<key>symbol</key>
 			<dict>
 				<key>addToNewSceneControllers</key>
@@ -1636,6 +1629,12 @@ function sendSocketMessage(hypeDocument, element, event) {
 					<array>
 						<dict>
 							<key>identifier</key>
+							<string>AutoresizingMask</string>
+							<key>objectValue</key>
+							<string>63</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
 							<string>BorderStyleRight</string>
 							<key>objectValue</key>
 							<string>None</string>
@@ -1657,6 +1656,12 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<string>BorderWidthBottom</string>
 							<key>objectValue</key>
 							<string>0px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Display</string>
+							<key>objectValue</key>
+							<string>inline</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1863,13 +1868,13 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>FontFamily</string>
 							<key>objectValue</key>
-							<string>AZSailorTattoo</string>
+							<string>'Courier New',Courier,Monospace</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FFFFFF</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1941,7 +1946,13 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Height</string>
 							<key>objectValue</key>
-							<string>183px</string>
+							<string>163px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>AutoresizingMask</string>
+							<key>objectValue</key>
+							<string>151</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1963,15 +1974,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Width</string>
-							<key>objectValue</key>
-							<string>1496px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>PaddingLeft</string>
 							<key>objectValue</key>
 							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>1124px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1983,7 +1994,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1999,30 +2010,24 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FFFFFF</string>
 						</dict>
 					</array>
 					<key>126</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>BorderWidthLeft</string>
+							<string>BorderWidthBottom</string>
 							<key>objectValue</key>
 							<string>0px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BackgroundColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>rgba(255, 38, 0, 0.450)</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>ExplicitDimensions</string>
-							<key>objectValue</key>
-							<string>YES</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2032,9 +2037,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>ExplicitDimensions</string>
 							<key>objectValue</key>
-							<string>fleetAttackBG</string>
+							<string>YES</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Opacity</string>
+							<key>objectValue</key>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2048,9 +2059,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Opacity</string>
+							<string>ClassType</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>Rectangle</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2090,9 +2101,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ClassType</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>Rectangle</string>
+							<string>fleetAttackBG</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2105,6 +2116,12 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<string>Height</string>
 							<key>objectValue</key>
 							<string>197px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>AutoresizingMask</string>
+							<key>objectValue</key>
+							<string>63</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2162,15 +2179,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BorderWidthBottom</string>
+							<string>BorderWidthLeft</string>
 							<key>objectValue</key>
 							<string>0px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>BackgroundColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>rgba(255, 38, 0, 0.450)</string>
 						</dict>
 					</array>
 					<key>127</key>
@@ -2183,9 +2200,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FFFB00</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2267,6 +2284,12 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
+							<string>AutoresizingMask</string>
+							<key>objectValue</key>
+							<string>182</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
 							<string>Left</string>
 							<key>objectValue</key>
 							<string>238px</string>
@@ -2285,15 +2308,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Width</string>
-							<key>objectValue</key>
-							<string>849px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>PaddingLeft</string>
 							<key>objectValue</key>
 							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>849px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2311,7 +2334,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2327,30 +2350,24 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FFFB00</string>
 						</dict>
 					</array>
 					<key>129</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>BorderWidthLeft</string>
+							<string>BorderWidthBottom</string>
 							<key>objectValue</key>
 							<string>0px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BackgroundColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#003600</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>ExplicitDimensions</string>
-							<key>objectValue</key>
-							<string>YES</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2360,9 +2377,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>ExplicitDimensions</string>
 							<key>objectValue</key>
-							<string>tranzBG</string>
+							<string>YES</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Opacity</string>
+							<key>objectValue</key>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2376,9 +2399,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Opacity</string>
+							<string>ClassType</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>Rectangle</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2418,9 +2441,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ClassType</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>Rectangle</string>
+							<string>tranzBG</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2433,6 +2456,12 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<string>Height</string>
 							<key>objectValue</key>
 							<string>198px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>AutoresizingMask</string>
+							<key>objectValue</key>
+							<string>63</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2474,7 +2503,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2490,15 +2519,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BorderWidthBottom</string>
+							<string>BorderWidthLeft</string>
 							<key>objectValue</key>
 							<string>0px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>BackgroundColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#003600</string>
 						</dict>
 					</array>
 					<key>130</key>
@@ -2507,13 +2536,13 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>FontFamily</string>
 							<key>objectValue</key>
-							<string>AZSailorTattoo</string>
+							<string>Chalkduster,Papyrus,fantasy</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FFFC79</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2589,6 +2618,12 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
+							<string>AutoresizingMask</string>
+							<key>objectValue</key>
+							<string>151</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
 							<string>Left</string>
 							<key>objectValue</key>
 							<string>168px</string>
@@ -2607,15 +2642,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Width</string>
-							<key>objectValue</key>
-							<string>1704px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>PaddingLeft</string>
 							<key>objectValue</key>
 							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>1325px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2627,7 +2662,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2643,9 +2678,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FFFC79</string>
 						</dict>
 					</array>
 					<key>131</key>
@@ -2655,6 +2690,12 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<string>BackdropFilterEffectSaturate</string>
 							<key>objectValue</key>
 							<string>1</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>AutoresizingMask</string>
+							<key>objectValue</key>
+							<string>151</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2696,7 +2737,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2756,7 +2797,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>InnerHTML</string>
 							<key>objectValue</key>
-							<string>💞💖&lt;font face="AZSailorTattoo" style="font-size: 96px;"&gt;GALACTAGASM&lt;/font&gt;💖💞</string>
+							<string>💞💖GALACTAGASM💖💞</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2828,7 +2869,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>FontFamily</string>
 							<key>objectValue</key>
-							<string>Helvetica,Arial,Sans-Serif</string>
+							<string>Futura,Verdana,sans-serif</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2889,9 +2930,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FFFB00</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2913,9 +2954,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Opacity</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>tranz2</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2925,15 +2966,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>WordWrap</string>
+							<string>Opacity</string>
 							<key>objectValue</key>
-							<string>break-word</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ClassType</string>
+							<string>WordWrap</string>
 							<key>objectValue</key>
-							<string>Text</string>
+							<string>break-word</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2955,9 +2996,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>ClassType</string>
 							<key>objectValue</key>
-							<string>tranz2</string>
+							<string>Text</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2976,6 +3017,12 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<string>Height</string>
 							<key>objectValue</key>
 							<string>341px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>AutoresizingMask</string>
+							<key>objectValue</key>
+							<string>54</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3029,7 +3076,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3045,18 +3092,18 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FFFB00</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>146</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>684px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3162,15 +3209,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DisplayHiddenOverride</string>
-							<key>objectValue</key>
-							<string>1</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>Width</string>
 							<key>objectValue</key>
 							<string>1534px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>DisplayHiddenOverride</string>
+							<key>objectValue</key>
+							<string>1</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3204,18 +3251,18 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>684px</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>15</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>7144px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3321,15 +3368,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Locked</string>
-							<key>objectValue</key>
-							<string>1</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>BackgroundSize</string>
 							<key>objectValue</key>
 							<string>100% 100%</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Locked</string>
+							<key>objectValue</key>
+							<string>1</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3351,18 +3398,18 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>7144px</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>151</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>1280px</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3510,18 +3557,18 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>1280px</string>
 						</dict>
 					</array>
 					<key>166</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>684px</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3627,15 +3674,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Width</string>
-							<key>objectValue</key>
-							<string>1280px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>DisplayHiddenOverride</string>
 							<key>objectValue</key>
 							<string>1</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>1280px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3669,9 +3716,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>684px</string>
 						</dict>
 					</array>
 					<key>167</key>
@@ -3728,7 +3775,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>1</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3891,6 +3938,165 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<string>BackdropFilterEffectBrightness</string>
 							<key>objectValue</key>
 							<string>1</string>
+						</dict>
+					</array>
+					<key>185</key>
+					<array>
+						<dict>
+							<key>identifier</key>
+							<string>TagName</string>
+							<key>objectValue</key>
+							<string>div</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>LineHeight</string>
+							<key>objectValue</key>
+							<string>0px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ExplicitDimensions</string>
+							<key>objectValue</key>
+							<string>YES</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ConstrainProportions</string>
+							<key>objectValue</key>
+							<string>YES</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Display</string>
+							<key>objectValue</key>
+							<string>inline</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Opacity</string>
+							<key>objectValue</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ClassType</string>
+							<key>objectValue</key>
+							<string>Image</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Top</string>
+							<key>objectValue</key>
+							<string>31px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>DomID</string>
+							<key>objectValue</key>
+							<string>bolt</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>FilterEffectBlur</string>
+							<key>objectValue</key>
+							<string>0.5</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BackgroundRepeat</string>
+							<key>objectValue</key>
+							<string>no-repeat</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Position</string>
+							<key>objectValue</key>
+							<string>absolute</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Height</string>
+							<key>objectValue</key>
+							<string>1019px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BackgroundImageResourceGroupOid</string>
+							<key>objectValue</key>
+							<string>184</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Left</string>
+							<key>objectValue</key>
+							<string>1792px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>SizeRatio</string>
+							<key>objectValue</key>
+							<string>0.0206147</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>AccessibilityRole</string>
+							<key>objectValue</key>
+							<string>img</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>AutoresizingMask</string>
+							<key>objectValue</key>
+							<string>123</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>FilterEffectBrightness</string>
+							<key>objectValue</key>
+							<string>1.06190664556962</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ZIndex</string>
+							<key>objectValue</key>
+							<string>34</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>21px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BackgroundSize</string>
+							<key>objectValue</key>
+							<string>100% 100%</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Overflow</string>
+							<key>objectValue</key>
+							<string>visible</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>DisplayName</string>
+							<key>objectValue</key>
+							<string>bolt</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>OriginalHeight</string>
+							<key>objectValue</key>
+							<string>2668px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>OriginalWidth</string>
+							<key>objectValue</key>
+							<string>55px</string>
 						</dict>
 					</array>
 					<key>23</key>
@@ -4104,21 +4310,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FFD479</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>PaddingRight</string>
 							<key>objectValue</key>
 							<string>8px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>ExplicitDimensions</string>
-							<key>objectValue</key>
-							<string>YES</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4134,6 +4334,12 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
+							<string>ExplicitDimensions</string>
+							<key>objectValue</key>
+							<string>YES</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
 							<string>Display</string>
 							<key>objectValue</key>
 							<string>inline</string>
@@ -4146,9 +4352,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>ClassType</string>
 							<key>objectValue</key>
-							<string>gameTimer</string>
+							<string>Text</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4170,9 +4376,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ClassType</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>Text</string>
+							<string>gameTimer</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4254,18 +4460,18 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FFD479</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>43</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>2134px</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4299,9 +4505,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>ClassType</string>
 							<key>objectValue</key>
-							<string>cyberWhale</string>
+							<string>Image</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4317,9 +4523,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ClassType</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>Image</string>
+							<string>cyberWhale</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4425,18 +4631,18 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>2134px</string>
 						</dict>
 					</array>
 					<key>44</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>2134px</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4470,9 +4676,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>ClassType</string>
 							<key>objectValue</key>
-							<string>loveWhale</string>
+							<string>Image</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4488,9 +4694,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ClassType</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>Image</string>
+							<string>loveWhale</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4590,192 +4796,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
-							<key>objectValue</key>
-							<string>div</string>
-						</dict>
-					</array>
-					<key>88</key>
-					<array>
-						<dict>
-							<key>identifier</key>
 							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>433px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>BackdropFilterEffectBlur</string>
-							<key>objectValue</key>
-							<string>0</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>ExplicitDimensions</string>
-							<key>objectValue</key>
-							<string>YES</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>DomID</string>
-							<key>objectValue</key>
-							<string>bolt</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>Display</string>
-							<key>objectValue</key>
-							<string>inline</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>ConstrainProportions</string>
-							<key>objectValue</key>
-							<string>YES</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>Opacity</string>
-							<key>objectValue</key>
-							<string>1</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>Top</string>
-							<key>objectValue</key>
-							<string>120px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>BackdropFilterEffectBrightness</string>
-							<key>objectValue</key>
-							<string>1</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>FilterEffectBlur</string>
-							<key>objectValue</key>
-							<string>0</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>ClassType</string>
-							<key>objectValue</key>
-							<string>Image</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>BackgroundRepeat</string>
-							<key>objectValue</key>
-							<string>no-repeat</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>Position</string>
-							<key>objectValue</key>
-							<string>absolute</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>Height</string>
-							<key>objectValue</key>
-							<string>910px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>AutoresizingMask</string>
-							<key>objectValue</key>
-							<string>19</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>Left</string>
-							<key>objectValue</key>
-							<string>1746px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>SizeRatio</string>
-							<key>objectValue</key>
-							<string>0.151029</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>FilterEffectBrightness</string>
-							<key>objectValue</key>
-							<string>0.9719145569620253</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>BackgroundImageResourceGroupOid</string>
-							<key>objectValue</key>
-							<string>87</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>AccessibilityRole</string>
-							<key>objectValue</key>
-							<string>img</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>FilterEffectHue</string>
-							<key>objectValue</key>
-							<string>0deg</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>ZIndex</string>
-							<key>objectValue</key>
-							<string>13</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>Width</string>
-							<key>objectValue</key>
-							<string>137px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>InnerHTML</string>
-							<key>objectValue</key>
-							<string></string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>BackgroundSize</string>
-							<key>objectValue</key>
-							<string>100% 100%</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>Overflow</string>
-							<key>objectValue</key>
-							<string>visible</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>Locked</string>
-							<key>objectValue</key>
-							<string>1</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>DisplayName</string>
-							<key>objectValue</key>
-							<string>bolt</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>OriginalHeight</string>
-							<key>objectValue</key>
-							<string>2867px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>TagName</string>
-							<key>objectValue</key>
-							<string>div</string>
+							<string>2134px</string>
 						</dict>
 					</array>
 					<key>90</key>
@@ -4985,13 +5008,19 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>FontFamily</string>
 							<key>objectValue</key>
-							<string>AZSailorTattoo</string>
+							<string>'Miltonian Tattoo'</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FFFB00</string>
+							<string>div</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>FontWeight</string>
+							<key>objectValue</key>
+							<string>normal</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5009,7 +5038,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>FontSize</string>
 							<key>objectValue</key>
-							<string>96px</string>
+							<string>288px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5039,7 +5068,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Top</string>
 							<key>objectValue</key>
-							<string>304px</string>
+							<string>102px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5061,6 +5090,12 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
+							<string>FontStyle</string>
+							<key>objectValue</key>
+							<string>normal</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
 							<string>WhiteSpaceCollapsing</string>
 							<key>objectValue</key>
 							<string>preserve</string>
@@ -5075,7 +5110,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Height</string>
 							<key>objectValue</key>
-							<string>122px</string>
+							<string>343px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5087,7 +5122,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Left</string>
 							<key>objectValue</key>
-							<string>724px</string>
+							<string>366px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5111,7 +5146,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Width</string>
 							<key>objectValue</key>
-							<string>514px</string>
+							<string>1342px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5135,7 +5170,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5151,9 +5186,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FFFB00</string>
 						</dict>
 					</array>
 					<key>97</key>
@@ -5162,13 +5197,13 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>FontFamily</string>
 							<key>objectValue</key>
-							<string>AZSailorTattoo</string>
+							<string>'Miltonian Tattoo'</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FFFB00</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5178,15 +5213,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ExplicitDimensions</string>
-							<key>objectValue</key>
-							<string>YES</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>BackdropFilterEffectBlur</string>
 							<key>objectValue</key>
 							<string>0</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>FontSize</string>
+							<key>objectValue</key>
+							<string>96px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5202,15 +5237,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>FontSize</string>
-							<key>objectValue</key>
-							<string>96px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>WordWrap</string>
 							<key>objectValue</key>
 							<string>break-word</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ClassType</string>
+							<key>objectValue</key>
+							<string>Text</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5232,15 +5267,15 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>DomID</string>
+							<string>ExplicitDimensions</string>
 							<key>objectValue</key>
-							<string>victoryWhale</string>
+							<string>YES</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ClassType</string>
+							<string>DomID</string>
 							<key>objectValue</key>
-							<string>Text</string>
+							<string>victoryWhale</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5318,7 +5353,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5334,9 +5369,9 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FFFB00</string>
 						</dict>
 					</array>
 				</dict>
@@ -5438,14 +5473,14 @@ function sendSocketMessage(hypeDocument, element, event) {
 									<key>identifier</key>
 									<string>Opacity</string>
 									<key>objectValue</key>
-									<string>0.35</string>
+									<string>0.4</string>
 								</dict>
 								<key>identifier</key>
 								<string>Opacity</string>
 								<key>isRelative</key>
 								<false/>
 								<key>referenceOid</key>
-								<string>88</string>
+								<string>185</string>
 								<key>startTime</key>
 								<real>0.0</real>
 								<key>startValue</key>
@@ -5462,7 +5497,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>type</key>
 								<integer>0</integer>
 								<key>uuid</key>
-								<string>C5D949AE-12CB-48C0-B4B4-CD48B92F9A5C-96390-0004768F20F04DFF</string>
+								<string>67DC0DAC-6537-4824-932D-E2F28C0888D4-341-000019C590785B86</string>
 								<key>zIndex</key>
 								<integer>1</integer>
 							</dict>
@@ -5481,7 +5516,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>isRelative</key>
 								<false/>
 								<key>referenceOid</key>
-								<string>88</string>
+								<string>185</string>
 								<key>startTime</key>
 								<real>0.5</real>
 								<key>startValue</key>
@@ -5489,7 +5524,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 									<key>identifier</key>
 									<string>Opacity</string>
 									<key>objectValue</key>
-									<string>0.35</string>
+									<string>0.4</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -5498,7 +5533,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>type</key>
 								<integer>0</integer>
 								<key>uuid</key>
-								<string>BCA06023-D015-4BCA-986D-2E3674938610-96390-0004768F20F1ED17</string>
+								<string>65B9ED7B-26A9-42BB-B2F5-DC168877090D-341-000019C4E3509D1F</string>
 								<key>zIndex</key>
 								<integer>2</integer>
 							</dict>
@@ -5553,7 +5588,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>isRelative</key>
 								<false/>
 								<key>referenceOid</key>
-								<string>88</string>
+								<string>185</string>
 								<key>startTime</key>
 								<real>1</real>
 								<key>startValue</key>
@@ -5570,7 +5605,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>type</key>
 								<integer>0</integer>
 								<key>uuid</key>
-								<string>BA28DFE5-5B5B-497F-B5EA-76E5BFE4CE35-96390-0004768F20F33B02</string>
+								<string>6DC1F917-94FE-4F09-9AA0-6B4FC6108451-341-000019C62ECD50D5</string>
 								<key>zIndex</key>
 								<integer>3</integer>
 							</dict>
@@ -6605,35 +6640,6 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<string>F3E6B806-CCF3-4C7C-8BB9-E93EF5E048DD-44017-00012EA68A694D60</string>
 								<key>zIndex</key>
 								<integer>9</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.0</real>
-								<key>identifier</key>
-								<string>FilterEffectBlur</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>88</string>
-								<key>startTime</key>
-								<real>0.36666667461395264</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>FilterEffectBlur</string>
-									<key>objectValue</key>
-									<string>0</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>2898AA8D-1640-433B-B2E6-9179741E83C8-2639-000108DDFC8FB97C</string>
-								<key>zIndex</key>
-								<integer>1</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -7741,7 +7747,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>5E614E63-8CEC-4DD2-A2D9-CC6445B409B5-76070-00053197366CE542</string>
+									<string>792E477F-3257-4098-9FF3-5D881485E5F1-341-0000001201CEED2F</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -7838,7 +7844,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>5E614E63-8CEC-4DD2-A2D9-CC6445B409B5-76070-00053197366CE542</string>
+									<string>792E477F-3257-4098-9FF3-5D881485E5F1-341-0000001201CEED2F</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -7935,7 +7941,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>5E614E63-8CEC-4DD2-A2D9-CC6445B409B5-76070-00053197366CE542</string>
+									<string>792E477F-3257-4098-9FF3-5D881485E5F1-341-0000001201CEED2F</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -8273,6 +8279,66 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>duration</key>
 								<real>0.0</real>
 								<key>identifier</key>
+								<string>MotionPathRotation</string>
+								<key>isRelative</key>
+								<false/>
+								<key>motionPath</key>
+								<dict>
+									<key>bezierPath</key>
+									<dict>
+										<key>allowEndPointModification</key>
+										<true/>
+										<key>bezierCurves</key>
+										<array>
+											<dict>
+												<key>endControlPoint</key>
+												<string>{182, 491}</string>
+												<key>endPoint</key>
+												<string>{182, 491}</string>
+												<key>startControlPoint</key>
+												<string>{181, 496}</string>
+												<key>startPoint</key>
+												<string>{181, 496}</string>
+											</dict>
+										</array>
+										<key>interpolationPointCount</key>
+										<real>100</real>
+										<key>showAllControlPoints</key>
+										<false/>
+										<key>useIntegerValues</key>
+										<true/>
+										<key>useSmallStyle</key>
+										<false/>
+									</dict>
+									<key>oid</key>
+									<string>568AD560-81F5-4DB7-8D12-30B981AFF22E-341-0000001201D47F6D</string>
+								</dict>
+								<key>referenceOid</key>
+								<string>90</string>
+								<key>startTime</key>
+								<real>2</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>MotionPathRotation</string>
+									<key>objectValue</key>
+									<string>91deg</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>54660F35-13DA-440E-8488-FAECB1456747-50965-0003456C4C3CC2C0</string>
+								<key>zIndex</key>
+								<integer>2</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
 								<string>Top</string>
 								<key>isRelative</key>
 								<false/>
@@ -8305,7 +8371,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>68C7E216-CA6A-4CC0-AD46-8766AD62E1EC-76070-000531973670C564</string>
+									<string>568AD560-81F5-4DB7-8D12-30B981AFF22E-341-0000001201D47F6D</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -8365,7 +8431,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>68C7E216-CA6A-4CC0-AD46-8766AD62E1EC-76070-000531973670C564</string>
+									<string>568AD560-81F5-4DB7-8D12-30B981AFF22E-341-0000001201D47F6D</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -8388,66 +8454,6 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<string>85ABC717-4FDF-4CC7-9E58-DC08515D74EA-50965-0003456C4C2C3802</string>
 								<key>zIndex</key>
 								<integer>4</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.0</real>
-								<key>identifier</key>
-								<string>MotionPathRotation</string>
-								<key>isRelative</key>
-								<false/>
-								<key>motionPath</key>
-								<dict>
-									<key>bezierPath</key>
-									<dict>
-										<key>allowEndPointModification</key>
-										<true/>
-										<key>bezierCurves</key>
-										<array>
-											<dict>
-												<key>endControlPoint</key>
-												<string>{182, 491}</string>
-												<key>endPoint</key>
-												<string>{182, 491}</string>
-												<key>startControlPoint</key>
-												<string>{181, 496}</string>
-												<key>startPoint</key>
-												<string>{181, 496}</string>
-											</dict>
-										</array>
-										<key>interpolationPointCount</key>
-										<real>100</real>
-										<key>showAllControlPoints</key>
-										<false/>
-										<key>useIntegerValues</key>
-										<true/>
-										<key>useSmallStyle</key>
-										<false/>
-									</dict>
-									<key>oid</key>
-									<string>68C7E216-CA6A-4CC0-AD46-8766AD62E1EC-76070-000531973670C564</string>
-								</dict>
-								<key>referenceOid</key>
-								<string>90</string>
-								<key>startTime</key>
-								<real>2</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>MotionPathRotation</string>
-									<key>objectValue</key>
-									<string>91deg</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>54660F35-13DA-440E-8488-FAECB1456747-50965-0003456C4C3CC2C0</string>
-								<key>zIndex</key>
-								<integer>2</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -8736,7 +8742,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>95A43DEC-9716-44CE-80DB-27C457CFBB07-76070-000531973673AB02</string>
+									<string>423FE59A-CC2B-4C6B-BF46-333EC8F74097-341-0000001201D8A033</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>151</string>
@@ -8813,7 +8819,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>95A43DEC-9716-44CE-80DB-27C457CFBB07-76070-000531973673AB02</string>
+									<string>423FE59A-CC2B-4C6B-BF46-333EC8F74097-341-0000001201D8A033</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>151</string>
@@ -8890,7 +8896,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>95A43DEC-9716-44CE-80DB-27C457CFBB07-76070-000531973673AB02</string>
+									<string>423FE59A-CC2B-4C6B-BF46-333EC8F74097-341-0000001201D8A033</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>151</string>
@@ -9178,66 +9184,6 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<key>duration</key>
 								<real>0.0</real>
 								<key>identifier</key>
-								<string>Left</string>
-								<key>isRelative</key>
-								<false/>
-								<key>motionPath</key>
-								<dict>
-									<key>bezierPath</key>
-									<dict>
-										<key>allowEndPointModification</key>
-										<true/>
-										<key>bezierCurves</key>
-										<array>
-											<dict>
-												<key>endControlPoint</key>
-												<string>{-315, 586}</string>
-												<key>endPoint</key>
-												<string>{-315, 586}</string>
-												<key>startControlPoint</key>
-												<string>{-597, 903}</string>
-												<key>startPoint</key>
-												<string>{-597, 903}</string>
-											</dict>
-										</array>
-										<key>interpolationPointCount</key>
-										<real>100</real>
-										<key>showAllControlPoints</key>
-										<false/>
-										<key>useIntegerValues</key>
-										<true/>
-										<key>useSmallStyle</key>
-										<false/>
-									</dict>
-									<key>oid</key>
-									<string>2F78FE2E-50F6-4990-9B93-1A01F65F4055-76070-000531973677444F</string>
-								</dict>
-								<key>referenceOid</key>
-								<string>151</string>
-								<key>startTime</key>
-								<real>4</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Left</string>
-									<key>objectValue</key>
-									<string>-1237px</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>D2C740DF-3E3E-4706-8458-F8DD05AABEBF-58388-000345D5D38A8027</string>
-								<key>zIndex</key>
-								<integer>6</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.0</real>
-								<key>identifier</key>
 								<string>MotionPathRotation</string>
 								<key>isRelative</key>
 								<false/>
@@ -9270,7 +9216,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>2F78FE2E-50F6-4990-9B93-1A01F65F4055-76070-000531973677444F</string>
+									<string>8A463015-A50D-4519-9758-7D42F83DC24E-341-0000001201DC832A</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>151</string>
@@ -9293,6 +9239,66 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<string>D6D81683-E6FB-4325-8B85-9088C63BC929-58388-0003476DF18A1C0B</string>
 								<key>zIndex</key>
 								<integer>2</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Left</string>
+								<key>isRelative</key>
+								<false/>
+								<key>motionPath</key>
+								<dict>
+									<key>bezierPath</key>
+									<dict>
+										<key>allowEndPointModification</key>
+										<true/>
+										<key>bezierCurves</key>
+										<array>
+											<dict>
+												<key>endControlPoint</key>
+												<string>{-315, 586}</string>
+												<key>endPoint</key>
+												<string>{-315, 586}</string>
+												<key>startControlPoint</key>
+												<string>{-597, 903}</string>
+												<key>startPoint</key>
+												<string>{-597, 903}</string>
+											</dict>
+										</array>
+										<key>interpolationPointCount</key>
+										<real>100</real>
+										<key>showAllControlPoints</key>
+										<false/>
+										<key>useIntegerValues</key>
+										<true/>
+										<key>useSmallStyle</key>
+										<false/>
+									</dict>
+									<key>oid</key>
+									<string>8A463015-A50D-4519-9758-7D42F83DC24E-341-0000001201DC832A</string>
+								</dict>
+								<key>referenceOid</key>
+								<string>151</string>
+								<key>startTime</key>
+								<real>4</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Left</string>
+									<key>objectValue</key>
+									<string>-1237px</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>D2C740DF-3E3E-4706-8458-F8DD05AABEBF-58388-000345D5D38A8027</string>
+								<key>zIndex</key>
+								<integer>6</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -9330,7 +9336,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>2F78FE2E-50F6-4990-9B93-1A01F65F4055-76070-000531973677444F</string>
+									<string>8A463015-A50D-4519-9758-7D42F83DC24E-341-0000001201DC832A</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>151</string>
@@ -9424,7 +9430,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>3CAAA394-7CAC-4948-BF92-B6E7D40B786C-76070-0005319736794B36</string>
+									<string>A899EA91-B4A5-4EE1-835C-9C50F14864BB-341-0000001201DEF02B</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -9501,7 +9507,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>3CAAA394-7CAC-4948-BF92-B6E7D40B786C-76070-0005319736794B36</string>
+									<string>A899EA91-B4A5-4EE1-835C-9C50F14864BB-341-0000001201DEF02B</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -9578,7 +9584,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>3CAAA394-7CAC-4948-BF92-B6E7D40B786C-76070-0005319736794B36</string>
+									<string>A899EA91-B4A5-4EE1-835C-9C50F14864BB-341-0000001201DEF02B</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -9763,7 +9769,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>4728F285-C3D3-4686-B3DC-2974FE46A331-76070-00053197367BF872</string>
+									<string>CD1578CB-5AC7-4362-8A29-25CD8F5AB970-341-0000001201E192B1</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -9840,7 +9846,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>4728F285-C3D3-4686-B3DC-2974FE46A331-76070-00053197367BF872</string>
+									<string>CD1578CB-5AC7-4362-8A29-25CD8F5AB970-341-0000001201E192B1</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -9917,7 +9923,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>4728F285-C3D3-4686-B3DC-2974FE46A331-76070-00053197367BF872</string>
+									<string>CD1578CB-5AC7-4362-8A29-25CD8F5AB970-341-0000001201E192B1</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -10123,42 +10129,6 @@ function sendSocketMessage(hypeDocument, element, event) {
 							</dict>
 							<dict>
 								<key>duration</key>
-								<real>0.13333320617675781</real>
-								<key>endValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>RotationAngleZ</string>
-									<key>objectValue</key>
-									<string>-225deg</string>
-								</dict>
-								<key>identifier</key>
-								<string>RotationAngleZ</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>43</string>
-								<key>startTime</key>
-								<real>1.4333333969116211</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>RotationAngleZ</string>
-									<key>objectValue</key>
-									<string>-180deg</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>F394A325-2C24-4331-89CD-52D2BEE3695D-58388-00034B81620C4ED1</string>
-								<key>zIndex</key>
-								<integer>7</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
 								<real>0.26666665077209473</real>
 								<key>endValue</key>
 								<dict>
@@ -10200,7 +10170,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>AF2DCCEA-B55C-4F8D-8409-0466C0817499-76070-00053197367FA101</string>
+									<string>024BFC6B-2099-48A2-B191-6784026A957E-341-0000001201E52ED7</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -10267,7 +10237,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>AF2DCCEA-B55C-4F8D-8409-0466C0817499-76070-00053197367FA101</string>
+									<string>024BFC6B-2099-48A2-B191-6784026A957E-341-0000001201E52ED7</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -10334,7 +10304,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>AF2DCCEA-B55C-4F8D-8409-0466C0817499-76070-00053197367FA101</string>
+									<string>024BFC6B-2099-48A2-B191-6784026A957E-341-0000001201E52ED7</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -10357,6 +10327,42 @@ function sendSocketMessage(hypeDocument, element, event) {
 								<string>95F67FEC-B697-41AF-ADA6-6D3DC9D76A25-58388-00034AF8DC44B63E</string>
 								<key>zIndex</key>
 								<integer>3</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.13333320617675781</real>
+								<key>endValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>RotationAngleZ</string>
+									<key>objectValue</key>
+									<string>-225deg</string>
+								</dict>
+								<key>identifier</key>
+								<string>RotationAngleZ</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>43</string>
+								<key>startTime</key>
+								<real>1.4333333969116211</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>RotationAngleZ</string>
+									<key>objectValue</key>
+									<string>-180deg</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>F394A325-2C24-4331-89CD-52D2BEE3695D-58388-00034B81620C4ED1</string>
+								<key>zIndex</key>
+								<integer>7</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -10574,7 +10580,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>4A8CCB26-014E-485D-B540-84112ED9C56C-76070-0005319736831465</string>
+									<string>EF50F91A-B6C1-45A6-940D-3B244AB2DD98-341-0000001201E85134</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -10634,7 +10640,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>4A8CCB26-014E-485D-B540-84112ED9C56C-76070-0005319736831465</string>
+									<string>EF50F91A-B6C1-45A6-940D-3B244AB2DD98-341-0000001201E85134</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -10694,7 +10700,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>4A8CCB26-014E-485D-B540-84112ED9C56C-76070-0005319736831465</string>
+									<string>EF50F91A-B6C1-45A6-940D-3B244AB2DD98-341-0000001201E85134</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -11055,7 +11061,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>C98819C9-8024-40BF-AF24-4C00EE261F84-76070-000531973687FB59</string>
+									<string>288881EE-8AC0-414C-BE36-78D15B207CB7-341-0000001201ED6003</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -11132,7 +11138,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>C98819C9-8024-40BF-AF24-4C00EE261F84-76070-000531973687FB59</string>
+									<string>288881EE-8AC0-414C-BE36-78D15B207CB7-341-0000001201ED6003</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -11209,7 +11215,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>C98819C9-8024-40BF-AF24-4C00EE261F84-76070-000531973687FB59</string>
+									<string>288881EE-8AC0-414C-BE36-78D15B207CB7-341-0000001201ED6003</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -11322,7 +11328,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>4E24EEB2-A9A8-4450-B711-F12E1267BD5F-76070-00053197368A0B73</string>
+									<string>3EBEEA08-2F93-48EF-B045-7E785A95B9BA-341-0000001201EF5EB5</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -11399,7 +11405,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>4E24EEB2-A9A8-4450-B711-F12E1267BD5F-76070-00053197368A0B73</string>
+									<string>3EBEEA08-2F93-48EF-B045-7E785A95B9BA-341-0000001201EF5EB5</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -11476,7 +11482,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>4E24EEB2-A9A8-4450-B711-F12E1267BD5F-76070-00053197368A0B73</string>
+									<string>3EBEEA08-2F93-48EF-B045-7E785A95B9BA-341-0000001201EF5EB5</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -11625,7 +11631,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>6908412C-7F04-4C76-BAF8-0419C25DEDCD-76070-00053197368C6F3C</string>
+									<string>055685AA-7234-4765-9AF2-E2881B9E65F6-341-0000001201F1A2A0</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -11702,7 +11708,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>6908412C-7F04-4C76-BAF8-0419C25DEDCD-76070-00053197368C6F3C</string>
+									<string>055685AA-7234-4765-9AF2-E2881B9E65F6-341-0000001201F1A2A0</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -11779,7 +11785,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>6908412C-7F04-4C76-BAF8-0419C25DEDCD-76070-00053197368C6F3C</string>
+									<string>055685AA-7234-4765-9AF2-E2881B9E65F6-341-0000001201F1A2A0</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -12163,7 +12169,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>4A14367C-117D-40FB-BE19-29A8702DE38F-76070-00053197369218B8</string>
+									<string>4C0F44BD-6D75-4AA6-AF52-EEBE18CBE4AA-341-0000001201F62616</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -12223,7 +12229,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>4A14367C-117D-40FB-BE19-29A8702DE38F-76070-00053197369218B8</string>
+									<string>4C0F44BD-6D75-4AA6-AF52-EEBE18CBE4AA-341-0000001201F62616</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
@@ -12283,7 +12289,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 										<false/>
 									</dict>
 									<key>oid</key>
-									<string>4A14367C-117D-40FB-BE19-29A8702DE38F-76070-00053197369218B8</string>
+									<string>4C0F44BD-6D75-4AA6-AF52-EEBE18CBE4AA-341-0000001201F62616</string>
 								</dict>
 								<key>referenceOid</key>
 								<string>90</string>
