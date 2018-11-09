@@ -64,6 +64,10 @@ class App extends Component {
     ]
   };
 
+  setPredator(target) {
+    socket.emit('predator', { target });
+  }
+
   setBeacon(color) {
     socket.emit('beacon', { color, set: this.state[color] });
   }
@@ -185,6 +189,38 @@ class App extends Component {
           >
             <Icon name="fighter jet" />
             Boost Rikkenor
+          </Button>
+        </Segment>
+        <Segment>
+          <Button
+            onClick={() => this.setPredator("love")}
+            color="red"
+            size="big"
+            style={{ marginBottom: "1em" }}
+            basic={Boolean(!this.state.predator)}
+          >
+            <Icon name="bomb" />
+            Predator - KILL CULT WHALE
+          </Button><br />
+          <Button
+            onClick={() => this.setPredator("cyber")}
+            color="red"
+            size="big"
+            style={{ marginBottom: "1em" }}
+            basic={Boolean(!this.state.predator)}
+          >
+            <Icon name="bomb" />
+            Predator - KILL VIRTUOUS SPHERE
+          </Button><br />
+          <Button
+            onClick={() => this.setPredator("imperial")}
+            color="red"
+            size="big"
+            style={{ marginBottom: "1em" }}
+            basic={Boolean(!this.state.predator)}
+          >
+            <Icon name="bomb" />
+            Predator - KILL IMPERIUM
           </Button>
         </Segment>
         <Header floated="left">Whales</Header>

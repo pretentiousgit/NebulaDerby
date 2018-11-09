@@ -133,7 +133,7 @@
 	<key>hasManuallyChangedCSSPositioning</key>
 	<false/>
 	<key>lastCheckDate</key>
-	<date>2018-11-09T03:24:49Z</date>
+	<date>2018-11-09T03:54:00Z</date>
 	<key>layout</key>
 	<dict>
 		<key>currentInspectorPane</key>
@@ -216,7 +216,7 @@
 									<array>
 										<dict>
 											<key>frame</key>
-											<string>{{271, 0}, {1107, 288}}</string>
+											<string>{{271, 0}, {1107, 286}}</string>
 											<key>identifier</key>
 											<string>container 4</string>
 											<key>isCustomizableViewContainer</key>
@@ -229,7 +229,7 @@
 											<array>
 												<dict>
 													<key>frame</key>
-													<string>{{271, 0}, {1107, 288}}</string>
+													<string>{{271, 0}, {1107, 286}}</string>
 													<key>identifier</key>
 													<string>timelineCustomizableContainer</string>
 													<key>isCustomizableViewContainer</key>
@@ -239,7 +239,7 @@
 										</dict>
 										<dict>
 											<key>frame</key>
-											<string>{{271, 289}, {1107, 692}}</string>
+											<string>{{271, 287}, {1107, 694}}</string>
 											<key>identifier</key>
 											<string>container 3</string>
 											<key>isCustomizableViewContainer</key>
@@ -252,7 +252,7 @@
 											<array>
 												<dict>
 													<key>frame</key>
-													<string>{{271, 289}, {1107, 692}}</string>
+													<string>{{271, 287}, {1107, 694}}</string>
 													<key>identifier</key>
 													<string>sceneEditorCustomizableContainer</string>
 													<key>isCustomizableViewContainer</key>
@@ -1245,7 +1245,7 @@
 						<integer>110</integer>
 					</dict>
 					<key>canvasSize</key>
-					<string>{3243, 1613}</string>
+					<string>{3243, 1615}</string>
 					<key>hypeScene</key>
 					<dict>
 						<key>backgroundColor</key>
@@ -1270,7 +1270,7 @@
 					<key>rootSymbolControllerOid</key>
 					<string>2</string>
 					<key>scrollViewOffset</key>
-					<string>{57, 130}</string>
+					<string>{57, 128}</string>
 					<key>zoomFactor</key>
 					<real>0.5</real>
 				</dict>
@@ -1549,9 +1549,16 @@ socket.on('predator', (msg) =&gt; {
   // set predator whale's target
   // do a bunch of blood splashes
   // have target whale turn belly-up and fall offscreen
-  setWhalePositions(msg);
+
+  // send a basic set of whale positions here
+  reset();
   clearVictoryMessage();
   clearEvents();
+  
+  // one of 'cyber' 'imperial' or 'love'
+  const timeline = `predator_${msg.target}`;
+  console.log('PREDATOR', timeline);
+  hypeDocument.startTimelineNamed(timeline, hypeDocument.kDirectionForward);
 });
 
 socket.on('winner', (msg) =&gt; {
@@ -1570,6 +1577,7 @@ socket.on('adminEvent', (d) =&gt; {
 });
 
 socket.on('galactagasm', () =&gt; {
+	clearVictoryMessage();
 	hypeDocument.startTimelineNamed('galactagasm', hypeDocument.kDirectionForward);
     setTimeout(() =&gt; {
       hypeDocument.pauseTimelineNamed('galactagasm');
@@ -1578,6 +1586,7 @@ socket.on('galactagasm', () =&gt; {
 })
 
 socket.on('tranzonicInterference', () =&gt; {
+	clearVictoryMessage();
     hypeDocument.startTimelineNamed('tranzonic', hypeDocument.kDirectionForward);
     setTimeout(() =&gt; {
       hypeDocument.pauseTimelineNamed('tranzonic');
@@ -1586,6 +1595,7 @@ socket.on('tranzonicInterference', () =&gt; {
 })
 
 socket.on('fleetAttack', () =&gt; {
+	clearVictoryMessage();
     hypeDocument.startTimelineNamed('fleetAttack', hypeDocument.kDirectionForward);
     hypeDocument.startTimelineNamed('fleetLoop', hypeDocument.kDirectionForward);
 	whales.map((w) =&gt; {

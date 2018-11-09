@@ -50,6 +50,11 @@ module.exports = async (server) => {
         actions.setFinishLine(d.finishLine - d.whaleWidth);
       });
 
+      client.on('predator', (d) => {
+        console.log('Game screen connected', d);
+        client.broadcast.emit('predator', { target: d.target });
+      });
+
       // Handle DM event
       client.on('startRace', (d) => {
         console.log('Received start race request');
