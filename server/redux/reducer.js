@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const Action = require("./actions").actionTypes;
 // reduce them to the new state
 const initialState = require('../config.initialState');
@@ -49,6 +50,10 @@ function updateRacePositions(state, action) {
 
     return newWhale;
   });
+
+  const whaleOrder = _.orderBy(newWhales, 'position', 'desc');
+  console.log('whales ordered', whaleOrder);
+
   return {
     ...state,
     raceTimeRemaining: action.raceTimeRemaining,

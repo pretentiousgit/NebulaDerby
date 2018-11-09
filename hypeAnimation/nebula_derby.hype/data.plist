@@ -133,11 +133,11 @@
 	<key>hasManuallyChangedCSSPositioning</key>
 	<false/>
 	<key>lastCheckDate</key>
-	<date>2018-11-09T02:13:34Z</date>
+	<date>2018-11-09T03:24:49Z</date>
 	<key>layout</key>
 	<dict>
 		<key>currentInspectorPane</key>
-		<integer>4</integer>
+		<integer>2</integer>
 		<key>customizableLayout</key>
 		<dict>
 			<key>frame</key>
@@ -216,7 +216,7 @@
 									<array>
 										<dict>
 											<key>frame</key>
-											<string>{{271, 0}, {1107, 248}}</string>
+											<string>{{271, 0}, {1107, 288}}</string>
 											<key>identifier</key>
 											<string>container 4</string>
 											<key>isCustomizableViewContainer</key>
@@ -229,7 +229,7 @@
 											<array>
 												<dict>
 													<key>frame</key>
-													<string>{{271, 0}, {1107, 248}}</string>
+													<string>{{271, 0}, {1107, 288}}</string>
 													<key>identifier</key>
 													<string>timelineCustomizableContainer</string>
 													<key>isCustomizableViewContainer</key>
@@ -239,7 +239,7 @@
 										</dict>
 										<dict>
 											<key>frame</key>
-											<string>{{271, 249}, {1107, 732}}</string>
+											<string>{{271, 289}, {1107, 692}}</string>
 											<key>identifier</key>
 											<string>container 3</string>
 											<key>isCustomizableViewContainer</key>
@@ -252,7 +252,7 @@
 											<array>
 												<dict>
 													<key>frame</key>
-													<string>{{271, 249}, {1107, 732}}</string>
+													<string>{{271, 289}, {1107, 692}}</string>
 													<key>identifier</key>
 													<string>sceneEditorCustomizableContainer</string>
 													<key>isCustomizableViewContainer</key>
@@ -1245,7 +1245,7 @@
 						<integer>110</integer>
 					</dict>
 					<key>canvasSize</key>
-					<string>{3243, 1653}</string>
+					<string>{3243, 1613}</string>
 					<key>hypeScene</key>
 					<dict>
 						<key>backgroundColor</key>
@@ -1270,7 +1270,7 @@
 					<key>rootSymbolControllerOid</key>
 					<string>2</string>
 					<key>scrollViewOffset</key>
-					<string>{57, 84}</string>
+					<string>{57, 130}</string>
 					<key>zoomFactor</key>
 					<real>0.5</real>
 				</dict>
@@ -1519,6 +1519,28 @@ socket.on('whaleState', (msg) =&gt; {
 });
 
 socket.on('newHeat', (msg) =&gt; {
+  // Reset timer
+  function millisToMinutesAndSeconds(millis) {
+    var minutes = Math.floor(millis / 60000);
+    var seconds = ((millis % 60000) / 1000).toFixed(0);
+    return (minutes + ":" + (seconds &lt; 10 ? '0' : '') + seconds);
+  }
+
+  const timer = hypeDocument.getElementById('gameTimer');
+  console.log('timer', timer, msg);
+
+  var timerValue = 0;
+
+  const intervalId = setInterval(() =&gt; {
+    timer.innerHTML = millisToMinutesAndSeconds(timerValue);
+    timerValue += 120;
+  }, 120);
+
+  setTimeout(() =&gt; {
+    clearInterval(intervalId);
+  }, msg.timer);
+
+
   clearVictoryMessage();
   clearEvents();
 });
@@ -1604,7 +1626,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 			<string>07A8266A-A466-44D0-B3AA-28EE88056FDC-341-00000012815B3D3D</string>
 			<key>selectedObjects</key>
 			<array>
-				<string>95</string>
+				<string>28</string>
 			</array>
 			<key>symbol</key>
 			<dict>
@@ -1781,7 +1803,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>14</string>
+							<string>13</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1970,7 +1992,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>27</string>
+							<string>26</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2151,7 +2173,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>26</string>
+							<string>25</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2304,7 +2326,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>30</string>
+							<string>29</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2491,7 +2513,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>31</string>
+							<string>30</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2638,7 +2660,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>32</string>
+							<string>31</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2839,7 +2861,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>33</string>
+							<string>32</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3058,7 +3080,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>29</string>
+							<string>28</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3205,7 +3227,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>18</string>
+							<string>17</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3356,6 +3378,12 @@ function sendSocketMessage(hypeDocument, element, event) {
 						</dict>
 						<dict>
 							<key>identifier</key>
+							<string>AutoresizingMask</string>
+							<key>objectValue</key>
+							<string>63</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
 							<string>1</string>
@@ -3376,7 +3404,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3505,7 +3533,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>21</string>
+							<string>20</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3670,7 +3698,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>19</string>
+							<string>18</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3853,7 +3881,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>15</string>
+							<string>14</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4306,7 +4334,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>FontFamily</string>
 							<key>objectValue</key>
-							<string>AZSailorTattoo</string>
+							<string>'Miltonian Tattoo'</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4396,19 +4424,19 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Height</string>
 							<key>objectValue</key>
-							<string>55px</string>
+							<string>70px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>AutoresizingMask</string>
 							<key>objectValue</key>
-							<string>45</string>
+							<string>33</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>Left</string>
 							<key>objectValue</key>
-							<string>1666px</string>
+							<string>1532px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4420,13 +4448,13 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>11</string>
+							<string>33</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>Width</string>
 							<key>objectValue</key>
-							<string>196px</string>
+							<string>192px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4444,7 +4472,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4909,7 +4937,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>12</string>
+							<string>11</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5134,7 +5162,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>24</string>
+							<string>23</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5335,7 +5363,7 @@ function sendSocketMessage(hypeDocument, element, event) {
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>25</string>
+							<string>24</string>
 						</dict>
 						<dict>
 							<key>identifier</key>

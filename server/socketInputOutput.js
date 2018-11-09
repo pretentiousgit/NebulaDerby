@@ -53,13 +53,13 @@ module.exports = async (server) => {
       // Handle DM event
       client.on('startRace', (d) => {
         console.log('Received start race request');
-        const { running, raceTimeRemaining } = store.getState();
+        const { running, raceTimeRemaining, raceTimeTotal } = store.getState();
 
         console.log('timeRemaining', raceTimeRemaining);
         if (!running) {
           console.log('calling race');
           // Deal with a whale position reset
-          client.broadcast.emit('newHeat');
+          client.broadcast.emit('newHeat', { timer: raceTimeTotal });
           actions.newHeat();
           Race();
         } else {
