@@ -42,10 +42,6 @@ class App extends Component {
     socket.on('setBeacon', (d) => {
       this.setState(d);
     });
-
-    socket.on('setFakeHeat', (d) => {
-      this.setState(d);
-    });
   }
 
   state = {
@@ -53,7 +49,6 @@ class App extends Component {
     red: false,
     green: false,
     raceInProgress: false,
-    fakeHeat: false,
     predatorTarget: null,
     loveWhaleState: 1,
     whaleOrder: [
@@ -72,14 +67,15 @@ class App extends Component {
     socket.emit('beacon', { color, set: this.state[color] });
   }
 
-  setFakeHeat(message) {
-    socket.emit('fakeHeat', { set: this.state.fakeHeat });
-  }
-
   startRace(message) {
     console.log('emitted StartRace');
     this.setState({ raceInProgress: true });
     socket.emit('startRace');
+  }
+
+  resetRace(message) {
+    console.log('resetRace');
+    socket.emit('resetRace');
   }
 
   sendEvent(eventName, message) {
@@ -99,18 +95,25 @@ class App extends Component {
             <Grid.Row columns={2} divided verticalAlign="middle">
               <Grid.Column>
                 <Button
-                  className="red"
-                  size="medium"
-                  basic={Boolean(!this.state.fakeHeat)}
-                  onClick={() => {
-                    this.setFakeHeat(this.props);
-                  }}
+                  className="blue"
+                  circular
+                  size="massive"
+                  floated="left"
+                  disabled={this.state.raceInProgress}
+                  basic={Boolean(this.state.raceInProgress)}
+                  onClick={() =>
+                    this.resetRace({
+                      fakeHeat: this.state.fakeHeat,
+                      whaleOrder: this.state.whaleOrder
+                    })
+                  }
                 >
-                  Fake Heat
-                  <Icon name="right arrow" />
+                  <Icon name="recycle" />
+                  Reset
                 </Button>
               </Grid.Column>
               <Grid.Column textAlign="center">
+
                 <Button
                   className="green"
                   circular
@@ -192,6 +195,9 @@ class App extends Component {
           </Button>
         </Segment>
         <Segment>
+          <p>
+            ** Killing a whale kills them for THE WHOLE GAME, they dead now!<br />
+          </p>
           <Button
             onClick={() => this.setPredator("love")}
             color="red"

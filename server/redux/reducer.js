@@ -10,6 +10,12 @@ function randn_bm() { // random box-mueller number around 0,1 - this is a good m
   return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
 }
 
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+}
+
 function returnState(state, action) {
   // console.log('state return');
   return { ...state };
@@ -39,25 +45,30 @@ function newHeat(state, action) {
 }
 
 function updateRacePositions(state, action) {
-  const { raceTimeTotal, interval, whales } = state;
-  const step = raceTimeTotal / interval;
+  const { raceTimeTotal, interval, whales, targetWhale, finishLine } = state;
+  const step = Math.round(finishLine / (raceTimeTotal / interval));
+  // TODO This worked with 4 seconds over the valid distance but not 90! WORK IT OUT
+  console.log('step', step);
 
   const newWhales = whales.map((whale) => {
     let newWhale = whale;
 
     const randomBM = Math.abs(randn_bm());
-    newWhale.position = whale.position + (step * randomBM);
+    const beat = getRandomIntInclusive(step, 5 * step);
+    newWhale.position = whale.position + (beat * randomBM);
 
     return newWhale;
   });
 
-  const whaleOrder = _.orderBy(newWhales, 'position', 'desc');
-  console.log('whales ordered', whaleOrder);
+  let whaleOrder = _.orderBy(newWhales, 'position', 'desc');
+  if (targetWhale) {
+    whaleOrder = whaleOrder.filter((w) => w.name !== targetWhale);
+  }
 
   return {
     ...state,
     raceTimeRemaining: action.raceTimeRemaining,
-    whales: newWhales
+    whales: whaleOrder
   };
 }
 
@@ -70,7 +81,8 @@ const options = {
   [Action.GALACTAGASM]: returnState,
   [Action.FLEET_ATTACK]: objectUpdate,
   [Action.WINNER]: objectUpdate,
-  [Action.SET_FINISH_LINE]: objectUpdate
+  [Action.SET_FINISH_LINE]: objectUpdate,
+  [Action.SET_TARGET_WHALE]: objectUpdate
 };
 
 module.exports = (state = initialState, action = {}) => {

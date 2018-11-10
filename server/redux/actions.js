@@ -7,6 +7,7 @@ const TRANZONIC = 'TRANZONIC';
 const GALACTAGASM = 'GALACTAGASM';
 const FLEET_ATTACK = 'FLEET_ATTACK';
 const SET_FINISH_LINE = 'SET_FINISH_LINE';
+const SET_TARGET_WHALE = 'SET_TARGET_WHALE';
 const WINNER = 'WINNER';
 
 // Actions
@@ -72,6 +73,14 @@ function setFinishLine(f) {
   };
 }
 
+function setTargetWhale(f) {
+  console.log('TARGET_WHALE', f);
+  return {
+    type: SET_TARGET_WHALE,
+    targetWhale: f
+  };
+}
+
 function setWinner(winner) {
   console.log('WINNER', winner);
   return {
@@ -89,7 +98,8 @@ module.exports = Object.freeze({
     TRANZONIC: TRANZONIC,
     GALACTAGASM: GALACTAGASM,
     FLEET_ATTACK: FLEET_ATTACK,
-    SET_FINISH_LINE: SET_FINISH_LINE
+    SET_FINISH_LINE: SET_FINISH_LINE,
+    SET_TARGET_WHALE: SET_TARGET_WHALE
   },
   actions: {
     newHeat,
@@ -97,6 +107,7 @@ module.exports = Object.freeze({
     stopRace,
     setFinishLine,
     updateRacePositions,
+    setTargetWhale,
     setWinner,
     tranzonic,
     fleetAttack,

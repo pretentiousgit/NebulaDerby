@@ -52,7 +52,10 @@ module.exports = async (server) => {
 
       client.on('predator', (d) => {
         console.log('Game screen connected', d);
+        actions.setTargetWhale(d.target);
         client.broadcast.emit('predator', { target: d.target });
+        // Todo:
+        // Filter target whales so that they can't win if dead
       });
 
       // Handle DM event
@@ -64,7 +67,7 @@ module.exports = async (server) => {
         if (!running) {
           console.log('calling race');
           // Deal with a whale position reset
-          client.broadcast.emit('newHeat', { timer: raceTimeTotal });
+          client.broadcast.emit('startRace', { timer: raceTimeTotal });
           actions.newHeat();
           Race();
         } else {
@@ -73,9 +76,14 @@ module.exports = async (server) => {
         }
       });
 
+      client.on('resetRace', (d) => {
+        console.log('Reset Race');
+        client.broadcast.emit('newHeat');
+      });
+
       client.on('beacon', (d) => {
         //Todo: emit a state-set for the beacon
-        console.log(d);
+        console.log('beacon', d);
         const def = {
           blue: false,
           red: false,
@@ -84,6 +92,7 @@ module.exports = async (server) => {
 
         def[d.color] = !d.set;
         client.emit('setBeacon', def);
+        client.broadcast.emit('setBeacon', def);
       });
 
       client.on('fakeHeat', (d) => {
