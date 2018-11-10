@@ -9,6 +9,7 @@ const FLEET_ATTACK = 'FLEET_ATTACK';
 const SET_FINISH_LINE = 'SET_FINISH_LINE';
 const SET_TARGET_WHALE = 'SET_TARGET_WHALE';
 const WINNER = 'WINNER';
+const BEACON = 'BEACON';
 
 // Actions
 function startRace() {
@@ -89,6 +90,15 @@ function setWinner(winner) {
   };
 }
 
+
+function setBeacon(beaconObj) {
+  console.log('BEACON', beaconObj);
+  return {
+    type: BEACON,
+    beacon: beaconObj
+  };
+}
+
 module.exports = Object.freeze({
   actionTypes: {
     START_RACE: START_RACE,
@@ -99,7 +109,8 @@ module.exports = Object.freeze({
     GALACTAGASM: GALACTAGASM,
     FLEET_ATTACK: FLEET_ATTACK,
     SET_FINISH_LINE: SET_FINISH_LINE,
-    SET_TARGET_WHALE: SET_TARGET_WHALE
+    SET_TARGET_WHALE: SET_TARGET_WHALE,
+    BEACON: BEACON
   },
   actions: {
     newHeat,
@@ -109,6 +120,7 @@ module.exports = Object.freeze({
     updateRacePositions,
     setTargetWhale,
     setWinner,
+    setBeacon,
     tranzonic,
     fleetAttack,
     galactagasm

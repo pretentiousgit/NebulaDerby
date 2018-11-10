@@ -45,13 +45,23 @@ function newHeat(state, action) {
 }
 
 function updateRacePositions(state, action) {
-  const { raceTimeTotal, interval, whales, targetWhale, finishLine } = state;
-  const step = Math.round(finishLine / (raceTimeTotal / interval));
+  const { raceTimeTotal, interval, whales, targetWhale, finishLine, beacon } = state;
+  let step = Math.round(finishLine / (raceTimeTotal / interval));
   // TODO This worked with 4 seconds over the valid distance but not 90! WORK IT OUT
-  console.log('step', step);
 
   const newWhales = whales.map((whale) => {
     let newWhale = whale;
+
+    // add beacon influence
+    if (beacon.green && whale.name === 'cyber') {
+      step = step * 1.65;
+    }
+    if (beacon.blue && whale.name === 'imperial') {
+      step = step * 1.65;
+    }
+    if (beacon.red && whale.name === 'predator') {
+      step = step * 1.65;
+    }
 
     const randomBM = Math.abs(randn_bm());
     const beat = getRandomIntInclusive(step, 5 * step);
@@ -59,7 +69,6 @@ function updateRacePositions(state, action) {
 
     return newWhale;
   });
-
   let whaleOrder = _.orderBy(newWhales, 'position', 'desc');
   if (targetWhale) {
     whaleOrder = whaleOrder.filter((w) => w.name !== targetWhale);
@@ -81,6 +90,7 @@ const options = {
   [Action.GALACTAGASM]: returnState,
   [Action.FLEET_ATTACK]: objectUpdate,
   [Action.WINNER]: objectUpdate,
+  [Action.BEACON]: objectUpdate,
   [Action.SET_FINISH_LINE]: objectUpdate,
   [Action.SET_TARGET_WHALE]: objectUpdate
 };

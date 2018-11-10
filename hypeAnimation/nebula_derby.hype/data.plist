@@ -133,7 +133,7 @@
 	<key>hasManuallyChangedCSSPositioning</key>
 	<false/>
 	<key>lastCheckDate</key>
-	<date>2018-11-10T15:06:06Z</date>
+	<date>2018-11-10T18:11:39Z</date>
 	<key>layout</key>
 	<dict>
 		<key>currentInspectorPane</key>
@@ -1460,25 +1460,25 @@ socket.on('startRace', function (msg) {
   clearVictoryMessage();
   clearEvents();
   // Reset timer
-  function millisToMinutesAndSeconds(millis) {
-    var minutes = Math.floor(millis / 60000);
-    var seconds = ((millis % 60000) / 1000).toFixed(0);
-    return (minutes + ":" + (seconds &lt; 10 ? '0' : '') + seconds);
-  }
+ // function millisToMinutesAndSeconds(millis) {
+ //     var minutes = Math.floor(millis / 60000);
+  //    var seconds = ((millis % 60000) / 1000).toFixed(0);
+   //   return (minutes + ":" + (seconds &lt; 10 ? '0' : '') + seconds);
+   // }
 
-  const timer = hypeDocument.getElementById('gameTimer');
-  console.log('timer', timer, msg);
+ //   const timer = hypeDocument.getElementById('gameTimer');
+ //   console.log('timer', timer, msg);
 
-  var timerValue = 0;
+ //   var timerValue = 0;
 
-  const intervalId = setInterval(() =&gt; {
-    timer.innerHTML = millisToMinutesAndSeconds(timerValue);
-    timerValue += 120;
-  }, 120);
+ //   const intervalId = setInterval(() =&gt; {
+    //  timer.innerHTML = millisToMinutesAndSeconds(timerValue);
+ //     timerValue += 120;
+ //   }, 120);
 
-  setTimeout(() =&gt; {
-    clearInterval(intervalId);
-  }, msg.timer);
+ //   setTimeout(() =&gt; {
+ //     clearInterval(intervalId);
+ //   }, msg.timer);
 });
 
 socket.on('whaleState', (msg) =&gt; {

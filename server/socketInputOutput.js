@@ -27,7 +27,14 @@ module.exports = async (server) => {
 
     io.on('connection', (client) => {
       console.log('Socket connected to a client', client.id);
-      client.emit('hello', { id: client.id });
+
+      const def = {
+        blue: false,
+        red: false,
+        green: false
+      };
+      client.emit('setBeacon', def);
+      client.broadcast.emit('setBeacon', def);
 
       client.on('handshake', (d) => {
         console.log('Handshake ', d);
@@ -91,6 +98,7 @@ module.exports = async (server) => {
         };
 
         def[d.color] = !d.set;
+        actions.setBeacon(def);
         client.emit('setBeacon', def);
         client.broadcast.emit('setBeacon', def);
       });

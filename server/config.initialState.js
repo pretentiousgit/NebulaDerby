@@ -6,7 +6,12 @@ const initialState = {
   interval: 120,
   running: false,
   fakeHeat: false,
-  winner: []
+  winner: [],
+  beacon: {
+    blue: false,
+    green: false,
+    red: false
+  }
 };
 
 const initialWhales = [
