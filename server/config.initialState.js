@@ -6,6 +6,7 @@ const initialState = {
   interval: 120,
   running: false,
   fakeHeat: false,
+  loveWhaleBoost: 1,
   winner: [],
   beacon: {
     blue: false,

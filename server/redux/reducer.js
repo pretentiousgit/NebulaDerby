@@ -51,7 +51,9 @@ function updateRacePositions(state, action) {
 
   const newWhales = whales.map((whale) => {
     let newWhale = whale;
-
+    step = step || 1.45;
+    console.log('Check step', step);
+    console.log('Check finishLine / (raceTimeTotal / interval)', finishLine, raceTimeTotal, interval);
     // add beacon influence
     if (beacon.green && whale.name === 'cyber') {
       step = step * 1.65;
@@ -63,14 +65,14 @@ function updateRacePositions(state, action) {
       step = step * 1.65;
     }
     if (whale.name === 'love') {
-      const boost = [1, 1.65, 2.25];
+      const boost = [step, 1.65, 2.25];
       step = boost[loveWhaleBoost - 1];
     }
 
     const randomBM = Math.abs(randn_bm());
     const beat = getRandomIntInclusive(step, 5 * step);
     newWhale.position = whale.position + (beat * randomBM);
-
+    console.log('new whale', newWhale);
     return newWhale;
   });
   let whaleOrder = _.orderBy(newWhales, 'position', 'desc');

@@ -37,6 +37,7 @@ module.exports = async (server) => {
       client.broadcast.emit('setBeacon', def);
       client.emit('setLove', { boost: 1 });
       client.broadcast.emit('loveBoost', { boost: 1 });
+      client.emit('raceEnd');
 
       client.on('handshake', (d) => {
         console.log('Handshake ', d);
