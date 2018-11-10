@@ -42,9 +42,15 @@ class App extends Component {
     socket.on('setBeacon', (d) => {
       this.setState(d);
     });
+
+    socket.on('setLove', (d) => {
+      console.log('Set love', d);
+      this.setState({loveboost: d.boost});
+    });
   }
 
   state = {
+    loveboost: 1,
     blue: false,
     red: false,
     green: false,
@@ -61,6 +67,10 @@ class App extends Component {
 
   setPredator(target) {
     socket.emit('predator', { target });
+  }
+
+  setLove(boost) {
+    socket.emit('love', { boost });
   }
 
   setBeacon(color) {
@@ -229,9 +239,39 @@ class App extends Component {
             Predator - KILL IMPERIUM
           </Button>
         </Segment>
-        <Header floated="left">Whales</Header>
-        <Divider clearing />
-        {/* <CardDeck socket={this.sendEvent} /> */}
+        <Segment>
+          <Header>LOVE WHALE</Header> <br />
+          <Button
+            onClick={() => this.setLove(1)}
+            color="purple"
+            size="big"
+            style={{ marginBottom: "1em" }}
+            basic={!Boolean(this.state.loveboost === 1)}
+          >
+            <Icon name="heart outline" />
+            LOVE LEVEL 1 - NO BOOST
+          </Button><br />
+          <Button
+            onClick={() => this.setLove(2)}
+            color="red"
+            size="big"
+            style={{ marginBottom: "1em" }}
+            basic={!Boolean(this.state.loveboost === 2)}
+          >
+            <Icon name="heart" />
+            LOVE LEVEL 2 - SOME BOOST
+          </Button><br />
+          <Button
+            onClick={() => this.setLove(3)}
+            color="pink"
+            size="big"
+            style={{ marginBottom: "1em" }}
+            basic={!Boolean(this.state.loveboost === 3)}
+          >
+            <Icon name="heartbeat" />
+            LOVE LEVEL 3 - MAX BOOST
+          </Button>
+        </Segment>
       </Segment>
     );
   }

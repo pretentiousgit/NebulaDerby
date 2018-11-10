@@ -35,6 +35,8 @@ module.exports = async (server) => {
       };
       client.emit('setBeacon', def);
       client.broadcast.emit('setBeacon', def);
+      client.emit('setLove', { boost: 1 });
+      client.broadcast.emit('loveBoost', { boost: 1 });
 
       client.on('handshake', (d) => {
         console.log('Handshake ', d);
@@ -86,6 +88,15 @@ module.exports = async (server) => {
       client.on('resetRace', (d) => {
         console.log('Reset Race');
         client.broadcast.emit('newHeat');
+      });
+
+      client.on('love', (d) => {
+        //Todo: emit a state-set for the beacon
+        console.log('loveWhaleState', d);
+
+        actions.setLove(d.boost);
+        client.emit('setLove', d);
+        client.broadcast.emit('loveBoost', d);
       });
 
       client.on('beacon', (d) => {

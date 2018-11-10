@@ -1,7 +1,7 @@
 
 const initialState = {
-  raceTimeTotal: 90000,
-  raceTimeRemaining: 90000,
+  raceTimeTotal: 110000,
+  raceTimeRemaining: 110000,
   finishLine: 900,
   interval: 120,
   running: false,

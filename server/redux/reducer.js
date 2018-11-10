@@ -45,7 +45,7 @@ function newHeat(state, action) {
 }
 
 function updateRacePositions(state, action) {
-  const { raceTimeTotal, interval, whales, targetWhale, finishLine, beacon } = state;
+  const { raceTimeTotal, interval, whales, targetWhale, finishLine, beacon, loveWhaleBoost } = state;
   let step = Math.round(finishLine / (raceTimeTotal / interval));
   // TODO This worked with 4 seconds over the valid distance but not 90! WORK IT OUT
 
@@ -61,6 +61,10 @@ function updateRacePositions(state, action) {
     }
     if (beacon.red && whale.name === 'predator') {
       step = step * 1.65;
+    }
+    if (whale.name === 'love') {
+      const boost = [1, 1.65, 2.25];
+      step = boost[loveWhaleBoost - 1];
     }
 
     const randomBM = Math.abs(randn_bm());
@@ -90,6 +94,7 @@ const options = {
   [Action.GALACTAGASM]: returnState,
   [Action.FLEET_ATTACK]: objectUpdate,
   [Action.WINNER]: objectUpdate,
+  [Action.SET_LOVE_WHALE]: objectUpdate,
   [Action.BEACON]: objectUpdate,
   [Action.SET_FINISH_LINE]: objectUpdate,
   [Action.SET_TARGET_WHALE]: objectUpdate

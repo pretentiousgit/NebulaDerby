@@ -8,6 +8,7 @@ const GALACTAGASM = 'GALACTAGASM';
 const FLEET_ATTACK = 'FLEET_ATTACK';
 const SET_FINISH_LINE = 'SET_FINISH_LINE';
 const SET_TARGET_WHALE = 'SET_TARGET_WHALE';
+const SET_LOVE_WHALE = 'SET_LOVE_WHALE';
 const WINNER = 'WINNER';
 const BEACON = 'BEACON';
 
@@ -91,6 +92,15 @@ function setWinner(winner) {
 }
 
 
+function setLove(boost) {
+  console.log('SET_LOVE_WHALE', boost);
+  return {
+    type: SET_LOVE_WHALE,
+    loveWhaleBoost: boost
+  };
+}
+
+
 function setBeacon(beaconObj) {
   console.log('BEACON', beaconObj);
   return {
@@ -110,7 +120,9 @@ module.exports = Object.freeze({
     FLEET_ATTACK: FLEET_ATTACK,
     SET_FINISH_LINE: SET_FINISH_LINE,
     SET_TARGET_WHALE: SET_TARGET_WHALE,
-    BEACON: BEACON
+    SET_LOVE_WHALE: SET_LOVE_WHALE,
+    BEACON: BEACON,
+    WINNER: WINNER
   },
   actions: {
     newHeat,
@@ -121,6 +133,7 @@ module.exports = Object.freeze({
     setTargetWhale,
     setWinner,
     setBeacon,
+    setLove,
     tranzonic,
     fleetAttack,
     galactagasm
